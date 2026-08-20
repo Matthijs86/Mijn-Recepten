@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mijn Recepten</title>
+     <meta
+        name="theme-color"
+        content="#7b2cff"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
 <body>
@@ -152,6 +165,38 @@
 
 
     <script src="script.js"></script>
+    <script>
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                navigator.serviceWorker
+                    .register("sw.js")
+                    .then(() => {
+
+                        console.log(
+                            "Service Worker geregistreerd!"
+                        );
+
+                    })
+                    .catch(error => {
+
+                        console.error(
+                            "Service Worker fout:",
+                            error
+                        );
+
+                    });
+
+            }
+        );
+
+    }
+
+</script>
 
 </body>
 </html>
