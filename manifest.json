@@ -1,0 +1,24 @@
+{
+    "name": "Mijn Recepten",
+    "short_name": "Recepten",
+    "description": "Bewaar al je favoriete recepten op één plek.",
+    "start_url": "/Mijn-Recepten/",
+    "scope": "/Mijn-Recepten/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#08080d",
+    "theme_color": "#7b2cff",
+
+    "icons": [
+        {
+            "src": "/Mijn-Recepten/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/Mijn-Recepten/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
