@@ -2,7 +2,7 @@
 // MIJN RECEPTEN - SERVICE WORKER
 // ======================================
 
-const CACHE_NAME = "mijn-recepten-v1";
+const CACHE_NAME = "mijn-recepten-v2";
 
 const APP_BESTANDEN = [
     "/Mijn-Recepten/",
@@ -10,8 +10,8 @@ const APP_BESTANDEN = [
     "/Mijn-Recepten/style.css",
     "/Mijn-Recepten/script.js",
     "/Mijn-Recepten/manifest.json",
-    "/Mijn-Recepten/icons/icon-192x192.png",
-    "/Mijn-Recepten/icons/icon-512x512.png"
+    "/Mijn-Recepten/icon-192x192.png",
+    "/Mijn-Recepten/icon-512x512.png"
 ];
 
 
@@ -93,9 +93,7 @@ self.addEventListener(
                 .then(cachedResponse => {
 
                     if (cachedResponse) {
-
                         return cachedResponse;
-
                     }
 
                     return fetch(event.request);
