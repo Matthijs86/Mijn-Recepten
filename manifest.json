@@ -11,12 +11,12 @@
 
     "icons": [
         {
-            "src": "/Mijn-Recepten/icons/icon-192x192.png",
+            "src": "/Mijn-Recepten/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/Mijn-Recepten/icons/icon-512x512.png",
+            "src": "/Mijn-Recepten/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
