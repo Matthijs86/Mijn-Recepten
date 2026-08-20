@@ -49,9 +49,6 @@ const allesWissenKnop =
 const favorietenKnop =
     document.getElementById("favorietenKnop");
 
-const allesKnop =
-    document.getElementById("allesKnop");
-
 const categorieKnoppen =
     document.querySelectorAll(".categorie-knop");
 
@@ -485,7 +482,9 @@ function receptenWeergeven() {
                 "recept-acties";
 
 
+            // --------------------------
             // OPENEN
+            // --------------------------
 
             const openKnop =
                 document.createElement(
@@ -513,7 +512,9 @@ function receptenWeergeven() {
             );
 
 
+            // --------------------------
             // FAVORIET
+            // --------------------------
 
             const favorietKnop =
                 document.createElement(
@@ -541,7 +542,9 @@ function receptenWeergeven() {
             );
 
 
+            // --------------------------
             // VERWIJDEREN
+            // --------------------------
 
             const verwijderKnop =
                 document.createElement(
@@ -586,6 +589,10 @@ function receptenWeergeven() {
             );
 
 
+            // --------------------------
+            // KNOPPEN TOEVOEGEN
+            // --------------------------
+
             acties.appendChild(
                 openKnop
             );
@@ -600,7 +607,7 @@ function receptenWeergeven() {
 
 
             // --------------------------
-            // KAART
+            // KAART OPBOUWEN
             // --------------------------
 
             kaart.appendChild(
@@ -719,62 +726,6 @@ favorietenKnop.addEventListener(
 
 
         receptenWeergeven();
-
-    }
-);
-
-
-// ======================================
-// ALLE RECEPTEN
-// ======================================
-
-allesKnop.addEventListener(
-    "click",
-    () => {
-
-        huidigeCategorie =
-            null;
-
-        alleenFavorieten =
-            false;
-
-        zoekInput.value =
-            "";
-
-
-        categorieKnoppen
-            .forEach(
-                knop => {
-
-                    knop.classList.remove(
-                        "actief"
-                    );
-
-                }
-            );
-
-
-        /*
-         * Bewust wordt hier geen
-         * lijst getoond.
-         *
-         * "Alle recepten" reset alleen
-         * de filters.
-         */
-
-        receptenLijst.innerHTML = "";
-
-        zoekMelding.style.display =
-            "block";
-
-        legeLijst.style.display =
-            "none";
-
-        aantalRecepten.textContent =
-            "0 recepten";
-
-        lijstTitel.textContent =
-            "Mijn recepten";
 
     }
 );
