@@ -2,7 +2,7 @@
 // MIJN RECEPTEN - SERVICE WORKER
 // ======================================
 
-const CACHE_NAME = "mijn-recepten-v2";
+const CACHE_NAME = "mijn-recepten-v3";
 
 const APP_BESTANDEN = [
     "/Mijn-Recepten/",
