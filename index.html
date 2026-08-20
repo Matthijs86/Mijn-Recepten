@@ -85,30 +85,80 @@
         <!-- ==========================
              ZOEKEN EN FILTEREN
         =========================== -->
+<!-- ==========================
+     ZOEKEN
+=========================== -->
 
-        <section class="zoeken">
+<section class="zoeken">
 
-            <input
-                type="search"
-                id="zoekInput"
-                placeholder="🔎 Zoek een recept..."
-                autocomplete="off"
-            >
+    <input
+        type="search"
+        id="zoekInput"
+        placeholder="🔎 Zoek een recept..."
+        autocomplete="off"
+    >
 
-            <select id="filterInput">
-                <option value="alle">Alle categorieën</option>
-                <option value="Pasta">🍝 Pasta</option>
-                <option value="Kip">🍗 Kip</option>
-                <option value="Vlees">🥩 Vlees</option>
-                <option value="Vis">🐟 Vis</option>
-                <option value="Slowcook">🥗 Slowcook</option>
-                <option value="Fastfood">🍔 Fastfood</option>
-                <option value="Ontbijt">🍳 Ontbijt</option>
-                <option value="Bakken">🍰 Bakken</option>
-                <option value="Overig">🍲 Overig</option>
-            </select>
+</section>
 
-        </section>
+
+<!-- ==========================
+     CATEGORIEËN
+=========================== -->
+
+<section class="categorieen">
+
+    <h2>Categorieën</h2>
+
+    <div class="categorie-knoppen">
+
+        <button class="categorie-knop" data-categorie="Pasta">
+            🍝 Pasta
+        </button>
+
+        <button class="categorie-knop" data-categorie="Kip">
+            🍗 Kip
+        </button>
+
+        <button class="categorie-knop" data-categorie="Vlees">
+            🥩 Vlees
+        </button>
+
+        <button class="categorie-knop" data-categorie="Vis">
+            🐟 Vis
+        </button>
+
+        <button class="categorie-knop" data-categorie="Slowcook">
+            🥗 Slowcook
+        </button>
+
+        <button class="categorie-knop" data-categorie="Fastfood">
+            🍔 Fastfood
+        </button>
+
+        <button class="categorie-knop" data-categorie="Ontbijt">
+            🍳 Ontbijt
+        </button>
+
+        <button class="categorie-knop" data-categorie="Bakken">
+            🍰 Bakken
+        </button>
+
+        <button class="categorie-knop" data-categorie="Overig">
+            🍲 Overig
+        </button>
+
+    </div>
+
+    <button id="favorietenKnop" class="favorieten-knop">
+        ⭐ Favorieten
+    </button>
+
+    <button id="allesKnop" class="alles-knop">
+        📖 Alle recepten
+    </button>
+
+</section>
+       
 
 
         <!-- ==========================
@@ -117,28 +167,49 @@
 
         <section class="recepten">
 
-            <div class="lijst-header">
-                <h2>Mijn recepten</h2>
+    <div class="lijst-header">
 
-                <span id="aantalRecepten">
-                    0 recepten
-                </span>
-            </div>
+        <h2 id="lijstTitel">
+            Mijn recepten
+        </h2>
 
-            <div id="receptenLijst"></div>
+        <span id="aantalRecepten">
+            0 recepten
+        </span>
 
-            <div id="legeLijst" class="lege-lijst">
-                <div class="lege-icoon">🍴</div>
+    </div>
 
-                <h3>Nog geen recepten</h3>
+    <div id="receptenLijst"></div>
 
-                <p>
-                    Voeg hierboven je eerste recept toe.
-                </p>
-            </div>
+    <div id="zoekMelding" class="zoek-melding">
 
-        </section>
+        <div class="zoek-melding-icoon">
+            🔎
+        </div>
 
+        <h3>Zoek een recept</h3>
+
+        <p>
+            Kies hierboven een categorie of zoek naar een recept.
+        </p>
+
+    </div>
+
+    <div id="legeLijst" class="lege-lijst">
+
+        <div class="lege-icoon">
+            🍴
+        </div>
+
+        <h3>Geen recepten gevonden</h3>
+
+        <p>
+            Probeer een andere zoekterm of categorie.
+        </p>
+
+    </div>
+
+</section>
 
         <!-- ==========================
              ALLES WISSEN
