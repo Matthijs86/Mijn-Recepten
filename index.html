@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mijn Recepten</title>
-     <meta
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
         name="theme-color"
         content="#7b2cff"
     >
+
+    <meta
+        name="description"
+        content="Bewaar al je favoriete recepten op één plek."
+    >
+
+    <title>Mijn Recepten</title>
 
     <link
         rel="manifest"
@@ -22,252 +34,424 @@
 
 </head>
 
+
 <body>
 
-    <main class="app">
+<main class="app">
 
-        <header class="app-header">
-            <h1>Mijn Recepten</h1>
-            <p>Bewaar al je favoriete recepten op één plek</p>
-        </header>
 
-        <!-- ==========================
-             RECEPT TOEVOEGEN
-        =========================== -->
+    <!-- ======================================
+         HEADER
+    ======================================= -->
 
-        <section class="formulier">
+    <header class="app-header">
 
-            <h2>Recept toevoegen</h2>
+        <h1>Mijn Recepten</h1>
+
+        <p>
+            Bewaar al je favoriete recepten op één plek
+        </p>
+
+    </header>
+
+
+    <!-- ======================================
+         RECEPT TOEVOEGEN / BEWERKEN
+    ======================================= -->
+
+    <section class="formulier">
+
+        <h2 id="formulierTitel">
+            Recept toevoegen
+        </h2>
+
+
+        <input
+            type="text"
+            id="naamInput"
+            placeholder="Naam van het recept"
+            autocomplete="off"
+        >
+
+
+        <input
+            type="url"
+            id="urlInput"
+            placeholder="Plak hier de Instagram, Facebook of website link"
+            autocomplete="url"
+        >
+
+
+        <select id="categorieInput">
+
+            <option value="">
+                Kies een categorie
+            </option>
+
+            <option value="Pasta">
+                🍝 Pasta
+            </option>
+
+            <option value="Kip">
+                🍗 Kip
+            </option>
+
+            <option value="Vlees">
+                🥩 Vlees
+            </option>
+
+            <option value="Vis">
+                🐟 Vis
+            </option>
+
+            <option value="Slowcook">
+                🥗 Slowcook
+            </option>
+
+            <option value="Fastfood">
+                🍔 Fastfood
+            </option>
+
+            <option value="Ontbijt">
+                🍳 Ontbijt
+            </option>
+
+            <option value="Bakken">
+                🍰 Bakken
+            </option>
+
+            <option value="Overig">
+                🍲 Overig
+            </option>
+
+        </select>
+
+
+        <textarea
+            id="notitieInput"
+            placeholder="Eigen notitie (optioneel)"
+        ></textarea>
+
+
+        <label class="favoriet-keuze">
 
             <input
-                type="text"
-                id="naamInput"
-                placeholder="Naam van het recept"
-                autocomplete="off"
+                type="checkbox"
+                id="favorietInput"
             >
 
-            <input
-                type="url"
-                id="urlInput"
-                placeholder="Plak hier de Instagram, Facebook of website link"
+            <span>
+                ⭐ Favoriet
+            </span>
+
+        </label>
+
+
+        <div class="formulier-acties">
+
+            <button
+                id="opslaanKnop"
+                class="opslaan-knop"
             >
-
-            <select id="categorieInput">
-                <option value="">Kies een categorie</option>
-                <option value="Pasta">🍝 Pasta</option>
-                <option value="Kip">🍗 Kip</option>
-                <option value="Vlees">🥩 Vlees</option>
-                <option value="Vis">🐟 Vis</option>
-                <option value="Slowcook">🥗 Slowcook</option>
-                <option value="Fastfood">🍔 Fastfood</option>
-                <option value="Ontbijt">🍳 Ontbijt</option>
-                <option value="Bakken">🍰 Bakken</option>
-                <option value="Overig">🍲 Overig</option>
-            </select>
-
-            <textarea
-                id="notitieInput"
-                placeholder="Eigen notitie (optioneel)"
-            ></textarea>
-
-            <label class="favoriet-keuze">
-                <input type="checkbox" id="favorietInput">
-                <span>⭐ Favoriet</span>
-            </label>
-
-            <button id="opslaanKnop">
                 + Recept opslaan
             </button>
 
-        </section>
 
-
-        <!-- ==========================
-             ZOEKEN EN FILTEREN
-        =========================== -->
-<!-- ==========================
-     ZOEKEN
-=========================== -->
-
-<section class="zoeken">
-
-    <input
-        type="search"
-        id="zoekInput"
-        placeholder="🔎 Zoek een recept..."
-        autocomplete="off"
-    >
-
-</section>
-
-
-<!-- ==========================
-     CATEGORIEËN
-=========================== -->
-
-<section class="categorieen">
-
-    <h2>Categorieën</h2>
-
-    <div class="categorie-knoppen">
-
-        <button class="categorie-knop" data-categorie="Pasta">
-            🍝 Pasta
-        </button>
-
-        <button class="categorie-knop" data-categorie="Kip">
-            🍗 Kip
-        </button>
-
-        <button class="categorie-knop" data-categorie="Vlees">
-            🥩 Vlees
-        </button>
-
-        <button class="categorie-knop" data-categorie="Vis">
-            🐟 Vis
-        </button>
-
-        <button class="categorie-knop" data-categorie="Slowcook">
-            🥗 Slowcook
-        </button>
-
-        <button class="categorie-knop" data-categorie="Fastfood">
-            🍔 Fastfood
-        </button>
-
-        <button class="categorie-knop" data-categorie="Ontbijt">
-            🍳 Ontbijt
-        </button>
-
-        <button class="categorie-knop" data-categorie="Bakken">
-            🍰 Bakken
-        </button>
-
-        <button class="categorie-knop" data-categorie="Overig">
-            🍲 Overig
-        </button>
-
-    </div>
-
-    <button id="favorietenKnop" class="favorieten-knop">
-        ⭐ Favorieten
-    </button>
-
-    <button id="allesKnop" class="alles-knop">
-        📖 Alle recepten
-    </button>
-
-</section>
-       
-
-
-        <!-- ==========================
-             RECEPTEN
-        =========================== -->
-
-        <section class="recepten">
-
-    <div class="lijst-header">
-
-        <h2 id="lijstTitel">
-            Mijn recepten
-        </h2>
-
-        <span id="aantalRecepten">
-            0 recepten
-        </span>
-
-    </div>
-
-    <div id="receptenLijst"></div>
-
-    <div id="zoekMelding" class="zoek-melding">
-
-        <div class="zoek-melding-icoon">
-            🔎
-        </div>
-
-        <h3>Zoek een recept</h3>
-
-        <p>
-            Kies hierboven een categorie of zoek naar een recept.
-        </p>
-
-    </div>
-
-    <div id="legeLijst" class="lege-lijst">
-
-        <div class="lege-icoon">
-            🍴
-        </div>
-
-        <h3>Geen recepten gevonden</h3>
-
-        <p>
-            Probeer een andere zoekterm of categorie.
-        </p>
-
-    </div>
-
-</section>
-
-        <!-- ==========================
-             ALLES WISSEN
-        =========================== -->
-
-        <section class="beheer">
-
-            <button id="allesWissenKnop" class="wissen-knop">
-                🗑️ Alles wissen
+            <button
+                id="annulerenKnop"
+                class="annuleren-knop"
+                type="button"
+                hidden
+            >
+                ✖ Bewerken annuleren
             </button>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- ==========================
-             FOOTER
-        =========================== -->
+    <!-- ======================================
+         ZOEKEN
+    ======================================= -->
 
-        <footer>
+    <section class="zoeken">
+
+        <input
+            type="search"
+            id="zoekInput"
+            placeholder="🔎 Zoek op naam, categorie of notitie..."
+            autocomplete="off"
+        >
+
+    </section>
+
+
+    <!-- ======================================
+         CATEGORIEËN
+    ======================================= -->
+
+    <section class="categorieen">
+
+        <h2>Categorieën</h2>
+
+
+        <div class="categorie-knoppen">
+
+            <button
+                class="categorie-knop"
+                data-categorie="Pasta"
+            >
+                🍝 Pasta
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Kip"
+            >
+                🍗 Kip
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Vlees"
+            >
+                🥩 Vlees
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Vis"
+            >
+                🐟 Vis
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Slowcook"
+            >
+                🥗 Slowcook
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Fastfood"
+            >
+                🍔 Fastfood
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Ontbijt"
+            >
+                🍳 Ontbijt
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Bakken"
+            >
+                🍰 Bakken
+            </button>
+
+
+            <button
+                class="categorie-knop"
+                data-categorie="Overig"
+            >
+                🍲 Overig
+            </button>
+
+        </div>
+
+
+        <div class="filter-acties">
+
+            <button
+                id="favorietenKnop"
+                class="favorieten-knop"
+            >
+                ⭐ Favorieten
+            </button>
+
+
+            <button
+                id="allesKnop"
+                class="alles-knop"
+            >
+                📖 Alle recepten
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         RECEPTEN
+    ======================================= -->
+
+    <section class="recepten">
+
+        <div class="lijst-header">
+
+            <h2 id="lijstTitel">
+                Mijn recepten
+            </h2>
+
+            <span id="aantalRecepten">
+                0 recepten
+            </span>
+
+        </div>
+
+
+        <div id="receptenLijst"></div>
+
+
+        <!-- Zoekmelding -->
+
+        <div
+            id="zoekMelding"
+            class="zoek-melding"
+        >
+
+            <div class="zoek-melding-icoon">
+                🔎
+            </div>
+
+            <h3>
+                Zoek een recept
+            </h3>
+
+            <p>
+                Kies hierboven een categorie of zoek naar een recept.
+            </p>
+
+        </div>
+
+
+        <!-- Geen resultaten -->
+
+        <div
+            id="legeLijst"
+            class="lege-lijst"
+        >
+
+            <div class="lege-icoon">
+                🍴
+            </div>
+
+            <h3>
+                Geen recepten gevonden
+            </h3>
+
+            <p>
+                Probeer een andere zoekterm of categorie.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         ALLES WISSEN
+    ======================================= -->
+
+    <section class="beheer">
+
+        <button
+            id="allesWissenKnop"
+            class="wissen-knop"
+        >
+            🗑️ Alles wissen
+        </button>
+
+    </section>
+
+
+    <!-- ======================================
+         FOOTER
+    ======================================= -->
+
+    <footer>
+
+        <strong>
             Mijn Recepten
-        </footer>
+        </strong>
 
-    </main>
+        <span>
+            •
+        </span>
+
+        <span>
+            Neon Kitchen
+        </span>
+
+    </footer>
 
 
-    <script src="script.js"></script>
-    <script>
+</main>
 
-    if ("serviceWorker" in navigator) {
 
-        window.addEventListener(
-            "load",
-            () => {
+<!-- ======================================
+     JAVASCRIPT
+======================================= -->
 
-                navigator.serviceWorker
-                    .register("sw.js")
-                    .then(() => {
+<script src="script.js"></script>
+
+
+<!-- ======================================
+     SERVICE WORKER
+======================================= -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            navigator.serviceWorker
+                .register("sw.js")
+                .then(
+                    registration => {
 
                         console.log(
-                            "Service Worker geregistreerd!"
+                            "Service Worker geregistreerd:",
+                            registration.scope
                         );
 
-                    })
-                    .catch(error => {
+                    }
+                )
+                .catch(
+                    error => {
 
                         console.error(
                             "Service Worker fout:",
                             error
                         );
 
-                    });
+                    }
+                );
 
-            }
-        );
+        }
+    );
 
-    }
+}
 
 </script>
 
+
 </body>
 </html>
+
