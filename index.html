@@ -12,7 +12,7 @@
 
     <meta
         name="theme-color"
-        content="#eef0f7"
+        content="#eef1f6"
     >
 
     <meta
@@ -67,12 +67,12 @@
         </div>
 
 
-        <nav class="hoofd-navigatie">
+        <nav class="header-knoppen">
 
             <button
                 type="button"
                 id="naarToevoegenKnop"
-                class="nav-knop"
+                class="header-knop"
             >
                 ➕ Toevoegen
             </button>
@@ -80,7 +80,7 @@
             <button
                 type="button"
                 id="naarBeheerKnop"
-                class="nav-knop"
+                class="header-knop"
             >
                 ⚙️ Beheer
             </button>
@@ -108,8 +108,15 @@
         </span>
 
         <div>
-            <strong id="aantalRecepten">0</strong>
-            <span>Recepten</span>
+
+            <strong id="aantalRecepten">
+                0
+            </strong>
+
+            <span>
+                Recepten
+            </span>
+
         </div>
 
     </div>
@@ -122,8 +129,15 @@
         </span>
 
         <div>
-            <strong id="aantalFavorieten">0</strong>
-            <span>Favorieten</span>
+
+            <strong id="aantalFavorieten">
+                0
+            </strong>
+
+            <span>
+                Favorieten
+            </span>
+
         </div>
 
     </div>
@@ -136,8 +150,15 @@
         </span>
 
         <div>
-            <strong id="aantalRecent">0</strong>
-            <span>Deze week</span>
+
+            <strong id="aantalRecent">
+                0
+            </strong>
+
+            <span>
+                Deze week
+            </span>
+
         </div>
 
     </div>
@@ -203,6 +224,7 @@
 
         </div>
 
+
         <button
             type="button"
             id="alleReceptenKnop"
@@ -245,7 +267,7 @@
             </strong>
 
             <small id="favorietenTekst">
-                Je hebt nog geen favoriete recepten
+                Bekijk al je favoriete recepten
             </small>
 
         </div>
@@ -331,7 +353,7 @@
 
 
 <!-- ======================================
-     RECEPT TOEVOEGEN
+     TOEVOEGEN
 ====================================== -->
 
 <section
@@ -443,6 +465,16 @@
             🍳 Recept opslaan
         </button>
 
+
+        <button
+            type="button"
+            id="annuleerBewerkKnop"
+            class="annuleer-knop"
+            hidden
+        >
+            ✖ Bewerken annuleren
+        </button>
+
     </div>
 
 </section>
@@ -457,7 +489,7 @@
     id="beheerSectie"
 >
 
-    <div class="sectie-header beheer-header">
+    <div class="sectie-header">
 
         <div>
 
@@ -466,7 +498,7 @@
             </span>
 
             <h2>
-                ⚙️ Mijn recepten beheren
+                ⚙️ Recepten beheren
             </h2>
 
         </div>
@@ -476,48 +508,31 @@
 
     <div class="beheer-grid">
 
+
         <button
             type="button"
-            id="opslagKnop"
-            class="beheer-knop opslag-knop-beheer"
+            id="backupMakenKnop"
+            class="beheer-knop backup-knop"
         >
+            💾 Backup maken
 
-            <span>
-                💾
-            </span>
-
-            <div>
-                <strong>
-                    Opslaan
-                </strong>
-
-                <small>
-                    Maak een reservekopie
-                </small>
-            </div>
+            <small>
+                Bewaar al je recepten als bestand
+            </small>
 
         </button>
 
 
         <button
             type="button"
-            id="terugzettenKnop"
-            class="beheer-knop terugzetten-knop"
+            id="backupTerugzettenKnop"
+            class="beheer-knop herstel-knop"
         >
+            📂 Backup terugzetten
 
-            <span>
-                ♻️
-            </span>
-
-            <div>
-                <strong>
-                    Terugzetten
-                </strong>
-
-                <small>
-                    Herstel de reservekopie
-                </small>
-            </div>
+            <small>
+                Herstel recepten vanaf een backup
+            </small>
 
         </button>
 
@@ -527,24 +542,23 @@
             id="allesWissenKnop"
             class="beheer-knop wissen-knop"
         >
+            🗑️ Alle recepten wissen
 
-            <span>
-                🗑️
-            </span>
-
-            <div>
-                <strong>
-                    Alles wissen
-                </strong>
-
-                <small>
-                    Verwijder alle recepten
-                </small>
-            </div>
+            <small>
+                Verwijder alle opgeslagen recepten
+            </small>
 
         </button>
 
     </div>
+
+
+    <input
+        type="file"
+        id="backupBestandInput"
+        accept=".json,application/json"
+        hidden
+    >
 
 </section>
 
