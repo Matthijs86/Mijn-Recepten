@@ -1,7 +1,6 @@
-javascript
 // ======================================
 // MIJN RECEPTEN
-// COMPLETE JAVASCRIPT
+// VEILIGE COMPLETE JAVASCRIPT
 // ======================================
 
 
@@ -26,6 +25,9 @@ const favorietInput =
 
 const opslaanKnop =
     document.getElementById("opslaanKnop");
+
+const annuleerBewerkKnop =
+    document.getElementById("annuleerBewerkKnop");
 
 const zoekInput =
     document.getElementById("zoekInput");
@@ -72,12 +74,6 @@ const sorteerInput =
 const allesWissenKnop =
     document.getElementById("allesWissenKnop");
 
-const opslagKnop =
-    document.getElementById("opslagKnop");
-
-const terugzettenKnop =
-    document.getElementById("terugzettenKnop");
-
 const naarToevoegenKnop =
     document.getElementById("naarToevoegenKnop");
 
@@ -93,6 +89,15 @@ const beheerSectie =
 const receptenSectie =
     document.getElementById("receptenSectie");
 
+const backupMakenKnop =
+    document.getElementById("backupMakenKnop");
+
+const backupTerugzettenKnop =
+    document.getElementById("backupTerugzettenKnop");
+
+const backupBestandInput =
+    document.getElementById("backupBestandInput");
+
 
 // ======================================
 // OPSLAG
@@ -102,8 +107,7 @@ const OPSLAG_NAAM =
     "mijnRecepten";
 
 const BACKUP_NAAM =
-    "mijnReceptenBackup";
-
+    "mijnRecepten_backup";
 
 let recepten = [];
 
@@ -294,7 +298,7 @@ function krijgCategorieGegevens(naam) {
 
 
 // ======================================
-// NORMAAL OPSLAAN
+// VEILIG OPSLAAN
 // ======================================
 
 function slaOp() {
@@ -327,205 +331,30 @@ function slaOp() {
 
 
 // ======================================
-// BACK-UP MAKEN
+// INTERNE BACKUP
 // ======================================
 
-function maakBackup() {
+function maakInterneBackup() {
 
     if (recepten.length === 0) {
-
-        alert(
-            "Er zijn geen recepten om op te slaan."
-        );
-
-        return;
-
-    }
-
-
-    const bevestiging =
-        confirm(
-            "Wil je een reservekopie van je huidige recepten maken?\n\nJe huidige reservekopie wordt vervangen."
-        );
-
-
-    if (!bevestiging) {
         return;
     }
-
 
     try {
 
-        const backup = {
-
-            datum:
-                new Date().toISOString(),
-
-            recepten:
-                recepten
-
-        };
-
-
         localStorage.setItem(
             BACKUP_NAAM,
-            JSON.stringify(backup)
-        );
-
-
-        alert(
-            "✅ Reservekopie is opgeslagen."
+            JSON.stringify(recepten)
         );
 
     } catch (fout) {
 
         console.error(
-            "Back-up maken mislukt:",
+            "Interne backup mislukt:",
             fout
         );
 
-        alert(
-            "De reservekopie kon niet worden gemaakt."
-        );
-
     }
-
-}
-
-
-// ======================================
-// BACK-UP TERUGZETTEN
-// ======================================
-
-function zetBackupTerug() {
-
-    const backupData =
-        localStorage.getItem(
-            BACKUP_NAAM
-        );
-
-
-    if (!backupData) {
-
-        alert(
-            "Er is nog geen reservekopie beschikbaar."
-        );
-
-        return;
-
-    }
-
-
-    let backup;
-
-
-    try {
-
-        backup =
-            JSON.parse(
-                backupData
-            );
-
-    } catch (fout) {
-
-        alert(
-            "De reservekopie is beschadigd en kan niet worden teruggezet."
-        );
-
-        return;
-
-    }
-
-
-    if (
-        !backup ||
-        !Array.isArray(
-            backup.recepten
-        )
-    ) {
-
-        alert(
-            "De reservekopie is ongeldig."
-        );
-
-        return;
-
-    }
-
-
-    const datum =
-        backup.datum
-            ? new Date(
-                backup.datum
-            ).toLocaleString(
-                "nl-NL"
-            )
-            : "onbekend";
-
-
-    const bevestiging =
-        confirm(
-            `Weet je zeker dat je de reservekopie van ${datum} wilt terugzetten?\n\nJe huidige recepten worden vervangen door de reservekopie.`
-        );
-
-
-    if (!bevestiging) {
-        return;
-    }
-
-
-    recepten =
-        backup.recepten.map(
-            recept => ({
-
-                ...recept,
-
-                categorie:
-                    normaliseerCategorie(
-                        recept.categorie
-                    ),
-
-                favoriet:
-                    Boolean(
-                        recept.favoriet
-                    ),
-
-                datum:
-                    recept.datum ||
-                    new Date().toISOString()
-
-            })
-        );
-
-
-    slaOp();
-
-
-    actieveCategorie =
-        "alles";
-
-    alleenFavorieten =
-        false;
-
-    zoekInput.value =
-        "";
-
-    zoekMelding.textContent =
-        "";
-
-    zoekWisKnop.style.display =
-        "none";
-
-
-    formulierLeegmaken();
-
-
-    render();
-
-
-    alert(
-        "✅ De reservekopie is teruggezet."
-    );
 
 }
 
@@ -541,7 +370,6 @@ function laadRecepten() {
             OPSLAG_NAAM
         );
 
-
     if (!opgeslagen) {
 
         recepten = [];
@@ -550,24 +378,41 @@ function laadRecepten() {
 
     }
 
-
     try {
 
-        recepten =
-            JSON.parse(
-                opgeslagen
-            );
+        const gegevens =
+            JSON.parse(opgeslagen);
 
-
-        if (
-            !Array.isArray(
-                recepten
-            )
-        ) {
+        if (!Array.isArray(gegevens)) {
 
             recepten = [];
 
+            return;
+
         }
+
+        recepten =
+            gegevens.map(
+                recept => ({
+
+                    ...recept,
+
+                    categorie:
+                        normaliseerCategorie(
+                            recept.categorie
+                        ),
+
+                    favoriet:
+                        Boolean(
+                            recept.favoriet
+                        ),
+
+                    datum:
+                        recept.datum ||
+                        new Date().toISOString()
+
+                })
+            );
 
     } catch (fout) {
 
@@ -580,35 +425,11 @@ function laadRecepten() {
 
     }
 
-
-    recepten =
-        recepten.map(
-            recept => ({
-
-                ...recept,
-
-                categorie:
-                    normaliseerCategorie(
-                        recept.categorie
-                    ),
-
-                favoriet:
-                    Boolean(
-                        recept.favoriet
-                    ),
-
-                datum:
-                    recept.datum ||
-                    new Date().toISOString()
-
-            })
-        );
-
 }
 
 
 // ======================================
-// CATEGORIE SELECT VULLEN
+// CATEGORIE SELECT
 // ======================================
 
 function vulCategorieSelect() {
@@ -619,7 +440,6 @@ function vulCategorieSelect() {
         </option>
     `;
 
-
     categorieen.forEach(
         categorie => {
 
@@ -628,14 +448,11 @@ function vulCategorieSelect() {
                     "option"
                 );
 
-
             option.value =
                 categorie.naam;
 
-
             option.textContent =
                 `${categorie.icoon} ${categorie.naam}`;
-
 
             categorieInput.appendChild(
                 option
@@ -653,9 +470,7 @@ function vulCategorieSelect() {
 
 function toonCategorieKnoppen() {
 
-    categorieKnoppen.innerHTML =
-        "";
-
+    categorieKnoppen.innerHTML = "";
 
     categorieen.forEach(
         categorie => {
@@ -668,20 +483,16 @@ function toonCategorieKnoppen() {
                         ) === categorie.naam
                 ).length;
 
-
             const knop =
                 document.createElement(
                     "button"
                 );
 
-
             knop.type =
                 "button";
 
-
             knop.className =
                 "categorie-knop";
-
 
             if (
                 actieveCategorie ===
@@ -695,12 +506,10 @@ function toonCategorieKnoppen() {
 
             }
 
-
             knop.style.setProperty(
                 "--categorie-kleur",
                 categorie.kleur
             );
-
 
             knop.innerHTML = `
 
@@ -720,7 +529,6 @@ function toonCategorieKnoppen() {
                 </span>
 
             `;
-
 
             knop.addEventListener(
                 "click",
@@ -744,7 +552,6 @@ function toonCategorieKnoppen() {
                 }
             );
 
-
             categorieKnoppen.appendChild(
                 knop
             );
@@ -764,30 +571,24 @@ function updateDashboard() {
     aantalRecepten.textContent =
         recepten.length;
 
-
     const favorieten =
         recepten.filter(
             recept =>
                 recept.favoriet
         );
 
-
     aantalFavorieten.textContent =
         favorieten.length;
-
 
     const nu =
         new Date();
 
-
     const weekGeleden =
         new Date();
-
 
     weekGeleden.setDate(
         nu.getDate() - 7
     );
-
 
     const recent =
         recepten.filter(
@@ -806,26 +607,17 @@ function updateDashboard() {
             }
         );
 
-
     aantalRecent.textContent =
         recent.length;
 
-
-    if (favorieten.length === 0) {
-
-        favorietenTekst.textContent =
-            "Je hebt nog geen favoriete recepten";
-
-    } else {
-
-        favorietenTekst.textContent =
-            `${favorieten.length} favoriete ${
+    favorietenTekst.textContent =
+        favorieten.length === 0
+            ? "Je hebt nog geen favoriete recepten"
+            : `${favorieten.length} favoriete ${
                 favorieten.length === 1
                     ? "recept"
                     : "recepten"
-            }`;
-
-    }
+              }`;
 
 }
 
@@ -839,7 +631,6 @@ function krijgGefilterdeRecepten() {
     let resultaat =
         [...recepten];
 
-
     if (alleenFavorieten) {
 
         resultaat =
@@ -849,7 +640,6 @@ function krijgGefilterdeRecepten() {
             );
 
     }
-
 
     if (
         actieveCategorie !==
@@ -866,12 +656,10 @@ function krijgGefilterdeRecepten() {
 
     }
 
-
     const zoekterm =
         zoekInput.value
             .trim()
             .toLowerCase();
-
 
     if (zoekterm) {
 
@@ -884,18 +672,15 @@ function krijgGefilterdeRecepten() {
                             recept.naam || ""
                         ).toLowerCase();
 
-
                     const categorie =
                         String(
                             recept.categorie || ""
                         ).toLowerCase();
 
-
                     const notitie =
                         String(
                             recept.notitie || ""
                         ).toLowerCase();
-
 
                     return (
                         naam.includes(
@@ -914,15 +699,10 @@ function krijgGefilterdeRecepten() {
 
     }
 
-
     const sorteer =
         sorteerInput.value;
 
-
-    if (
-        sorteer ===
-        "nieuwste"
-    ) {
+    if (sorteer === "nieuwste") {
 
         resultaat.sort(
             (a, b) =>
@@ -932,10 +712,7 @@ function krijgGefilterdeRecepten() {
 
     }
 
-    else if (
-        sorteer ===
-        "oudste"
-    ) {
+    else if (sorteer === "oudste") {
 
         resultaat.sort(
             (a, b) =>
@@ -945,10 +722,7 @@ function krijgGefilterdeRecepten() {
 
     }
 
-    else if (
-        sorteer ===
-        "alfabetisch"
-    ) {
+    else if (sorteer === "alfabetisch") {
 
         resultaat.sort(
             (a, b) =>
@@ -961,10 +735,7 @@ function krijgGefilterdeRecepten() {
 
     }
 
-    else if (
-        sorteer ===
-        "favorieten"
-    ) {
+    else if (sorteer === "favorieten") {
 
         resultaat.sort(
             (a, b) =>
@@ -973,7 +744,6 @@ function krijgGefilterdeRecepten() {
         );
 
     }
-
 
     return resultaat;
 
@@ -989,10 +759,7 @@ function toonRecepten() {
     const resultaat =
         krijgGefilterdeRecepten();
 
-
-    receptenLijst.innerHTML =
-        "";
-
+    receptenLijst.innerHTML = "";
 
     if (alleenFavorieten) {
 
@@ -1010,7 +777,6 @@ function toonRecepten() {
             krijgCategorieGegevens(
                 actieveCategorie
             );
-
 
         lijstTitel.textContent =
             `${categorie.icoon} ${categorie.naam}`;
@@ -1034,21 +800,17 @@ function toonRecepten() {
     }
 
 
-    if (
-        resultaat.length ===
-        0
-    ) {
+    if (resultaat.length === 0) {
 
         legeLijst.style.display =
             "block";
-
 
         if (
             zoekInput.value.trim()
         ) {
 
             legeLijst.textContent =
-                "🔎 Geen recepten gevonden voor deze zoekopdracht.";
+                "🔎 Geen recepten gevonden.";
 
         }
 
@@ -1078,29 +840,25 @@ function toonRecepten() {
 
         }
 
-
         return;
 
     }
 
-
     legeLijst.style.display =
         "none";
-
 
     resultaat.forEach(
         recept => {
 
-            const index =
+            const origineleIndex =
                 recepten.indexOf(
                     recept
                 );
 
-
             receptenLijst.appendChild(
                 maakReceptKaart(
                     recept,
-                    index
+                    origineleIndex
                 )
             );
 
@@ -1124,10 +882,8 @@ function maakReceptKaart(
             "article"
         );
 
-
     kaart.className =
         "recept-kaart";
-
 
     const categorie =
         krijgCategorieGegevens(
@@ -1135,7 +891,6 @@ function maakReceptKaart(
                 recept.categorie
             )
         );
-
 
     kaart.style.setProperty(
         "--categorie-kleur",
@@ -1148,7 +903,6 @@ function maakReceptKaart(
             "div"
         );
 
-
     bovenkant.className =
         "recept-bovenkant";
 
@@ -1157,7 +911,6 @@ function maakReceptKaart(
         document.createElement(
             "h3"
         );
-
 
     titel.textContent =
         recept.naam;
@@ -1168,30 +921,22 @@ function maakReceptKaart(
             "button"
         );
 
-
     favoriet.type =
         "button";
 
-
     favoriet.className =
         "favoriet-knop";
-
-
-    favoriet.setAttribute(
-        "aria-label",
-        "Favoriet wijzigen"
-    );
-
 
     favoriet.textContent =
         recept.favoriet
             ? "❤️"
             : "🤍";
 
-
     favoriet.addEventListener(
         "click",
         () => {
+
+            maakInterneBackup();
 
             recepten[index].favoriet =
                 !recept.favoriet;
@@ -1218,10 +963,8 @@ function maakReceptKaart(
             "span"
         );
 
-
     categorieLabel.className =
         "recept-categorie";
-
 
     categorieLabel.textContent =
         `${categorie.icoon} ${categorie.naam}`;
@@ -1231,7 +974,6 @@ function maakReceptKaart(
         document.createElement(
             "div"
         );
-
 
     notitie.className =
         "recept-notitie";
@@ -1247,24 +989,19 @@ function maakReceptKaart(
                 "span"
             );
 
-
         label.className =
             "notitie-label";
 
-
         label.textContent =
             "💡 MIJN NOTITIE";
-
 
         const tekst =
             document.createElement(
                 "span"
             );
 
-
         tekst.textContent =
             recept.notitie;
-
 
         notitie.appendChild(
             label
@@ -1290,7 +1027,6 @@ function maakReceptKaart(
             "div"
         );
 
-
     acties.className =
         "recept-acties";
 
@@ -1300,22 +1036,17 @@ function maakReceptKaart(
             "a"
         );
 
-
     bekijken.className =
         "bekijk-knop";
-
 
     bekijken.href =
         recept.url;
 
-
     bekijken.target =
         "_blank";
 
-
     bekijken.rel =
         "noopener noreferrer";
-
 
     bekijken.textContent =
         "🌐 Bekijk recept ↗";
@@ -1326,26 +1057,19 @@ function maakReceptKaart(
             "button"
         );
 
-
     bewerken.type =
         "button";
-
 
     bewerken.className =
         "bewerk-knop";
 
-
     bewerken.textContent =
         "✏️ Bewerken";
 
-
     bewerken.addEventListener(
         "click",
-        () => {
-
-            bewerkRecept(index);
-
-        }
+        () =>
+            bewerkRecept(index)
     );
 
 
@@ -1354,26 +1078,19 @@ function maakReceptKaart(
             "button"
         );
 
-
     verwijderen.type =
         "button";
-
 
     verwijderen.className =
         "verwijder-knop";
 
-
     verwijderen.textContent =
         "🗑️ Verwijderen";
 
-
     verwijderen.addEventListener(
         "click",
-        () => {
-
-            verwijderRecept(index);
-
-        }
+        () =>
+            verwijderRecept(index)
     );
 
 
@@ -1421,18 +1138,14 @@ function slaReceptOp() {
     const naam =
         naamInput.value.trim();
 
-
     const url =
         urlInput.value.trim();
-
 
     const categorie =
         categorieInput.value;
 
-
     const notitie =
         notitieInput.value.trim();
-
 
     const favoriet =
         favorietInput.checked;
@@ -1450,7 +1163,6 @@ function slaReceptOp() {
 
     }
 
-
     if (!url) {
 
         alert(
@@ -1462,7 +1174,6 @@ function slaReceptOp() {
         return;
 
     }
-
 
     if (!categorie) {
 
@@ -1477,45 +1188,28 @@ function slaReceptOp() {
     }
 
 
-    if (bewerkIndex !== null) {
-
-        const bevestiging =
-            confirm(
-                `Wil je de wijzigingen aan "${naam}" opslaan?`
-            );
+    maakInterneBackup();
 
 
-        if (!bevestiging) {
-            return;
-        }
-
+    if (
+        bewerkIndex !== null
+    ) {
 
         recepten[bewerkIndex] = {
 
             ...recepten[bewerkIndex],
 
-            naam: naam,
+            naam,
 
-            url: url,
+            url,
 
-            categorie:
-                normaliseerCategorie(
-                    categorie
-                ),
+            categorie,
 
-            notitie: notitie,
+            notitie,
 
-            favoriet: favoriet
+            favoriet
 
         };
-
-
-        bewerkIndex =
-            null;
-
-
-        opslaanKnop.textContent =
-            "🍳 Recept opslaan";
 
     }
 
@@ -1526,18 +1220,15 @@ function slaReceptOp() {
             id:
                 Date.now(),
 
-            naam: naam,
+            naam,
 
-            url: url,
+            url,
 
-            categorie:
-                normaliseerCategorie(
-                    categorie
-                ),
+            categorie,
 
-            notitie: notitie,
+            notitie,
 
-            favoriet: favoriet,
+            favoriet,
 
             datum:
                 new Date().toISOString()
@@ -1547,19 +1238,23 @@ function slaReceptOp() {
     }
 
 
-    if (
-        !slaOp()
-    ) {
-
+    if (!slaOp()) {
         return;
-
     }
 
 
     formulierLeegmaken();
 
-    render();
+    bewerkIndex =
+        null;
 
+    opslaanKnop.textContent =
+        "🍳 Recept opslaan";
+
+    annuleerBewerkKnop.hidden =
+        true;
+
+    render();
 
     scrollNaarRecepten();
 
@@ -1587,26 +1282,17 @@ function formulierLeegmaken() {
     favorietInput.checked =
         false;
 
-
-    bewerkIndex =
-        null;
-
-
-    opslaanKnop.textContent =
-        "🍳 Recept opslaan";
-
 }
 
 
 // ======================================
-// RECEPT BEWERKEN
+// BEWERKEN
 // ======================================
 
 function bewerkRecept(index) {
 
     const recept =
         recepten[index];
-
 
     if (!recept) {
         return;
@@ -1616,20 +1302,16 @@ function bewerkRecept(index) {
     naamInput.value =
         recept.naam || "";
 
-
     urlInput.value =
         recept.url || "";
-
 
     categorieInput.value =
         normaliseerCategorie(
             recept.categorie
         );
 
-
     notitieInput.value =
         recept.notitie || "";
-
 
     favorietInput.checked =
         Boolean(
@@ -1640,9 +1322,11 @@ function bewerkRecept(index) {
     bewerkIndex =
         index;
 
-
     opslaanKnop.textContent =
         "💾 Wijzigingen opslaan";
+
+    annuleerBewerkKnop.hidden =
+        false;
 
 
     toevoegenSectie.scrollIntoView({
@@ -1650,13 +1334,25 @@ function bewerkRecept(index) {
         block: "start"
     });
 
+}
 
-    setTimeout(
-        () => {
-            naamInput.focus();
-        },
-        400
-    );
+
+// ======================================
+// BEWERKEN ANNULEREN
+// ======================================
+
+function annuleerBewerken() {
+
+    bewerkIndex =
+        null;
+
+    formulierLeegmaken();
+
+    opslaanKnop.textContent =
+        "🍳 Recept opslaan";
+
+    annuleerBewerkKnop.hidden =
+        true;
 
 }
 
@@ -1670,7 +1366,6 @@ function verwijderRecept(index) {
     const recept =
         recepten[index];
 
-
     if (!recept) {
         return;
     }
@@ -1681,17 +1376,17 @@ function verwijderRecept(index) {
             `Weet je zeker dat je "${recept.naam}" wilt verwijderen?`
         );
 
-
     if (!bevestiging) {
         return;
     }
 
 
+    maakInterneBackup();
+
     recepten.splice(
         index,
         1
     );
-
 
     slaOp();
 
@@ -1707,8 +1402,7 @@ function verwijderRecept(index) {
 function wisAlles() {
 
     if (
-        recepten.length ===
-        0
+        recepten.length === 0
     ) {
 
         alert(
@@ -1722,50 +1416,36 @@ function wisAlles() {
 
     const bevestiging =
         confirm(
-            "⚠️ LET OP\n\nWeet je zeker dat je ALLE recepten wilt verwijderen?\n\nDeze actie kan niet ongedaan worden gemaakt.\n\nMaak eventueel eerst een reservekopie via Beheer → Opslaan."
+            "⚠️ LET OP!\n\nWeet je zeker dat je ALLE recepten wilt verwijderen?\n\nEr wordt eerst automatisch een interne backup gemaakt."
         );
-
 
     if (!bevestiging) {
         return;
     }
 
 
-    recepten =
-        [];
+    maakInterneBackup();
 
+    recepten = [];
 
     slaOp();
-
 
     actieveCategorie =
         "alles";
 
-
     alleenFavorieten =
         false;
-
 
     zoekInput.value =
         "";
 
-
     zoekMelding.textContent =
         "";
 
-
-    zoekWisKnop.style.display =
-        "none";
-
-
-    formulierLeegmaken();
-
-
     render();
 
-
     alert(
-        "🗑️ Alle recepten zijn verwijderd."
+        "Alle recepten zijn verwijderd.\n\nEen interne backup is bewaard."
     );
 
 }
@@ -1780,16 +1460,13 @@ function toonAlles() {
     actieveCategorie =
         "alles";
 
-
     alleenFavorieten =
         false;
-
 
     alleReceptenKnop
         .classList.add(
             "actief"
         );
-
 
     render();
 
@@ -1799,7 +1476,7 @@ function toonAlles() {
 
 
 // ======================================
-// FAVORIETEN TONEN
+// FAVORIETEN
 // ======================================
 
 function toonFavorieten() {
@@ -1807,16 +1484,13 @@ function toonFavorieten() {
     alleenFavorieten =
         true;
 
-
     actieveCategorie =
         "alles";
-
 
     alleReceptenKnop
         .classList.remove(
             "actief"
         );
-
 
     render();
 
@@ -1826,7 +1500,7 @@ function toonFavorieten() {
 
 
 // ======================================
-// SCROLL NAAR RECEPTEN
+// SCROLL
 // ======================================
 
 function scrollNaarRecepten() {
@@ -1840,7 +1514,7 @@ function scrollNaarRecepten() {
             });
 
         },
-        80
+        50
     );
 
 }
@@ -1857,19 +1531,16 @@ function verwerkZoekopdracht() {
             .trim()
             .length > 0;
 
-
     zoekWisKnop.style.display =
         heeftZoekterm
             ? "block"
             : "none";
-
 
     if (heeftZoekterm) {
 
         const aantal =
             krijgGefilterdeRecepten()
                 .length;
-
 
         zoekMelding.textContent =
             `${aantal} ${
@@ -1887,7 +1558,6 @@ function verwerkZoekopdracht() {
 
     }
 
-
     render();
 
 }
@@ -1902,14 +1572,11 @@ function wisZoekopdracht() {
     zoekInput.value =
         "";
 
-
     zoekWisKnop.style.display =
         "none";
 
-
     zoekMelding.textContent =
         "";
-
 
     render();
 
@@ -1917,7 +1584,302 @@ function wisZoekopdracht() {
 
 
 // ======================================
-// NAVIGATIE
+// BACKUP MAKEN
+// ======================================
+
+function maakBackupBestand() {
+
+    if (
+        recepten.length === 0
+    ) {
+
+        alert(
+            "Er zijn geen recepten om te back-uppen."
+        );
+
+        return;
+
+    }
+
+
+    const backup = {
+
+        versie: 1,
+
+        app:
+            "Mijn Recepten",
+
+        datum:
+            new Date().toISOString(),
+
+        recepten:
+            recepten
+
+    };
+
+
+    const inhoud =
+        JSON.stringify(
+            backup,
+            null,
+            2
+        );
+
+
+    const bestand =
+        new Blob(
+            [inhoud],
+            {
+                type:
+                    "application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            bestand
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    const datum =
+        new Date()
+            .toISOString()
+            .slice(
+                0,
+                10
+            );
+
+    link.href =
+        url;
+
+    link.download =
+        `mijn-recepten-backup-${datum}.json`;
+
+    document.body.appendChild(
+        link
+    );
+
+    link.click();
+
+    link.remove();
+
+    URL.revokeObjectURL(
+        url
+    );
+
+
+    alert(
+        "✅ Backup gemaakt!"
+    );
+
+}
+
+
+// ======================================
+// BACKUP TERUGZETTEN
+// ======================================
+
+function startBackupTerugzetten() {
+
+    backupBestandInput.click();
+
+}
+
+
+function verwerkBackup(event) {
+
+    const bestand =
+        event.target.files[0];
+
+    if (!bestand) {
+        return;
+    }
+
+
+    const lezer =
+        new FileReader();
+
+
+    lezer.onload =
+        () => {
+
+            try {
+
+                const gegevens =
+                    JSON.parse(
+                        lezer.result
+                    );
+
+
+                let nieuweRecepten;
+
+
+                if (
+                    Array.isArray(
+                        gegevens
+                    )
+                ) {
+
+                    nieuweRecepten =
+                        gegevens;
+
+                }
+
+                else if (
+                    Array.isArray(
+                        gegevens.recepten
+                    )
+                ) {
+
+                    nieuweRecepten =
+                        gegevens.recepten;
+
+                }
+
+                else {
+
+                    throw new Error(
+                        "Geen recepten gevonden."
+                    );
+
+                }
+
+
+                const bevestiging =
+                    confirm(
+                        `Er zijn ${nieuweRecepten.length} recepten gevonden.\n\nWil je deze backup terugzetten?\n\nDe huidige recepten worden vervangen.`
+                    );
+
+
+                if (!bevestiging) {
+                    return;
+                }
+
+
+                maakInterneBackup();
+
+
+                recepten =
+                    nieuweRecepten.map(
+                        recept => ({
+
+                            ...recept,
+
+                            id:
+                                recept.id ||
+                                Date.now() +
+                                Math.random(),
+
+                            naam:
+                                String(
+                                    recept.naam ||
+                                    "Naamloos recept"
+                                ),
+
+                            url:
+                                String(
+                                    recept.url ||
+                                    ""
+                                ),
+
+                            categorie:
+                                normaliseerCategorie(
+                                    recept.categorie
+                                ),
+
+                            notitie:
+                                String(
+                                    recept.notitie ||
+                                    ""
+                                ),
+
+                            favoriet:
+                                Boolean(
+                                    recept.favoriet
+                                ),
+
+                            datum:
+                                recept.datum ||
+                                new Date()
+                                    .toISOString()
+
+                        })
+                    );
+
+
+                if (!slaOp()) {
+                    return;
+                }
+
+
+                actieveCategorie =
+                    "alles";
+
+                alleenFavorieten =
+                    false;
+
+                zoekInput.value =
+                    "";
+
+                zoekMelding.textContent =
+                    "";
+
+                render();
+
+
+                alert(
+                    `✅ Backup teruggezet!\n\n${recepten.length} recepten zijn hersteld.`
+                );
+
+
+            } catch (fout) {
+
+                console.error(
+                    fout
+                );
+
+                alert(
+                    "❌ Deze backup kon niet worden gelezen."
+                );
+
+            }
+
+            backupBestandInput.value =
+                "";
+
+        };
+
+
+    lezer.readAsText(
+        bestand
+    );
+
+}
+
+
+// ======================================
+// RENDER
+// ======================================
+
+function render() {
+
+    updateDashboard();
+
+    toonCategorieKnoppen();
+
+    toonRecepten();
+
+}
+
+
+// ======================================
+// HEADER NAVIGATIE
 // ======================================
 
 naarToevoegenKnop.addEventListener(
@@ -1928,6 +1890,12 @@ naarToevoegenKnop.addEventListener(
             behavior: "smooth",
             block: "start"
         });
+
+        setTimeout(
+            () =>
+                naamInput.focus(),
+            400
+        );
 
     }
 );
@@ -1955,57 +1923,59 @@ opslaanKnop.addEventListener(
     slaReceptOp
 );
 
-
-opslagKnop.addEventListener(
+annuleerBewerkKnop.addEventListener(
     "click",
-    maakBackup
+    annuleerBewerken
 );
-
-
-terugzettenKnop.addEventListener(
-    "click",
-    zetBackupTerug
-);
-
 
 allesWissenKnop.addEventListener(
     "click",
     wisAlles
 );
 
-
 alleReceptenKnop.addEventListener(
     "click",
     toonAlles
 );
-
 
 favorietenKnop.addEventListener(
     "click",
     toonFavorieten
 );
 
-
 zoekInput.addEventListener(
     "input",
     verwerkZoekopdracht
 );
-
 
 zoekWisKnop.addEventListener(
     "click",
     wisZoekopdracht
 );
 
-
 sorteerInput.addEventListener(
     "change",
     render
 );
 
+backupMakenKnop.addEventListener(
+    "click",
+    maakBackupBestand
+);
+
+backupTerugzettenKnop.addEventListener(
+    "click",
+    startBackupTerugzetten
+);
+
+backupBestandInput.addEventListener(
+    "change",
+    verwerkBackup
+);
+
 
 // ======================================
-// ENTER IN FORMULIER
+// ENTER IN NAAMVELD
 // ======================================
 
 naamInput.addEventListener(
@@ -2013,8 +1983,7 @@ naamInput.addEventListener(
     event => {
 
         if (
-            event.key ===
-            "Enter"
+            event.key === "Enter"
         ) {
 
             event.preventDefault();
@@ -2036,6 +2005,5 @@ laadRecepten();
 vulCategorieSelect();
 
 render();
-
 
 
