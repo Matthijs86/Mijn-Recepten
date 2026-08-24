@@ -1,39 +1,40 @@
 /* ======================================
    MIJN RECEPTEN
-   LIGHT KITCHEN / MODERN RECIPE STYLE
-====================================== */
-
-
-/* ======================================
-   BASIS
+   LICHT / MODERN / KOOKTHEMA
 ====================================== */
 
 * {
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
+
     margin: 0;
+
     min-height: 100vh;
+
+    padding: 20px;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
+    color: #292524;
+
     background:
         linear-gradient(
-            180deg,
-            #fffaf2 0%,
-            #f7f3ea 45%,
-            #f1ebe0 100%
+            135deg,
+            #fff7ed,
+            #fefce8,
+            #f8fafc
         );
-
-    color: #302820;
 }
 
 
@@ -42,12 +43,53 @@ body {
 ====================================== */
 
 .app {
+
     width: 100%;
-    max-width: 720px;
+
+    max-width: 760px;
 
     margin: 0 auto;
 
-    padding: 24px 20px 10px;
+    padding: 32px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #fed7aa;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(120, 53, 15, 0.12);
+
+    animation:
+        appBinnenkomen
+        0.45s
+        ease;
+}
+
+
+@keyframes appBinnenkomen {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
@@ -56,351 +98,47 @@ body {
 ====================================== */
 
 .app-header {
+
     text-align: center;
 
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+
 }
 
+
+.header-icoon {
+
+    font-size: 42px;
+
+    margin-bottom: 5px;
+
+}
+
+
 .app-header h1 {
+
     margin: 0;
 
-    font-size: 2.6rem;
+    font-size: 38px;
 
     font-weight: 900;
 
-    letter-spacing: 1px;
+    color: #c2410c;
 
-    color: #c94f32;
+    letter-spacing: -1px;
 
-    text-shadow:
-        0 2px 0 #f4d9c9;
-
-    transition:
-        color 0.25s ease,
-        transform 0.25s ease;
 }
 
-.app-header h1:hover {
-    color: #b84229;
-
-    transform:
-        scale(1.02);
-}
 
 .app-header p {
+
     margin:
         8px 0 0;
 
-    color: #776e65;
+    color: #78716c;
 
-    font-size: 0.95rem;
+    font-size: 15px;
 
-    letter-spacing: 0.3px;
-}
-
-
-/* ======================================
-   SECTIES
-====================================== */
-
-.formulier,
-.zoeken,
-.categorieen,
-.recepten {
-    background: #ffffff;
-
-    padding: 22px;
-
-    margin-bottom: 18px;
-
-    border-radius: 18px;
-
-    border: 1px solid #e7ded2;
-
-    box-shadow:
-        0 4px 14px rgba(
-            73,
-            53,
-            35,
-            0.08
-        );
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
-}
-
-.formulier:hover,
-.zoeken:hover,
-.categorieen:hover,
-.recepten:hover {
-    border-color: #dbc9b7;
-
-    box-shadow:
-        0 7px 20px rgba(
-            73,
-            53,
-            35,
-            0.11
-        );
-}
-
-
-/* ======================================
-   TITELS
-====================================== */
-
-.formulier h2,
-.categorieen h2,
-.recepten h2 {
-    margin-top: 0;
-
-    color: #45372e;
-
-    font-size: 1.25rem;
-
-    letter-spacing: 0.2px;
-}
-
-.formulier h2::first-letter,
-.categorieen h2::first-letter {
-    color: #d95d39;
-}
-
-
-/* ======================================
-   FORMULIER
-====================================== */
-
-.formulier {
-    position: relative;
-
-    overflow: hidden;
-}
-
-.formulier::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 4px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #d95d39,
-            #e5a83a,
-            #718b68
-        );
-}
-
-
-/* ======================================
-   INPUTS
-====================================== */
-
-input,
-select,
-textarea {
-    width: 100%;
-
-    margin-bottom: 13px;
-
-    padding: 14px 15px;
-
-    border: 2px solid #e3dbd0;
-
-    border-radius: 11px;
-
-    background: #fffdf9;
-
-    color: #302820;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 1rem;
-
-    outline: none;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: #9a9188;
-}
-
-input:hover,
-select:hover,
-textarea:hover {
-    border-color: #cfc1b2;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #d95d39;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            217,
-            93,
-            57,
-            0.12
-        );
-}
-
-textarea {
-    min-height: 95px;
-
-    resize: vertical;
-}
-
-
-/* ======================================
-   SELECT
-====================================== */
-
-select {
-    cursor: pointer;
-
-    appearance: auto;
-}
-
-select option {
-    background: #ffffff;
-
-    color: #302820;
-}
-
-
-/* ======================================
-   FAVORIET KEUZE
-====================================== */
-
-.favoriet-keuze {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    margin-bottom: 15px;
-
-    cursor: pointer;
-
-    color: #625950;
-
-    font-size: 0.95rem;
-
-    transition:
-        color 0.2s ease;
-}
-
-.favoriet-keuze:hover {
-    color: #9b701c;
-}
-
-.favoriet-keuze input {
-    width: auto;
-
-    margin: 0;
-
-    accent-color: #d99b28;
-
-    cursor: pointer;
-}
-
-
-/* ======================================
-   ALGEMENE KNOPPEN
-====================================== */
-
-button {
-    width: 100%;
-
-    padding: 13px 15px;
-
-    border: 1px solid #c94f32;
-
-    border-radius: 11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #d95d39,
-            #c84e31
-        );
-
-    color: #ffffff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.98rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 3px 8px
-        rgba(
-            180,
-            67,
-            39,
-            0.18
-        );
-
-    transition:
-        transform 0.18s ease,
-        background 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease;
-}
-
-button:hover {
-    transform:
-        translateY(-2px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #e56a45,
-            #d45636
-        );
-
-    border-color: #b9452b;
-
-    box-shadow:
-        0 5px 13px
-        rgba(
-            180,
-            67,
-            39,
-            0.23
-        );
-}
-
-button:active {
-    transform:
-        translateY(0);
 }
 
 
@@ -408,113 +146,278 @@ button:active {
    ZOEKEN
 ====================================== */
 
-.zoeken {
-    padding: 15px;
+.zoek-sectie {
+
+    margin-bottom: 20px;
+
+    padding: 18px;
+
+    background: #fff7ed;
+
+    border:
+        1px solid #fed7aa;
+
+    border-radius: 17px;
+
 }
 
-#zoekInput {
-    margin: 0;
 
-    border-color: #d8cfc3;
+.zoek-sectie label {
 
-    background: #fffdf9;
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: #7c2d12;
+
 }
 
-#zoekInput:focus {
-    border-color: #718b68;
+
+.zoek-sectie input {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding:
+        11px 14px;
+
+    border:
+        2px solid #fed7aa;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #292524;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+
+.zoek-sectie input:focus {
+
+    border-color: #f97316;
 
     box-shadow:
         0 0 0 3px
-        rgba(
-            113,
-            139,
-            104,
-            0.15
-        );
+        rgba(249, 115, 22, 0.12);
+
 }
 
 
 /* ======================================
-   CATEGORIEËN
+   STATISTIEKEN
+====================================== */
+
+.statistieken {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.stat-kaart {
+
+    display: grid;
+
+    grid-template-columns:
+        42px 1fr;
+
+    grid-template-rows:
+        auto auto;
+
+    align-items: center;
+
+    padding: 16px;
+
+    background: #fffbeb;
+
+    border:
+        1px solid #fde68a;
+
+    border-radius: 15px;
+
+}
+
+
+.stat-kaart > span {
+
+    grid-row:
+        1 / 3;
+
+    font-size: 27px;
+
+}
+
+
+.stat-kaart strong {
+
+    font-size: 21px;
+
+    color: #c2410c;
+
+}
+
+
+.stat-kaart small {
+
+    color: #78716c;
+
+    font-weight: 600;
+
+}
+
+
+/* ======================================
+   CATEGORIE SECTIE
+====================================== */
+
+.categorie-sectie {
+
+    margin-bottom: 28px;
+
+    padding: 22px;
+
+    background: #fffaf5;
+
+    border:
+        1px solid #fed7aa;
+
+    border-radius: 18px;
+
+}
+
+
+.sectie-kop {
+
+    margin-bottom: 16px;
+
+}
+
+
+.sectie-kop h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #7c2d12;
+
+}
+
+
+/* ======================================
+   CATEGORIE KNOPPEN
 ====================================== */
 
 .categorie-knoppen {
+
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
     gap: 9px;
+
 }
+
 
 .categorie-knop {
-    padding: 12px 8px;
 
-    background: #faf7f2;
+    min-height: 60px;
 
-    border: 1px solid #ded4c8;
+    padding: 9px 7px;
 
-    color: #554a41;
+    border:
+        1px solid #fed7aa;
 
-    box-shadow: none;
+    border-radius: 12px;
 
-    font-size: 0.92rem;
+    background: #ffffff;
+
+    color: #44403c;
+
+    cursor: pointer;
 
     transition:
-        transform 0.18s ease,
-        background 0.18s ease,
-        border-color 0.18s ease,
-        color 0.18s ease,
-        box-shadow 0.18s ease;
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+
 }
+
 
 .categorie-knop:hover {
-    background: #fff5ee;
 
-    border-color: #d95d39;
+    background: #fff7ed;
 
-    color: #a9432c;
+    border-color: #fb923c;
+
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 3px 9px
-        rgba(
-            180,
-            67,
-            39,
-            0.12
-        );
+        0 5px 12px
+        rgba(120, 53, 15, 0.08);
+
 }
 
-.categorie-knop:active {
-    transform:
-        scale(0.97);
-}
-
-
-/* ======================================
-   ACTIEVE CATEGORIE
-====================================== */
 
 .categorie-knop.actief {
+
     background:
         linear-gradient(
             135deg,
-            #d95d39,
-            #c84e31
+            #ea580c,
+            #f97316
         );
 
-    border-color: #c94f32;
+    border-color: #ea580c;
 
     color: #ffffff;
 
     box-shadow:
-        0 4px 10px
-        rgba(
-            180,
-            67,
-            39,
-            0.2
-        );
+        0 5px 14px
+        rgba(234, 88, 12, 0.22);
+
+}
+
+
+.categorie-icoon {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.categorie-naam {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
 }
 
 
@@ -522,127 +425,115 @@ button:active {
    FAVORIETEN
 ====================================== */
 
-.favorieten-knop {
-    margin-top: 13px;
+.filter-knop {
 
-    background:
-        linear-gradient(
-            135deg,
-            #e1a82f,
-            #ca9121
-        );
+    width: 100%;
 
-    border-color: #c18a1d;
+    min-height: 48px;
+
+    margin-top: 12px;
+
+    border:
+        1px solid #fecdd3;
+
+    border-radius: 11px;
+
+    background: #fff1f2;
+
+    color: #be123c;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+
+}
+
+
+.filter-knop:hover {
+
+    background: #ffe4e6;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.filter-knop.actief {
+
+    background: #e11d48;
 
     color: #ffffff;
 
-    box-shadow:
-        0 3px 8px
-        rgba(
-            180,
-            132,
-            35,
-            0.18
-        );
-}
+    border-color: #e11d48;
 
-.favorieten-knop:hover,
-.favorieten-knop.actief {
-    background:
-        linear-gradient(
-            135deg,
-            #eab63d,
-            #d59b24
-        );
-
-    border-color: #b77e12;
-
-    box-shadow:
-        0 5px 13px
-        rgba(
-            180,
-            132,
-            35,
-            0.25
-        );
 }
 
 
 /* ======================================
-   ALLE RECEPTEN
+   RECEPTEN SECTIE
 ====================================== */
 
-.alles-knop {
-    margin-top: 9px;
+.recepten-sectie {
 
-    background:
-        linear-gradient(
-            135deg,
-            #718b68,
-            #607958
-        );
+    margin-bottom: 28px;
 
-    border-color: #617957;
-
-    box-shadow:
-        0 3px 8px
-        rgba(
-            76,
-            104,
-            69,
-            0.16
-        );
-}
-
-.alles-knop:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #819d76,
-            #6b8761
-        );
-
-    border-color: #50684a;
-
-    box-shadow:
-        0 5px 13px
-        rgba(
-            76,
-            104,
-            69,
-            0.22
-        );
 }
 
 
-/* ======================================
-   LIJST HEADER
-====================================== */
+.recepten-kop {
 
-.lijst-header {
     display: flex;
-
-    justify-content: space-between;
 
     align-items: center;
 
-    gap: 10px;
+    justify-content: space-between;
 
-    margin-bottom: 16px;
+    gap: 12px;
+
+    margin-bottom: 15px;
+
 }
 
-.lijst-header h2 {
+
+.recepten-kop h2 {
+
     margin: 0;
 
-    color: #45372e;
+    font-size: 23px;
+
+    color: #292524;
+
 }
 
-#aantalRecepten {
-    color: #8b8178;
 
-    font-size: 0.9rem;
+#zoekMelding {
 
-    white-space: nowrap;
+    color: #a8a29e;
+
+    font-size: 13px;
+
+}
+
+
+/* ======================================
+   RECEPTEN LIJST
+====================================== */
+
+.recepten-lijst {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
 }
 
 
@@ -651,160 +542,134 @@ button:active {
 ====================================== */
 
 .recept-kaart {
-    position: relative;
 
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #fcfaf6
-        );
+    padding: 18px;
 
-    border: 1px solid #e3d9cd;
+    background: #ffffff;
 
-    border-radius: 14px;
+    border:
+        1px solid #e7e5e4;
 
-    padding: 17px;
+    border-left:
+        5px solid #f97316;
 
-    margin-bottom: 13px;
+    border-radius: 15px;
 
     box-shadow:
-        0 3px 10px
-        rgba(
-            73,
-            53,
-            35,
-            0.06
-        );
+        0 4px 13px
+        rgba(41, 37, 36, 0.06);
 
     transition:
         transform 0.2s ease,
-        border-color 0.2s ease,
         box-shadow 0.2s ease;
+
 }
 
+
 .recept-kaart:hover {
+
     transform:
         translateY(-2px);
 
-    border-color: #d8c2ae;
-
     box-shadow:
-        0 7px 17px
-        rgba(
-            73,
-            53,
-            35,
-            0.11
-        );
+        0 8px 20px
+        rgba(41, 37, 36, 0.10);
+
 }
 
 
 /* ======================================
-   RECEPT ACCENTLIJN
+   RECEPT BOVENKANT
 ====================================== */
 
-.recept-kaart::before {
-    content: "";
+.recept-bovenkant {
 
-    position: absolute;
-
-    top: 14px;
-    bottom: 14px;
-    left: 0;
-
-    width: 4px;
-
-    border-radius:
-        0 5px 5px 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            #d95d39,
-            #e3a632
-        );
-
-    opacity: 0.8;
-}
-
-
-/* ======================================
-   RECEPT KOP
-====================================== */
-
-.recept-kop {
     display: flex;
-
-    justify-content: space-between;
 
     align-items: flex-start;
 
-    gap: 10px;
+    justify-content: space-between;
+
+    gap: 12px;
+
 }
 
-.recept-naam {
+
+.recept-bovenkant h3 {
+
     margin: 0;
 
-    font-size: 1.2rem;
+    color: #292524;
 
-    line-height: 1.35;
+    font-size: 19px;
 
-    color: #3c3028;
+    font-weight: 900;
+
+    word-break: break-word;
+
+}
+
+
+.favoriet-knop {
+
+    flex-shrink: 0;
+
+    width: 38px;
+
+    height: 38px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #fff1f2;
+
+    cursor: pointer;
+
+    font-size: 19px;
 
     transition:
-        color 0.2s ease;
-}
+        transform 0.15s ease;
 
-.recept-kaart:hover .recept-naam {
-    color: #bd4c31;
 }
 
 
-/* ======================================
-   FAVORIET STER
-====================================== */
+.favoriet-knop:hover {
 
-.favoriet {
-    font-size: 1.25rem;
+    transform:
+        scale(1.12);
 
-    color: #e0a52b;
-
-    filter:
-        drop-shadow(
-            0 1px 2px
-            rgba(
-                140,
-                95,
-                15,
-                0.25
-            )
-        );
 }
 
 
 /* ======================================
-   CATEGORIE LABEL
+   RECEPT CATEGORIE
 ====================================== */
 
-.categorie {
+.recept-categorie {
+
     display: inline-block;
 
-    padding: 5px 10px;
+    margin-top: 9px;
 
-    margin-top: 10px;
+    padding:
+        5px 9px;
 
-    border-radius: 20px;
+    background: #fff7ed;
 
-    background: #eef3eb;
+    border:
+        1px solid #fed7aa;
 
-    border: 1px solid #cfdcc9;
+    border-radius: 8px;
 
-    color: #5f7957;
+    color: #c2410c;
 
-    font-size: 0.83rem;
+    font-size: 12px;
 
-    font-weight: 600;
+    font-weight: 800;
+
 }
 
 
@@ -813,263 +678,117 @@ button:active {
 ====================================== */
 
 .recept-notitie {
-    margin-top: 13px;
 
-    padding:
-        9px
-        0
-        9px
-        11px;
+    margin:
+        12px 0;
 
-    border-left:
-        3px solid #e2a735;
+    color: #57534e;
 
-    color: #71665d;
+    font-size: 14px;
 
-    line-height: 1.55;
+    line-height: 1.5;
 
-    background:
-        linear-gradient(
-            90deg,
-            #fffaf0,
-            transparent
-        );
+    white-space: pre-wrap;
+
+}
+
+
+.recept-notitie.geen-notitie {
+
+    color: #a8a29e;
+
+    font-style: italic;
+
 }
 
 
 /* ======================================
-   ACTIE KNOPPEN
+   ACTIES
 ====================================== */
 
 .recept-acties {
-    display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    display: flex;
 
-    gap: 8px;
+    flex-wrap: wrap;
 
-    margin-top: 15px;
+    gap: 7px;
+
+    margin-top: 12px;
+
 }
 
-.recept-acties button {
-    width: 100%;
+
+.recept-acties button,
+.recept-acties a {
+
+    min-height: 38px;
 
     padding:
-        11px
-        8px;
+        8px 11px;
 
-    font-size: 0.86rem;
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        filter 0.2s ease;
+
 }
 
 
-/* ======================================
-   OPEN RECEPT
-====================================== */
+.recept-acties button:hover,
+.recept-acties a:hover {
 
-.open-knop {
-    background:
-        linear-gradient(
-            135deg,
-            #718b68,
-            #607958
-        );
+    transform:
+        translateY(-2px);
 
-    border-color: #617957;
-}
+    filter:
+        brightness(1.04);
 
-.open-knop:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #819d76,
-            #6b8761
-        );
-
-    border-color: #50684a;
 }
 
 
-/* ======================================
-   BEWERKEN
-====================================== */
+.bekijk-knop {
+
+    background: #dcfce7;
+
+    border:
+        1px solid #bbf7d0;
+
+    color: #166534;
+
+}
+
 
 .bewerk-knop {
-    background:
-        linear-gradient(
-            135deg,
-            #d27a45,
-            #b96335
-        );
 
-    border-color: #b86236;
+    border:
+        1px solid #bfdbfe;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
 }
 
-.bewerk-knop:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #df8852,
-            #c66c3d
-        );
-
-    border-color: #a8542d;
-}
-
-
-/* ======================================
-   FAVORIET KAART KNOP
-====================================== */
-
-.favoriet-kaart-knop {
-    background:
-        linear-gradient(
-            135deg,
-            #e1a82f,
-            #ca9121
-        );
-
-    border-color: #c18a1d;
-}
-
-.favoriet-kaart-knop:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #eab63d,
-            #d59b24
-        );
-
-    border-color: #b77e12;
-}
-
-
-/* ======================================
-   VERWIJDEREN
-====================================== */
 
 .verwijder-knop {
-    background:
-        linear-gradient(
-            135deg,
-            #c65a50,
-            #ad443b
-        );
 
-    border-color: #a94740;
-}
+    border:
+        1px solid #fecaca;
 
-.verwijder-knop:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #d5685d,
-            #bc4c43
-        );
+    background: #fef2f2;
 
-    border-color: #963a34;
+    color: #b91c1c;
 
-    box-shadow:
-        0 5px 12px
-        rgba(
-            170,
-            60,
-            50,
-            0.2
-        );
-}
-
-
-/* ======================================
-   UPDATE MODUS
-====================================== */
-
-.update-modus {
-    background:
-        linear-gradient(
-            135deg,
-            #718b68,
-            #607958
-        );
-
-    border-color: #617957;
-}
-
-.update-modus:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #819d76,
-            #6b8761
-        );
-
-    border-color: #50684a;
-}
-
-
-/* ======================================
-   ANNULEREN
-====================================== */
-
-#annulerenKnop {
-    margin-top: 9px;
-
-    background: #eee9e2;
-
-    border-color: #d8cec1;
-
-    color: #5c5148;
-
-    box-shadow: none;
-}
-
-#annulerenKnop:hover {
-    background: #e4ddd4;
-
-    border-color: #c7bbae;
-
-    color: #40372f;
-
-    box-shadow:
-        0 3px 8px
-        rgba(
-            73,
-            53,
-            35,
-            0.1
-        );
-}
-
-
-/* ======================================
-   ZOEK MELDING
-====================================== */
-
-.zoek-melding {
-    text-align: center;
-
-    padding: 35px 15px;
-
-    color: #8b8178;
-}
-
-.zoek-melding-icoon {
-    font-size: 3rem;
-
-    margin-bottom: 10px;
-}
-
-.zoek-melding h3 {
-    margin:
-        0 0 5px;
-
-    color: #59483d;
-}
-
-.zoek-melding p {
-    margin-top: 0;
-
-    color: #8b8178;
 }
 
 
@@ -1078,19 +797,227 @@ button:active {
 ====================================== */
 
 .lege-lijst {
+
+    margin: 0;
+
+    padding: 20px;
+
     text-align: center;
 
-    padding: 30px 10px;
+    background: #fafaf9;
 
-    color: #8b8178;
+    border:
+        1px dashed #d6d3d1;
+
+    border-radius: 12px;
+
+    color: #a8a29e;
+
+    font-size: 14px;
+
 }
 
-.lege-icoon {
-    font-size: 3rem;
+
+/* ======================================
+   FORMULIER
+====================================== */
+
+.formulier {
+
+    margin-bottom: 25px;
+
+    padding: 22px;
+
+    background: #fffaf5;
+
+    border:
+        1px solid #fed7aa;
+
+    border-radius: 18px;
+
 }
 
-.lege-lijst h3 {
-    color: #59483d;
+
+.formulier h2 {
+
+    margin:
+        0 0 18px;
+
+    color: #7c2d12;
+
+    font-size: 21px;
+
+}
+
+
+.formulier label {
+
+    display: block;
+
+    margin:
+        13px 0 6px;
+
+    color: #57534e;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+.formulier input,
+.formulier select,
+.formulier textarea {
+
+    width: 100%;
+
+    padding:
+        11px 13px;
+
+    border:
+        2px solid #e7e5e4;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #292524;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.formulier input,
+.formulier select {
+
+    min-height: 48px;
+
+}
+
+
+.formulier textarea {
+
+    resize: vertical;
+
+    min-height: 100px;
+
+}
+
+
+.formulier input:focus,
+.formulier select:focus,
+.formulier textarea:focus {
+
+    border-color: #f97316;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(249, 115, 22, 0.12);
+
+}
+
+
+/* ======================================
+   FAVORIET CHECKBOX
+====================================== */
+
+.favoriet-label {
+
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 17px !important;
+
+    cursor: pointer;
+
+}
+
+
+.favoriet-label input {
+
+    width: 20px;
+
+    height: 20px;
+
+    accent-color: #e11d48;
+
+}
+
+
+/* ======================================
+   OPSLAAN KNOP
+====================================== */
+
+.primaire-knop {
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ea580c,
+            #f97316
+        );
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 16px
+        rgba(234, 88, 12, 0.22);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.primaire-knop:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 20px
+        rgba(234, 88, 12, 0.30);
+
+}
+
+
+.primaire-knop:active {
+
+    transform:
+        scale(0.97);
+
 }
 
 
@@ -1098,30 +1025,40 @@ button:active {
    ALLES WISSEN
 ====================================== */
 
-.beheer {
-    margin-bottom: 10px;
+.wis-knop {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+
 }
 
-.wissen-knop {
-    background:
-        linear-gradient(
-            135deg,
-            #b84c42,
-            #963c35
-        );
 
-    border-color: #963d36;
-}
+.wis-knop:hover {
 
-.wissen-knop:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #c85a4f,
-            #a6443c
-        );
+    background: #fecaca;
 
-    border-color: #84332e;
+    transform:
+        translateY(-2px);
+
 }
 
 
@@ -1130,87 +1067,19 @@ button:active {
 ====================================== */
 
 footer {
-    position: relative;
+
+    margin-top: 24px;
 
     text-align: center;
 
-    padding:
-        28px
-        15px
-        25px;
+    color: #a8a29e;
 
-    margin-top: 5px;
+    font-size: 12px;
 
-    color: #938980;
+    font-weight: 600;
 
-    font-size: 0.85rem;
+    letter-spacing: 0.5px;
 
-    letter-spacing: 1px;
-}
-
-
-/* ======================================
-   FOOTER LIJN
-====================================== */
-
-footer::before {
-    content: "";
-
-    display: block;
-
-    width: 80%;
-
-    max-width: 350px;
-
-    height: 1px;
-
-    margin:
-        0 auto 17px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d8b69d,
-            #d95d39,
-            #d8b69d,
-            transparent
-        );
-}
-
-
-/* ======================================
-   NAAM
-====================================== */
-
-footer::after {
-    content:
-        "MADE BY MATTHIJS KARST BOERSMA";
-
-    display: block;
-
-    margin-top: 9px;
-
-    color: #b66a4e;
-
-    font-size: 0.72rem;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    transition:
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-footer:hover::after {
-    color: #d95d39;
-
-    transform:
-        scale(1.03);
 }
 
 
@@ -1221,11 +1090,37 @@ footer:hover::after {
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+a:focus-visible {
+
     outline:
-        2px solid #718b68;
+        3px solid
+        rgba(249, 115, 22, 0.25);
 
     outline-offset: 2px;
+
+}
+
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 650px) {
+
+    .app {
+
+        padding: 25px;
+
+    }
+
+    .categorie-knoppen {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
 }
 
 
@@ -1235,129 +1130,108 @@ textarea:focus-visible {
 
 @media (max-width: 600px) {
 
+    body {
+
+        padding: 10px;
+
+    }
+
+
     .app {
+
         padding:
-            15px
-            12px
-            5px;
+            22px 16px;
+
+        border-radius: 18px;
+
     }
 
-
-    /* HEADER */
-
-    .app-header {
-        margin-bottom: 22px;
-    }
 
     .app-header h1 {
-        font-size: 2rem;
 
-        letter-spacing: 0.5px;
-    }
+        font-size: 30px;
 
-    .app-header p {
-        font-size: 0.88rem;
-
-        line-height: 1.45;
     }
 
 
-    /* SECTIES */
+    .header-icoon {
 
-    .formulier,
-    .zoeken,
-    .categorieen,
-    .recepten {
-        padding: 16px;
+        font-size: 36px;
 
-        border-radius: 14px;
-
-        margin-bottom: 14px;
     }
 
 
-    /* INPUTS */
+    .statistieken {
 
-    input,
-    select,
-    textarea {
-        padding: 15px;
+        gap: 9px;
 
-        font-size: 1rem;
     }
 
 
-    /* CATEGORIEËN */
+    .categorie-sectie,
+    .formulier {
+
+        padding: 17px;
+
+        border-radius: 15px;
+
+    }
+
 
     .categorie-knoppen {
+
         grid-template-columns:
             repeat(2, 1fr);
 
-        gap: 8px;
     }
+
 
     .categorie-knop {
-        padding:
-            13px
-            7px;
 
-        font-size: 0.88rem;
+        min-height: 58px;
+
     }
 
-
-    /* LIJST HEADER */
-
-    .lijst-header {
-        align-items: flex-start;
-    }
-
-    .lijst-header h2 {
-        font-size: 1.15rem;
-    }
-
-    #aantalRecepten {
-        font-size: 0.78rem;
-    }
-
-
-    /* RECEPT KAART */
 
     .recept-kaart {
+
         padding: 15px;
-    }
 
-    .recept-naam {
-        font-size: 1.1rem;
     }
 
 
-    /* ACTIEKNOPPEN */
+    .recept-bovenkant h3 {
+
+        font-size: 17px;
+
+    }
+
 
     .recept-acties {
+
+        display: grid;
+
         grid-template-columns:
-            1fr;
-    }
+            1fr 1fr;
 
-    .recept-acties button {
-        min-height: 46px;
-
-        font-size: 0.9rem;
     }
 
 
-    /* FOOTER */
+    .bekijk-knop {
 
-    footer {
-        padding:
-            25px
-            10px
-            20px;
+        grid-column:
+            1 / -1;
+
+        text-align: center;
+
     }
 
-    footer::after {
-        font-size: 0.64rem;
 
-        letter-spacing: 1.5px;
+    .bewerk-knop,
+    .verwijder-knop {
+
+        width: 100%;
+
     }
 
 }
@@ -1367,28 +1241,74 @@ textarea:focus-visible {
    KLEINE TELEFOONS
 ====================================== */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
+
+    body {
+
+        padding: 7px;
+
+    }
+
 
     .app {
+
         padding:
-            10px
-            8px
-            5px;
+            19px 13px;
+
     }
+
 
     .app-header h1 {
-        font-size: 1.75rem;
+
+        font-size: 27px;
+
     }
+
 
     .categorie-knoppen {
+
         grid-template-columns:
             1fr 1fr;
+
+        gap: 7px;
+
     }
 
-    footer::after {
-        font-size: 0.6rem;
 
-        letter-spacing: 1px;
+    .categorie-naam {
+
+        font-size: 11px;
+
+    }
+
+
+    .categorie-icoon {
+
+        font-size: 20px;
+
+    }
+
+
+    .stat-kaart {
+
+        padding: 13px;
+
+    }
+
+
+    .recept-acties {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .bekijk-knop {
+
+        grid-column:
+            auto;
+
     }
 
 }
