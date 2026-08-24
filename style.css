@@ -14,12 +14,10 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-
     font-family:
         Arial,
         Helvetica,
         sans-serif;
-
     color: #272330;
 
     background:
@@ -38,7 +36,6 @@ body {
 
 .app-header {
     position: relative;
-
     padding: 22px 15px;
 
     background:
@@ -48,16 +45,14 @@ body {
             #eee8f6
         );
 
-    border-bottom:
-        3px solid #713bb0;
+    border-bottom: 3px solid #713bb0;
 
     box-shadow:
-        0 5px 25px rgba(60,40,80,.15);
+        0 5px 25px rgba(60, 40, 80, 0.15);
 }
 
 .header-inner {
     max-width: 1100px;
-
     margin: auto;
 
     display: flex;
@@ -70,7 +65,6 @@ body {
 .logo {
     display: flex;
     align-items: center;
-
     gap: 15px;
 }
 
@@ -94,7 +88,7 @@ body {
     border-radius: 18px;
 
     box-shadow:
-        0 5px 20px rgba(91,53,155,.25);
+        0 5px 20px rgba(91, 53, 155, 0.25);
 }
 
 .logo h1 {
@@ -119,7 +113,6 @@ body {
     margin: 4px 0 0;
 
     color: #70667c;
-
     font-size: 14px;
 }
 
@@ -130,35 +123,49 @@ body {
 
 .header-acties {
     display: flex;
-
     gap: 8px;
 
     flex-wrap: wrap;
-
     justify-content: flex-end;
 }
 
 .header-knop {
-    padding: 11px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 11px 16px;
 
     border-radius: 10px;
 
     cursor: pointer;
 
+    font-family: inherit;
+    font-size: 14px;
     font-weight: bold;
 
     transition:
-        transform .18s ease,
-        box-shadow .18s ease;
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
 }
 
 .header-knop:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
-        0 5px 15px rgba(60,40,80,.15);
+        0 6px 16px rgba(60, 40, 80, 0.18);
 }
+
+.header-knop:active {
+    transform: translateY(0);
+}
+
+
+/* TOEVOEGEN */
 
 .toevoegen-header-knop {
     border: none;
@@ -170,16 +177,41 @@ body {
             #365fc2
         );
 
-    color: white;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(82, 50, 145, 0.22);
 }
 
-.beheer-header-knop {
-    border:
-        1px solid #c5b5d5;
+.toevoegen-header-knop:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #8246bd,
+            #416fd8
+        );
+}
 
-    background: white;
+
+/* BEHEER */
+
+.beheer-header-knop {
+    border: 1px solid #c5b5d5;
+
+    background: #ffffff;
 
     color: #4b3c58;
+
+    box-shadow:
+        0 3px 10px rgba(60, 40, 80, 0.08);
+}
+
+.beheer-header-knop:hover {
+    border-color: #8c62ad;
+
+    background: #f7f2fb;
+
+    color: #5c3480;
 }
 
 
@@ -222,7 +254,8 @@ body {
 
     padding: 18px;
 
-    background: rgba(255,255,255,.82);
+    background:
+        rgba(255, 255, 255, 0.82);
 
     border:
         1px solid #d9cfe3;
@@ -230,7 +263,7 @@ body {
     border-radius: 16px;
 
     box-shadow:
-        0 8px 20px rgba(70,45,90,.08);
+        0 8px 20px rgba(70, 45, 90, 0.08);
 }
 
 .dashboard-icoon {
@@ -304,17 +337,17 @@ body {
 
     outline: none;
 
-    transition: .2s ease;
+    transition: 0.2s ease;
 
     box-shadow:
-        0 5px 15px rgba(60,40,80,.06);
+        0 5px 15px rgba(60, 40, 80, 0.06);
 }
 
 #zoekInput:focus {
     border-color: #8650bc;
 
     box-shadow:
-        0 0 18px rgba(125,67,194,.15);
+        0 0 18px rgba(125, 67, 194, 0.15);
 }
 
 .zoek-wis {
@@ -330,7 +363,6 @@ body {
     height: 38px;
 
     border: none;
-
     border-radius: 50%;
 
     background: #eee8f3;
@@ -340,6 +372,10 @@ body {
     cursor: pointer;
 
     display: none;
+}
+
+.zoek-wis:hover {
+    background: #ddd2e8;
 }
 
 .zoek-melding {
@@ -375,7 +411,6 @@ body {
     color: #7546a0;
 
     font-size: 11px;
-
     font-weight: bold;
 
     letter-spacing: 2px;
@@ -429,19 +464,17 @@ h2 {
     cursor: pointer;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 4px;
 
     transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        background .18s ease;
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
 }
 
 .categorie-knop:hover {
@@ -451,7 +484,7 @@ h2 {
     background: #ffffff;
 
     box-shadow:
-        0 7px 18px rgba(60,40,80,.12);
+        0 7px 18px rgba(60, 40, 80, 0.12);
 }
 
 .categorie-knop.actief {
@@ -464,11 +497,7 @@ h2 {
 
     box-shadow:
         0 0 16px
-        color-mix(
-            in srgb,
-            var(--categorie-kleur, #7138a8) 25%,
-            transparent
-        );
+        rgba(113, 56, 168, 0.20);
 }
 
 .categorie-icoon {
@@ -513,14 +542,21 @@ h2 {
 
     cursor: pointer;
 
+    font-family: inherit;
     font-weight: bold;
 
-    transition: .18s ease;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
 }
 
 .alles-knop:hover {
     transform:
         translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(60, 40, 80, 0.12);
 }
 
 .alles-knop.actief {
@@ -533,7 +569,7 @@ h2 {
 
     border-color: #7138a8;
 
-    color: white;
+    color: #ffffff;
 }
 
 
@@ -574,7 +610,12 @@ h2 {
 
     cursor: pointer;
 
-    transition: .2s ease;
+    font-family: inherit;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .favorieten-grote-knop:hover {
@@ -585,7 +626,7 @@ h2 {
         #c9799d;
 
     box-shadow:
-        0 7px 20px rgba(120,70,100,.12);
+        0 7px 20px rgba(120, 70, 100, 0.12);
 }
 
 .favorieten-icoon {
@@ -629,7 +670,6 @@ h2 {
     display: flex;
 
     align-items: end;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -697,12 +737,12 @@ h2 {
     border-radius: 17px;
 
     box-shadow:
-        0 8px 25px rgba(70,45,90,.08);
+        0 8px 25px rgba(70, 45, 90, 0.08);
 
     transition:
-        transform .18s ease,
-        border-color .18s ease,
-        box-shadow .18s ease;
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 .recept-kaart:hover {
@@ -713,7 +753,7 @@ h2 {
         #a688bc;
 
     box-shadow:
-        0 10px 28px rgba(70,45,90,.13);
+        0 10px 28px rgba(70, 45, 90, 0.13);
 }
 
 .recept-bovenkant {
@@ -746,6 +786,10 @@ h2 {
     padding: 0;
 }
 
+.favoriet-knop:hover {
+    transform: scale(1.12);
+}
+
 .recept-categorie {
     display: inline-block;
 
@@ -762,11 +806,10 @@ h2 {
     color: #ffffff;
 
     font-size: 12px;
-
     font-weight: bold;
 
     text-shadow:
-        0 1px 2px rgba(0,0,0,.2);
+        0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -804,7 +847,6 @@ h2 {
     color: #7546a0;
 
     font-size: 11px;
-
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -816,7 +858,7 @@ h2 {
 
 
 /* ======================================
-   ACTIES
+   ACTIES RECEPT
 ====================================== */
 
 .recept-acties {
@@ -835,13 +877,18 @@ h2 {
     padding:
         9px 12px;
 
+    font-family: inherit;
+
     font-size: 13px;
 
     text-decoration: none;
 
     cursor: pointer;
 
-    transition: .18s ease;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
 }
 
 .bekijk-knop {
@@ -857,6 +904,8 @@ h2 {
         );
 
     color: #ffffff;
+
+    border: none;
 }
 
 .bewerk-knop {
@@ -882,6 +931,26 @@ h2 {
 .verwijder-knop:hover {
     transform:
         translateY(-2px);
+
+    box-shadow:
+        0 4px 10px rgba(60, 40, 80, 0.12);
+}
+
+.bekijk-knop:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #3d68bd,
+            #6b59bd
+        );
+}
+
+.bewerk-knop:hover {
+    background: #e4dced;
+}
+
+.verwijder-knop:hover {
+    background: #fce3e9;
 }
 
 
@@ -906,7 +975,7 @@ h2 {
     color: #85798e;
 
     background:
-        rgba(255,255,255,.55);
+        rgba(255, 255, 255, 0.55);
 }
 
 
@@ -923,10 +992,10 @@ h2 {
     border-radius: 18px;
 
     background:
-        rgba(255,255,255,.82);
+        rgba(255, 255, 255, 0.82);
 
     box-shadow:
-        0 8px 25px rgba(70,45,90,.07);
+        0 8px 25px rgba(70, 45, 90, 0.07);
 }
 
 .formulier {
@@ -947,7 +1016,6 @@ h2 {
     color: #665a70;
 
     font-size: 13px;
-
     font-weight: bold;
 }
 
@@ -985,8 +1053,7 @@ h2 {
         #8050b2;
 
     box-shadow:
-        0 0 12px
-        rgba(128,80,178,.15);
+        0 0 12px rgba(128, 80, 178, 0.15);
 }
 
 
@@ -1036,17 +1103,20 @@ h2 {
 
     color: #ffffff;
 
-    font-size: 16px;
+    font-family: inherit;
 
+    font-size: 16px;
     font-weight: bold;
 
     cursor: pointer;
 
     box-shadow:
-        0 5px 18px
-        rgba(79,48,140,.2);
+        0 5px 18px rgba(79, 48, 140, 0.2);
 
-    transition: .2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .opslaan-knop:hover {
@@ -1054,8 +1124,19 @@ h2 {
         translateY(-2px);
 
     box-shadow:
-        0 8px 25px
-        rgba(79,48,140,.3);
+        0 8px 25px rgba(79, 48, 140, 0.3);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7336a5,
+            #3262b8
+        );
+}
+
+.opslaan-knop:active {
+    transform:
+        translateY(0);
 }
 
 
@@ -1067,12 +1148,17 @@ h2 {
     margin-top: 25px;
 
     padding:
-        20px;
+        25px 20px;
 
     text-align: center;
 
     border-top:
         1px solid #ddd2e5;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.45);
 }
 
 .beheer-kop {
@@ -1083,24 +1169,72 @@ h2 {
     font-size: 20px;
 }
 
+
+/* ALLE RECEPTEN WISSEN */
+
 .alles-wissen-knop {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
     padding:
-        11px 17px;
+        11px 18px;
 
     border:
         1px solid #dfb6c1;
 
     border-radius: 10px;
 
-    background: #fff1f4;
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f4,
+            #fbe5ea
+        );
 
     color: #b04f68;
 
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: bold;
+
     cursor: pointer;
+
+    box-shadow:
+        0 3px 10px rgba(140, 70, 90, 0.08);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
 }
 
 .alles-wissen-knop:hover {
-    background: #fce3e9;
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fce3e9,
+            #f8d8e1
+        );
+
+    border-color:
+        #cc8a9c;
+
+    box-shadow:
+        0 6px 15px rgba(140, 70, 90, 0.14);
+}
+
+.alles-wissen-knop:active {
+    transform:
+        translateY(0);
 }
 
 
@@ -1109,7 +1243,8 @@ h2 {
 ====================================== */
 
 footer {
-    padding: 30px 15px;
+    padding:
+        30px 15px;
 
     text-align: center;
 
@@ -1117,7 +1252,11 @@ footer {
         1px solid #d9cde1;
 
     background:
-        #eee9f3;
+        linear-gradient(
+            135deg,
+            #eee9f3,
+            #e5ddec
+        );
 }
 
 footer p {
@@ -1126,10 +1265,12 @@ footer p {
     color: #7542a2;
 
     font-size: 17px;
-
     font-weight: bold;
 
     letter-spacing: 2px;
+
+    text-shadow:
+        1px 1px 0 #ffffff;
 }
 
 footer span {
@@ -1140,6 +1281,29 @@ footer span {
     color: #80768a;
 
     font-size: 12px;
+}
+
+
+/* ======================================
+   FOOTER - MADE BY
+====================================== */
+
+footer .made-by {
+    margin-top: 12px;
+
+    color: #4e405c;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+footer .made-by strong {
+    color: #7542a2;
+
+    text-transform: uppercase;
 }
 
 
@@ -1158,8 +1322,13 @@ footer span {
         grid-template-columns:
             1fr;
     }
+
 }
 
+
+/* ======================================
+   TABLET / KLEINERE SCHERMEN
+====================================== */
 
 @media (max-width: 700px) {
 
@@ -1189,8 +1358,13 @@ footer span {
     .categorie-knop {
         min-height: 65px;
     }
+
 }
 
+
+/* ======================================
+   MOBIEL
+====================================== */
 
 @media (max-width: 600px) {
 
@@ -1296,8 +1470,32 @@ footer span {
     .toevoegen-section {
         padding: 17px;
     }
+
+    .header-acties {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .header-knop {
+        width: 100%;
+
+        flex: none;
+    }
+
+    .alles-wissen-knop {
+        width: 100%;
+    }
+
 }
 
+
+/* ======================================
+   HEEL KLEINE MOBIEL
+====================================== */
 
 @media (max-width: 380px) {
 
@@ -1319,6 +1517,5 @@ footer span {
         padding:
             10px 8px;
     }
+
 }
-
-
