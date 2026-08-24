@@ -12,7 +12,7 @@
 
     <meta
         name="theme-color"
-        content="#15111f"
+        content="#27314f"
     >
 
     <meta
@@ -146,6 +146,38 @@
 
 
 <!-- ======================================
+     SNELMENU
+====================================== -->
+
+<section class="snelmenu">
+
+    <button
+        type="button"
+        id="naarToevoegenKnop"
+        class="snelmenu-knop toevoegen-snel"
+    >
+        ➕
+        <span>
+            Recept toevoegen
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        id="naarBeheerKnop"
+        class="snelmenu-knop beheer-snel"
+    >
+        🗑️
+        <span>
+            Beheer
+        </span>
+    </button>
+
+</section>
+
+
+<!-- ======================================
      ZOEKEN
 ====================================== -->
 
@@ -263,7 +295,10 @@
      RECEPTEN
 ====================================== -->
 
-<section class="recepten-section">
+<section
+    id="receptenSectie"
+    class="recepten-section"
+>
 
     <div class="recepten-header">
 
@@ -331,7 +366,10 @@
      RECEPT TOEVOEGEN
 ====================================== -->
 
-<section class="toevoegen-section">
+<section
+    id="toevoegenSectie"
+    class="toevoegen-section"
+>
 
     <div class="sectie-header">
 
@@ -443,57 +481,38 @@
 
 
 <!-- ======================================
-     BACK-UP / BEHEER
+     BEHEER
 ====================================== -->
 
-<section class="beheer-section">
+<section
+    id="beheerSectie"
+    class="beheer-section"
+>
 
-    <div class="beheer-titel">
+    <div class="beheer-kaart">
 
-        <span class="sectie-label">
-            BEHEER
+        <span>
+            🛠️
         </span>
 
-        <h2>
-            🛠️ Recepten beheren
-        </h2>
+        <div>
 
-    </div>
+            <strong>
+                Receptenbeheer
+            </strong>
 
+            <small>
+                Verwijder alle opgeslagen recepten
+            </small>
 
-    <div class="beheer-knoppen">
-
-        <button
-            type="button"
-            id="exporteerKnop"
-            class="exporteer-knop"
-        >
-            📤 Recepten exporteren
-        </button>
-
-
-        <button
-            type="button"
-            id="importeerKnop"
-            class="importeer-knop"
-        >
-            📥 Recepten importeren
-        </button>
-
-        <input
-            type="file"
-            id="importBestand"
-            accept=".json,application/json"
-            hidden
-        >
-
+        </div>
 
         <button
             type="button"
             id="allesWissenKnop"
             class="alles-wissen-knop"
         >
-            🗑️ Alle recepten wissen
+            🗑️ Alles wissen
         </button>
 
     </div>
