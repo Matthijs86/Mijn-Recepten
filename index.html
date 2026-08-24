@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -12,7 +13,7 @@
 
     <meta
         name="theme-color"
-        content="#f1eef7"
+        content="#eef0f7"
     >
 
     <meta
@@ -67,27 +68,25 @@
         </div>
 
 
-        <!-- SNELLE ACTIES -->
-
-        <div class="header-acties">
+        <nav class="hoofd-navigatie">
 
             <button
                 type="button"
                 id="naarToevoegenKnop"
-                class="header-knop toevoegen-header-knop"
+                class="nav-knop"
             >
-                ➕ Recept toevoegen
+                ➕ Toevoegen
             </button>
 
             <button
                 type="button"
                 id="naarBeheerKnop"
-                class="header-knop beheer-header-knop"
+                class="nav-knop"
             >
                 ⚙️ Beheer
             </button>
 
-        </div>
+        </nav>
 
     </div>
 
@@ -110,15 +109,8 @@
         </span>
 
         <div>
-
-            <strong id="aantalRecepten">
-                0
-            </strong>
-
-            <span>
-                Recepten
-            </span>
-
+            <strong id="aantalRecepten">0</strong>
+            <span>Recepten</span>
         </div>
 
     </div>
@@ -131,15 +123,8 @@
         </span>
 
         <div>
-
-            <strong id="aantalFavorieten">
-                0
-            </strong>
-
-            <span>
-                Favorieten
-            </span>
-
+            <strong id="aantalFavorieten">0</strong>
+            <span>Favorieten</span>
         </div>
 
     </div>
@@ -152,15 +137,8 @@
         </span>
 
         <div>
-
-            <strong id="aantalRecent">
-                0
-            </strong>
-
-            <span>
-                Deze week
-            </span>
-
+            <strong id="aantalRecent">0</strong>
+            <span>Deze week</span>
         </div>
 
     </div>
@@ -183,7 +161,7 @@
         <input
             type="search"
             id="zoekInput"
-            placeholder="Zoek op recept, categorie of notitie..."
+            placeholder="Zoek een recept..."
             autocomplete="off"
         >
 
@@ -268,7 +246,7 @@
             </strong>
 
             <small id="favorietenTekst">
-                Bekijk al je favoriete recepten
+                Je hebt nog geen favoriete recepten
             </small>
 
         </div>
@@ -287,8 +265,8 @@
 ====================================== -->
 
 <section
-    id="receptenSectie"
     class="recepten-section"
+    id="receptenSectie"
 >
 
     <div class="recepten-header">
@@ -341,7 +319,7 @@
         id="legeLijst"
         class="lege-lijst"
     >
-        Nog geen recepten gevonden.
+        Nog geen recepten toegevoegd.
     </p>
 
 
@@ -358,8 +336,8 @@
 ====================================== -->
 
 <section
-    id="toevoegenSectie"
     class="toevoegen-section"
+    id="toevoegenSectie"
 >
 
     <div class="sectie-header">
@@ -476,30 +454,98 @@
 ====================================== -->
 
 <section
-    id="beheerSectie"
     class="beheer-section"
+    id="beheerSectie"
 >
 
-    <div class="beheer-kop">
+    <div class="sectie-header beheer-header">
 
-        <span class="sectie-label">
-            BEHEER
-        </span>
+        <div>
 
-        <h2>
-            ⚙️ Recepten beheren
-        </h2>
+            <span class="sectie-label">
+                BEHEER
+            </span>
+
+            <h2>
+                ⚙️ Mijn recepten beheren
+            </h2>
+
+        </div>
 
     </div>
 
 
-    <button
-        type="button"
-        id="allesWissenKnop"
-        class="alles-wissen-knop"
-    >
-        🗑️ Alle recepten wissen
-    </button>
+    <div class="beheer-grid">
+
+        <button
+            type="button"
+            id="opslagKnop"
+            class="beheer-knop opslag-knop-beheer"
+        >
+
+            <span>
+                💾
+            </span>
+
+            <div>
+                <strong>
+                    Opslaan
+                </strong>
+
+                <small>
+                    Maak een reservekopie
+                </small>
+            </div>
+
+        </button>
+
+
+        <button
+            type="button"
+            id="terugzettenKnop"
+            class="beheer-knop terugzetten-knop"
+        >
+
+            <span>
+                ♻️
+            </span>
+
+            <div>
+                <strong>
+                    Terugzetten
+                </strong>
+
+                <small>
+                    Herstel de reservekopie
+                </small>
+            </div>
+
+        </button>
+
+
+        <button
+            type="button"
+            id="allesWissenKnop"
+            class="beheer-knop wissen-knop"
+        >
+
+            <span>
+                🗑️
+            </span>
+
+            <div>
+                <strong>
+                    Alles wissen
+                </strong>
+
+                <small>
+                    Verwijder alle recepten
+                </small>
+            </div>
+
+        </button>
+
+    </div>
 
 </section>
 
@@ -521,6 +567,10 @@
         Jouw persoonlijke digitale kookboek
     </span>
 
+    <strong>
+        Made by Matthijs Karst Boersma
+    </strong>
+
 </footer>
 
 
@@ -529,3 +579,5 @@
 </body>
 
 </html>
+```
+
