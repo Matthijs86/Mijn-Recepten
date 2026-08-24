@@ -1,17 +1,15 @@
 /* ======================================
    MIJN RECEPTEN
-   LICHT / KOOK / NEON / SKATER STYLE
+   LICHT / NEON / SKATER STYLE
 ====================================== */
 
 * {
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     margin: 0;
@@ -22,14 +20,14 @@ body {
         Helvetica,
         sans-serif;
 
-    color: #252536;
+    color: #272330;
 
     background:
         radial-gradient(
             circle at top,
-            #eef0ff 0%,
-            #dfe4f5 35%,
-            #cbd2e5 100%
+            #ffffff 0%,
+            #f5f1fa 35%,
+            #e9e3f1 100%
         );
 }
 
@@ -41,28 +39,33 @@ body {
 .app-header {
     position: relative;
 
-    padding: 25px 15px;
+    padding: 22px 15px;
 
     background:
         linear-gradient(
             135deg,
-            #303b61,
-            #475b91
+            #ffffff,
+            #eee8f6
         );
 
     border-bottom:
-        3px solid #7655c7;
+        3px solid #713bb0;
 
     box-shadow:
-        0 5px 25px rgba(35, 42, 70, .25);
+        0 5px 25px rgba(60,40,80,.15);
 }
-
 
 .header-inner {
     max-width: 1100px;
-    margin: auto;
-}
 
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
 
 .logo {
     display: flex;
@@ -70,7 +73,6 @@ body {
 
     gap: 15px;
 }
-
 
 .logo-icoon {
     width: 65px;
@@ -85,16 +87,15 @@ body {
     background:
         linear-gradient(
             135deg,
-            #8055c7,
-            #4775d1
+            #7736b5,
+            #315bc4
         );
 
     border-radius: 18px;
 
     box-shadow:
-        0 0 20px rgba(90, 91, 190, .45);
+        0 5px 20px rgba(91,53,155,.25);
 }
-
 
 .logo h1 {
     margin: 0;
@@ -108,19 +109,77 @@ body {
 
     letter-spacing: 2px;
 
-    color: #ffffff;
+    color: #241c31;
 
     text-shadow:
-        3px 3px 0 #394b86;
+        2px 2px 0 #d8c7e9;
 }
-
 
 .logo p {
     margin: 4px 0 0;
 
-    color: #dfe5f8;
+    color: #70667c;
 
     font-size: 14px;
+}
+
+
+/* ======================================
+   HEADER ACTIES
+====================================== */
+
+.header-acties {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+.header-knop {
+    padding: 11px 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+.header-knop:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(60,40,80,.15);
+}
+
+.toevoegen-header-knop {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7138a8,
+            #365fc2
+        );
+
+    color: white;
+}
+
+.beheer-header-knop {
+    border:
+        1px solid #c5b5d5;
+
+    background: white;
+
+    color: #4b3c58;
 }
 
 
@@ -152,9 +211,8 @@ body {
 
     gap: 15px;
 
-    margin-bottom: 18px;
+    margin-bottom: 25px;
 }
-
 
 .dashboard-kaart {
     display: flex;
@@ -164,112 +222,37 @@ body {
 
     padding: 18px;
 
-    background:
-        rgba(255,255,255,.78);
+    background: rgba(255,255,255,.82);
 
     border:
-        1px solid #c5cbe0;
+        1px solid #d9cfe3;
 
     border-radius: 16px;
 
     box-shadow:
-        0 7px 20px rgba(55, 62, 90, .12);
+        0 8px 20px rgba(70,45,90,.08);
 }
-
 
 .dashboard-icoon {
     font-size: 30px;
 }
-
 
 .dashboard-kaart strong {
     display: block;
 
     font-size: 25px;
 
-    color: #303650;
+    color: #30253b;
 }
-
 
 .dashboard-kaart span {
     display: block;
 
     margin-top: 2px;
 
-    color: #69708a;
+    color: #80758c;
 
     font-size: 13px;
-}
-
-
-/* ======================================
-   SNELMENU
-====================================== */
-
-.snelmenu {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 12px;
-
-    margin-bottom: 18px;
-}
-
-
-.snelmenu-knop {
-    min-height: 54px;
-
-    border-radius: 13px;
-
-    border: 1px solid #bdc5dd;
-
-    cursor: pointer;
-
-    color: #ffffff;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease;
-}
-
-
-.snelmenu-knop span {
-    margin-left: 7px;
-}
-
-
-.toevoegen-snel {
-    background:
-        linear-gradient(
-            135deg,
-            #6c55bb,
-            #4775c9
-        );
-}
-
-
-.beheer-snel {
-    background:
-        linear-gradient(
-            135deg,
-            #5d667d,
-            #424b62
-        );
-}
-
-
-.snelmenu-knop:hover {
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 7px 18px rgba(55, 65, 100, .22);
 }
 
 
@@ -278,14 +261,12 @@ body {
 ====================================== */
 
 .zoek-section {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
-
 
 .zoek-wrapper {
     position: relative;
 }
-
 
 .zoek-icoon {
     position: absolute;
@@ -301,7 +282,6 @@ body {
     pointer-events: none;
 }
 
-
 #zoekInput {
     width: 100%;
 
@@ -312,41 +292,30 @@ body {
         52px;
 
     border:
-        2px solid #b9c2da;
+        2px solid #d3c6df;
 
     border-radius: 16px;
 
-    background:
-        rgba(255,255,255,.9);
+    background: #ffffff;
 
-    color: #272a3c;
+    color: #29222f;
 
     font-size: 17px;
 
     outline: none;
 
-    transition:
-        .2s ease;
+    transition: .2s ease;
 
     box-shadow:
-        0 5px 18px rgba(55, 65, 100, .08);
+        0 5px 15px rgba(60,40,80,.06);
 }
-
-
-#zoekInput::placeholder {
-    color: #8a90a5;
-}
-
 
 #zoekInput:focus {
-    border-color:
-        #7057bf;
+    border-color: #8650bc;
 
     box-shadow:
-        0 0 18px
-        rgba(112,87,191,.2);
+        0 0 18px rgba(125,67,194,.15);
 }
-
 
 .zoek-wis {
     position: absolute;
@@ -364,21 +333,20 @@ body {
 
     border-radius: 50%;
 
-    background: #dce1ee;
+    background: #eee8f3;
 
-    color: #424962;
+    color: #4d4057;
 
     cursor: pointer;
 
     display: none;
 }
 
-
 .zoek-melding {
     margin:
         8px 4px 0;
 
-    color: #69708a;
+    color: #81768b;
 
     font-size: 13px;
 }
@@ -399,13 +367,12 @@ body {
     margin-bottom: 15px;
 }
 
-
 .sectie-label {
     display: block;
 
     margin-bottom: 3px;
 
-    color: #6c55b2;
+    color: #7546a0;
 
     font-size: 11px;
 
@@ -414,13 +381,12 @@ body {
     letter-spacing: 2px;
 }
 
-
 h2 {
     margin: 0;
 
     font-size: 25px;
 
-    color: #303650;
+    color: #2d2435;
 }
 
 
@@ -432,35 +398,33 @@ h2 {
     margin-bottom: 25px;
 }
 
-
 .categorie-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(5, 1fr);
 
     gap: 10px;
 }
 
-
 .categorie-knop {
-    min-height: 82px;
+    min-height: 72px;
 
-    padding: 10px;
+    padding: 8px;
 
     border:
-        1px solid #c3c9dc;
+        2px solid var(--categorie-kleur, #d9cfe3);
 
     border-radius: 14px;
 
     background:
         linear-gradient(
             145deg,
-            #f9faff,
-            #e6eaf4
+            #ffffff,
+            #f6f2f9
         );
 
-    color: #33384f;
+    color: #302735;
 
     cursor: pointer;
 
@@ -472,53 +436,44 @@ h2 {
 
     align-items: center;
 
-    gap: 5px;
+    gap: 4px;
 
     transition:
         transform .18s ease,
-        border-color .18s ease,
-        background .18s ease,
-        box-shadow .18s ease;
+        box-shadow .18s ease,
+        background .18s ease;
 }
-
 
 .categorie-knop:hover {
     transform:
         translateY(-3px);
 
-    border-color:
-        #8770c7;
-
-    background:
-        #f5f2ff;
+    background: #ffffff;
 
     box-shadow:
-        0 6px 15px
-        rgba(85, 75, 130, .14);
+        0 7px 18px rgba(60,40,80,.12);
 }
 
-
 .categorie-knop.actief {
-    border-color:
-        #8063c3;
-
     background:
         linear-gradient(
             135deg,
-            #ddd5f4,
-            #d4e1f8
+            var(--categorie-kleur, #7138a8),
+            #ffffff
         );
 
     box-shadow:
         0 0 16px
-        rgba(104, 85, 178, .2);
+        color-mix(
+            in srgb,
+            var(--categorie-kleur, #7138a8) 25%,
+            transparent
+        );
 }
-
 
 .categorie-icoon {
-    font-size: 25px;
+    font-size: 24px;
 }
-
 
 .categorie-naam {
     font-size: 12px;
@@ -528,16 +483,14 @@ h2 {
     text-align: center;
 }
 
-
 .categorie-aantal {
-    color: #777d94;
+    color: #85798f;
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
-
 .categorie-knop.actief .categorie-aantal {
-    color: #4f5270;
+    color: #3f3349;
 }
 
 
@@ -547,37 +500,40 @@ h2 {
 
 .alles-knop {
     padding:
-        10px
-        15px;
+        10px 15px;
 
     border:
-        1px solid #bdc4da;
+        1px solid #cdbddd;
 
     border-radius: 10px;
 
-    background:
-        #f1f3f9;
+    background: #ffffff;
 
-    color: #454b65;
+    color: #493957;
 
     cursor: pointer;
 
     font-weight: bold;
+
+    transition: .18s ease;
 }
 
+.alles-knop:hover {
+    transform:
+        translateY(-2px);
+}
 
 .alles-knop.actief {
     background:
         linear-gradient(
             135deg,
-            #7656bd,
-            #4c73c4
+            #7138a8,
+            #3d63bd
         );
 
-    color: #ffffff;
+    border-color: #7138a8;
 
-    border-color:
-        #7656bd;
+    color: white;
 }
 
 
@@ -590,7 +546,6 @@ h2 {
         25px 0 35px;
 }
 
-
 .favorieten-grote-knop {
     width: 100%;
 
@@ -602,49 +557,44 @@ h2 {
     padding: 18px;
 
     border:
-        1px solid #d0b7c2;
+        2px solid #e0bfd0;
 
     border-radius: 16px;
 
     background:
         linear-gradient(
             135deg,
-            #fff7fa,
-            #f2e9f0
+            #fff7fb,
+            #f7edf3
         );
 
-    color: #3d3540;
+    color: #382735;
 
     text-align: left;
 
     cursor: pointer;
 
-    transition:
-        .2s ease;
-
-    box-shadow:
-        0 6px 18px rgba(75, 60, 75, .1);
+    transition: .2s ease;
 }
-
 
 .favorieten-grote-knop:hover {
     transform:
         translateY(-2px);
 
     border-color:
-        #b887a0;
+        #c9799d;
+
+    box-shadow:
+        0 7px 20px rgba(120,70,100,.12);
 }
 
-
-.favorieten-grote-knop > span {
+.favorieten-icoon {
     font-size: 30px;
 }
-
 
 .favorieten-grote-knop div {
     flex: 1;
 }
-
 
 .favorieten-grote-knop strong {
     display: block;
@@ -652,20 +602,18 @@ h2 {
     font-size: 17px;
 }
 
-
 .favorieten-grote-knop small {
     display: block;
 
     margin-top: 4px;
 
-    color: #817580;
+    color: #887581;
 }
-
 
 .favorieten-grote-knop b {
     font-size: 25px;
 
-    color: #a95e80;
+    color: #bd668f;
 }
 
 
@@ -675,10 +623,7 @@ h2 {
 
 .recepten-section {
     margin-bottom: 40px;
-
-    scroll-margin-top: 20px;
 }
-
 
 .recepten-header {
     display: flex;
@@ -692,7 +637,6 @@ h2 {
     margin-bottom: 18px;
 }
 
-
 .sorteer-wrapper {
     display: flex;
 
@@ -701,28 +645,24 @@ h2 {
     gap: 8px;
 }
 
-
 .sorteer-wrapper label {
-    color: #6d7389;
+    color: #80758a;
 
     font-size: 12px;
 }
 
-
 #sorteerInput {
     padding:
-        9px
-        12px;
+        9px 12px;
 
     border:
-        1px solid #bcc4da;
+        1px solid #d0c3dc;
 
     border-radius: 9px;
 
-    background:
-        #f7f8fc;
+    background: #ffffff;
 
-    color: #3d435c;
+    color: #403448;
 
     cursor: pointer;
 }
@@ -741,7 +681,6 @@ h2 {
     gap: 15px;
 }
 
-
 .recept-kaart {
     padding: 18px;
 
@@ -749,16 +688,16 @@ h2 {
         linear-gradient(
             145deg,
             #ffffff,
-            #eef1f7
+            #f8f5fa
         );
 
     border:
-        1px solid #c4cadb;
+        1px solid #dcd2e4;
 
     border-radius: 17px;
 
     box-shadow:
-        0 8px 25px rgba(55, 65, 90, .13);
+        0 8px 25px rgba(70,45,90,.08);
 
     transition:
         transform .18s ease,
@@ -766,19 +705,16 @@ h2 {
         box-shadow .18s ease;
 }
 
-
 .recept-kaart:hover {
     transform:
         translateY(-3px);
 
     border-color:
-        #8c76c2;
+        #a688bc;
 
     box-shadow:
-        0 12px 28px
-        rgba(55, 65, 90, .18);
+        0 10px 28px rgba(70,45,90,.13);
 }
-
 
 .recept-bovenkant {
     display: flex;
@@ -788,7 +724,6 @@ h2 {
     gap: 10px;
 }
 
-
 .recept-bovenkant h3 {
     flex: 1;
 
@@ -796,9 +731,8 @@ h2 {
 
     font-size: 20px;
 
-    color: #303650;
+    color: #2e2535;
 }
-
 
 .favoriet-knop {
     border: none;
@@ -812,46 +746,72 @@ h2 {
     padding: 0;
 }
 
-
 .recept-categorie {
     display: inline-block;
 
     margin-top: 10px;
 
     padding:
-        5px
-        9px;
+        5px 9px;
 
     border-radius: 8px;
 
     background:
-        #e3e7f1;
+        var(--categorie-kleur, #eee8f3);
 
-    color: #596078;
+    color: #ffffff;
 
     font-size: 12px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.2);
 }
 
 
+/* ======================================
+   MIJN NOTITIE
+====================================== */
+
 .recept-notitie {
-    min-height: 42px;
-
     margin:
-        14px
-        0;
+        15px 0;
 
-    color: #5f6579;
+    padding:
+        12px 13px;
+
+    border-left:
+        4px solid #9c64c2;
+
+    border-radius: 8px;
+
+    background:
+        #f2edf6;
+
+    color: #594d63;
 
     line-height: 1.5;
 
     font-size: 14px;
 }
 
+.notitie-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #7546a0;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
 
 .recept-notitie.geen-notitie {
-    color: #969bab;
-
-    font-style: italic;
+    display: none;
 }
 
 
@@ -867,15 +827,13 @@ h2 {
     gap: 8px;
 }
 
-
 .bekijk-knop,
 .bewerk-knop,
 .verwijder-knop {
     border-radius: 9px;
 
     padding:
-        9px
-        12px;
+        9px 12px;
 
     font-size: 13px;
 
@@ -883,10 +841,8 @@ h2 {
 
     cursor: pointer;
 
-    transition:
-        .18s ease;
+    transition: .18s ease;
 }
-
 
 .bekijk-knop {
     flex: 1;
@@ -896,35 +852,30 @@ h2 {
     background:
         linear-gradient(
             135deg,
-            #4d70bd,
-            #6557b0
+            #3156a5,
+            #5b49a5
         );
 
     color: #ffffff;
 }
 
-
 .bewerk-knop {
-    background:
-        #e5e7ef;
+    background: #eee9f2;
 
-    color: #555c73;
+    color: #624a76;
 
     border:
-        1px solid #c5cada;
+        1px solid #d2c5db;
 }
-
 
 .verwijder-knop {
-    background:
-        #f6e9ed;
+    background: #fff0f3;
 
-    color: #a24f68;
+    color: #b14e69;
 
     border:
-        1px solid #d9b8c2;
+        1px solid #e4bbc7;
 }
-
 
 .bekijk-knop:hover,
 .bewerk-knop:hover,
@@ -941,23 +892,21 @@ h2 {
 .lege-lijst {
     display: none;
 
-    margin:
-        20px 0;
+    margin: 20px 0;
 
-    padding:
-        25px;
+    padding: 25px;
 
     text-align: center;
 
     border:
-        1px dashed #aeb6cc;
+        1px dashed #c9bbd5;
 
     border-radius: 14px;
 
-    color: #777e95;
+    color: #85798e;
 
     background:
-        rgba(255,255,255,.45);
+        rgba(255,255,255,.55);
 }
 
 
@@ -969,26 +918,22 @@ h2 {
     padding: 22px;
 
     border:
-        1px solid #c0c7dc;
+        1px solid #d8cce2;
 
     border-radius: 18px;
 
     background:
-        rgba(255,255,255,.75);
+        rgba(255,255,255,.82);
 
     box-shadow:
-        0 8px 25px rgba(55, 65, 90, .1);
-
-    scroll-margin-top: 20px;
+        0 8px 25px rgba(70,45,90,.07);
 }
-
 
 .formulier {
     display: grid;
 
     gap: 16px;
 }
-
 
 .veld {
     display: flex;
@@ -998,15 +943,13 @@ h2 {
     gap: 7px;
 }
 
-
 .veld label {
-    color: #596078;
+    color: #665a70;
 
     font-size: 13px;
 
     font-weight: bold;
 }
-
 
 .veld input,
 .veld select,
@@ -1016,14 +959,13 @@ h2 {
     padding: 13px;
 
     border:
-        1px solid #bcc4da;
+        1px solid #d1c4dc;
 
     border-radius: 10px;
 
-    background:
-        #ffffff;
+    background: #ffffff;
 
-    color: #303650;
+    color: #302735;
 
     font-family: inherit;
 
@@ -1032,21 +974,19 @@ h2 {
     outline: none;
 }
 
-
 .veld textarea {
     resize: vertical;
 }
-
 
 .veld input:focus,
 .veld select:focus,
 .veld textarea:focus {
     border-color:
-        #7658bd;
+        #8050b2;
 
     box-shadow:
         0 0 12px
-        rgba(118,88,189,.18);
+        rgba(128,80,178,.15);
 }
 
 
@@ -1061,18 +1001,16 @@ h2 {
 
     gap: 10px;
 
-    color: #596078;
+    color: #5e5368;
 
     cursor: pointer;
 }
-
 
 .favoriet-checkbox input {
     width: 18px;
     height: 18px;
 
-    accent-color:
-        #7658bd;
+    accent-color: #9b4bd1;
 }
 
 
@@ -1092,8 +1030,8 @@ h2 {
     background:
         linear-gradient(
             135deg,
-            #7053b5,
-            #4a70bd
+            #642c91,
+            #2854a0
         );
 
     color: #ffffff;
@@ -1106,12 +1044,10 @@ h2 {
 
     box-shadow:
         0 5px 18px
-        rgba(79,72,145,.25);
+        rgba(79,48,140,.2);
 
-    transition:
-        .2s ease;
+    transition: .2s ease;
 }
-
 
 .opslaan-knop:hover {
     transform:
@@ -1119,7 +1055,7 @@ h2 {
 
     box-shadow:
         0 8px 25px
-        rgba(79,72,145,.35);
+        rgba(79,48,140,.3);
 }
 
 
@@ -1130,79 +1066,41 @@ h2 {
 .beheer-section {
     margin-top: 25px;
 
-    scroll-margin-top: 20px;
+    padding:
+        20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid #ddd2e5;
 }
 
-
-.beheer-kaart {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 18px;
-
-    border:
-        1px solid #c7cbd7;
-
-    border-radius: 15px;
-
-    background:
-        rgba(255,255,255,.65);
+.beheer-kop {
+    margin-bottom: 15px;
 }
 
-
-.beheer-kaart > span {
-    font-size: 25px;
+.beheer-kop h2 {
+    font-size: 20px;
 }
-
-
-.beheer-kaart div {
-    flex: 1;
-}
-
-
-.beheer-kaart strong {
-    display: block;
-
-    color: #4b5268;
-}
-
-
-.beheer-kaart small {
-    display: block;
-
-    margin-top: 4px;
-
-    color: #858b9d;
-}
-
 
 .alles-wissen-knop {
     padding:
-        11px
-        17px;
+        11px 17px;
 
     border:
-        1px solid #d0aeb9;
+        1px solid #dfb6c1;
 
     border-radius: 10px;
 
-    background:
-        #f6e8ec;
+    background: #fff1f4;
 
-    color: #a24f68;
+    color: #b04f68;
 
     cursor: pointer;
-
-    font-weight: bold;
 }
 
-
 .alles-wissen-knop:hover {
-    background:
-        #efdce2;
+    background: #fce3e9;
 }
 
 
@@ -1211,23 +1109,21 @@ h2 {
 ====================================== */
 
 footer {
-    padding:
-        30px 15px;
+    padding: 30px 15px;
 
     text-align: center;
 
     border-top:
-        1px solid #b9c0d2;
+        1px solid #d9cde1;
 
     background:
-        #414b68;
+        #eee9f3;
 }
-
 
 footer p {
     margin: 0;
 
-    color: #ffffff;
+    color: #7542a2;
 
     font-size: 17px;
 
@@ -1236,13 +1132,12 @@ footer p {
     letter-spacing: 2px;
 }
 
-
 footer span {
     display: block;
 
     margin-top: 6px;
 
-    color: #d0d6e6;
+    color: #80768a;
 
     font-size: 12px;
 }
@@ -1252,19 +1147,48 @@ footer span {
    MOBIEL
 ====================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
     .categorie-grid {
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(4, 1fr);
     }
-
 
     .recepten-grid {
         grid-template-columns:
             1fr;
     }
+}
 
+
+@media (max-width: 700px) {
+
+    .header-inner {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .header-acties {
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+    .header-knop {
+        flex: 1;
+    }
+
+    .categorie-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+    }
+
+    .categorie-knop {
+        min-height: 65px;
+    }
 }
 
 
@@ -1274,16 +1198,13 @@ footer span {
         width:
             calc(100% - 20px);
 
-        margin-top:
-            15px;
+        margin-top: 15px;
     }
-
 
     .app-header {
         padding:
             18px 10px;
     }
-
 
     .logo-icoon {
         width: 52px;
@@ -1292,21 +1213,17 @@ footer span {
         font-size: 28px;
     }
 
-
     .logo h1 {
         font-size: 23px;
     }
-
 
     .logo p {
         font-size: 12px;
     }
 
-
     .dashboard {
         gap: 8px;
     }
-
 
     .dashboard-kaart {
         padding:
@@ -1321,21 +1238,17 @@ footer span {
         gap: 4px;
     }
 
-
     .dashboard-icoon {
         font-size: 22px;
     }
-
 
     .dashboard-kaart strong {
         font-size: 21px;
     }
 
-
     .dashboard-kaart span {
         font-size: 11px;
     }
-
 
     .categorie-grid {
         grid-template-columns:
@@ -1344,11 +1257,9 @@ footer span {
         gap: 8px;
     }
 
-
     .categorie-knop {
-        min-height: 72px;
+        min-height: 65px;
     }
-
 
     .sectie-header,
     .recepten-header {
@@ -1357,29 +1268,19 @@ footer span {
         flex-direction: column;
     }
 
-
-    .recepten-header {
-        gap: 12px;
-    }
-
-
     .sorteer-wrapper {
         width: 100%;
 
-        justify-content:
-            space-between;
+        justify-content: space-between;
     }
-
 
     #sorteerInput {
         flex: 1;
     }
 
-
     .recept-acties {
         flex-direction: column;
     }
-
 
     .bekijk-knop {
         flex: none;
@@ -1387,36 +1288,14 @@ footer span {
         width: 100%;
     }
 
-
     .bewerk-knop,
     .verwijder-knop {
         flex: 1;
     }
 
-
     .toevoegen-section {
         padding: 17px;
     }
-
-
-    .beheer-kaart {
-        align-items:
-            flex-start;
-
-        flex-wrap: wrap;
-    }
-
-
-    .beheer-kaart div {
-        min-width:
-            calc(100% - 50px);
-    }
-
-
-    .alles-wissen-knop {
-        width: 100%;
-    }
-
 }
 
 
@@ -1426,14 +1305,18 @@ footer span {
         font-size: 10px;
     }
 
-
     .categorie-naam {
         font-size: 11px;
     }
 
-
     .categorie-aantal {
-        font-size: 10px;
+        font-size: 9px;
     }
 
+    .header-knop {
+        font-size: 12px;
+
+        padding:
+            10px 8px;
+    }
 }
