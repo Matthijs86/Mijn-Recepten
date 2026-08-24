@@ -12,22 +12,22 @@
 
     <meta
         name="theme-color"
-        content="#c2410c"
+        content="#15111f"
     >
 
     <meta
         name="description"
-        content="Mijn persoonlijke receptenboek."
+        content="Mijn persoonlijke recepten app"
     >
 
     <link
         rel="manifest"
-        href="./manifest.json"
+        href="manifest.json"
     >
 
     <link
         rel="stylesheet"
-        href="./style.css"
+        href="style.css"
     >
 
     <title>Mijn Recepten</title>
@@ -37,217 +37,383 @@
 
 <body>
 
-<main class="app">
 
+<!-- ======================================
+     HEADER
+====================================== -->
 
-    <!-- ==================================
-         HEADER
-    ================================== -->
+<header class="app-header">
 
-    <header class="app-header">
+    <div class="header-inner">
 
-        <div class="header-icoon">
-            👨‍🍳
+        <div class="logo">
+
+            <div class="logo-icoon">
+                🍳
+            </div>
+
+            <div>
+
+                <h1>
+                    MIJN RECEPTEN
+                </h1>
+
+                <p>
+                    Mijn persoonlijke kookboek
+                </p>
+
+            </div>
+
         </div>
 
-        <h1>
-            Mijn Recepten
-        </h1>
+    </div>
 
-        <p>
-            Mijn persoonlijke receptenboek
-        </p>
-
-    </header>
+</header>
 
 
-    <!-- ==================================
-         ZOEKEN
-    ================================== -->
-
-    <section class="zoek-sectie">
-
-        <label for="zoekInput">
-            🔎 Zoek een recept
-        </label>
-
-        <input
-            type="search"
-            id="zoekInput"
-            placeholder="Zoek op naam, categorie of notitie..."
-            autocomplete="off"
-        >
-
-    </section>
+<main class="container">
 
 
-    <!-- ==================================
-         OVERZICHT
-    ================================== -->
+<!-- ======================================
+     DASHBOARD
+====================================== -->
 
-    <section class="statistieken">
+<section class="dashboard">
 
-        <div class="stat-kaart">
+    <div class="dashboard-kaart">
 
-            <span>
-                🍽️
-            </span>
+        <span class="dashboard-icoon">
+            🍴
+        </span>
+
+        <div>
 
             <strong id="aantalRecepten">
                 0
             </strong>
 
-            <small>
+            <span>
                 Recepten
-            </small>
+            </span>
 
         </div>
 
+    </div>
 
-        <div class="stat-kaart">
 
-            <span>
-                ❤️
-            </span>
+    <div class="dashboard-kaart">
+
+        <span class="dashboard-icoon">
+            ❤️
+        </span>
+
+        <div>
 
             <strong id="aantalFavorieten">
                 0
             </strong>
 
-            <small>
+            <span>
                 Favorieten
-            </small>
+            </span>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- ==================================
-         CATEGORIEËN
-    ================================== -->
+    <div class="dashboard-kaart">
 
-    <section class="categorie-sectie">
+        <span class="dashboard-icoon">
+            🆕
+        </span>
 
-        <div class="sectie-kop">
+        <div>
+
+            <strong id="aantalRecent">
+                0
+            </strong>
+
+            <span>
+                Deze week
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     ZOEKEN
+====================================== -->
+
+<section class="zoek-section">
+
+    <div class="zoek-wrapper">
+
+        <span class="zoek-icoon">
+            🔎
+        </span>
+
+        <input
+            type="search"
+            id="zoekInput"
+            placeholder="Zoek een recept..."
+            autocomplete="off"
+        >
+
+        <button
+            type="button"
+            id="zoekWisKnop"
+            class="zoek-wis"
+            aria-label="Zoekopdracht wissen"
+        >
+            ✕
+        </button>
+
+    </div>
+
+    <p
+        id="zoekMelding"
+        class="zoek-melding"
+    ></p>
+
+</section>
+
+
+<!-- ======================================
+     CATEGORIEËN
+====================================== -->
+
+<section class="categorie-section">
+
+    <div class="sectie-header">
+
+        <div>
+
+            <span class="sectie-label">
+                CATEGORIEËN
+            </span>
 
             <h2>
-                🍳 Categorieën
+                📂 Kies een categorie
             </h2>
 
         </div>
 
-
-        <div
-            id="categorieKnoppen"
-            class="categorie-knoppen"
-        ></div>
-
-
         <button
-            id="favorietenKnop"
-            class="filter-knop"
             type="button"
+            id="alleReceptenKnop"
+            class="alles-knop actief"
         >
-            ❤️ Favorieten
+            🍴 Alles
         </button>
 
-    </section>
+    </div>
 
 
-    <!-- ==================================
-         RECEPTEN
-    ================================== -->
+    <div
+        id="categorieKnoppen"
+        class="categorie-grid"
+    ></div>
 
-    <section class="recepten-sectie">
+</section>
 
-        <div class="recepten-kop">
+
+<!-- ======================================
+     FAVORIETEN
+====================================== -->
+
+<section class="favorieten-section">
+
+    <button
+        type="button"
+        id="favorietenKnop"
+        class="favorieten-grote-knop"
+    >
+
+        <span>
+            ❤️
+        </span>
+
+        <div>
+
+            <strong>
+                Mijn favorieten
+            </strong>
+
+            <small>
+                Bekijk al je favoriete recepten
+            </small>
+
+        </div>
+
+        <b>
+            →
+        </b>
+
+    </button>
+
+</section>
+
+
+<!-- ======================================
+     RECEPTEN HEADER
+====================================== -->
+
+<section class="recepten-section">
+
+    <div class="recepten-header">
+
+        <div>
+
+            <span class="sectie-label">
+                RECEPTEN
+            </span>
 
             <h2 id="lijstTitel">
                 🍴 Mijn recepten
             </h2>
 
-            <span id="zoekMelding"></span>
+        </div>
+
+
+        <div class="sorteer-wrapper">
+
+            <label for="sorteerInput">
+                Sorteren
+            </label>
+
+            <select id="sorteerInput">
+
+                <option value="nieuwste">
+                    🆕 Nieuwste
+                </option>
+
+                <option value="oudste">
+                    ⏳ Oudste
+                </option>
+
+                <option value="alfabetisch">
+                    🔤 A-Z
+                </option>
+
+                <option value="favorieten">
+                    ❤️ Favorieten
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <p
+        id="legeLijst"
+        class="lege-lijst"
+    >
+        Nog geen recepten toegevoegd.
+    </p>
+
+
+    <div
+        id="receptenLijst"
+        class="recepten-grid"
+    ></div>
+
+</section>
+
+
+<!-- ======================================
+     RECEPT TOEVOEGEN
+====================================== -->
+
+<section class="toevoegen-section">
+
+    <div class="sectie-header">
+
+        <div>
+
+            <span class="sectie-label">
+                NIEUW RECEPT
+            </span>
+
+            <h2>
+                🍳 Recept toevoegen
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="formulier">
+
+
+        <div class="veld">
+
+            <label for="naamInput">
+                Naam van het recept
+            </label>
+
+            <input
+                type="text"
+                id="naamInput"
+                placeholder="Bijvoorbeeld: Pasta Carbonara"
+            >
 
         </div>
 
 
-        <div
-            id="receptenLijst"
-            class="recepten-lijst"
-        ></div>
+        <div class="veld">
+
+            <label for="urlInput">
+                Link naar het recept
+            </label>
+
+            <input
+                type="url"
+                id="urlInput"
+                placeholder="https://..."
+            >
+
+        </div>
 
 
-        <p
-            id="legeLijst"
-            class="lege-lijst"
-        >
-            Nog geen recepten toegevoegd.
-        </p>
+        <div class="veld">
 
-    </section>
+            <label for="categorieInput">
+                Categorie
+            </label>
 
+            <select id="categorieInput">
+                <option value="">
+                    Kies een categorie
+                </option>
+            </select>
 
-    <!-- ==================================
-         RECEPT TOEVOEGEN
-    ================================== -->
-
-    <section class="formulier">
-
-        <h2>
-            👨‍🍳 Recept toevoegen
-        </h2>
+        </div>
 
 
-        <label for="naamInput">
-            Naam van het recept
-        </label>
+        <div class="veld">
 
-        <input
-            type="text"
-            id="naamInput"
-            placeholder="Bijvoorbeeld: Romige kip pasta"
-            autocomplete="off"
-        >
+            <label for="notitieInput">
+                Eigen notitie
+            </label>
 
+            <textarea
+                id="notitieInput"
+                rows="3"
+                placeholder="Bijvoorbeeld: deze moeten we zeker nog eens maken..."
+            ></textarea>
 
-        <label for="urlInput">
-            Link naar het recept
-        </label>
-
-        <input
-            type="url"
-            id="urlInput"
-            placeholder="https://..."
-            autocomplete="url"
-        >
+        </div>
 
 
-        <label for="categorieInput">
-            Categorie
-        </label>
-
-        <select id="categorieInput">
-
-            <option value="">
-                Kies een categorie
-            </option>
-
-        </select>
-
-
-        <label for="notitieInput">
-            Notitie
-        </label>
-
-        <textarea
-            id="notitieInput"
-            rows="4"
-            placeholder="Bijvoorbeeld: extra knoflook gebruiken..."
-        ></textarea>
-
-
-        <label class="favoriet-label">
+        <label class="favoriet-checkbox">
 
             <input
                 type="checkbox"
@@ -262,87 +428,56 @@
 
 
         <button
-            id="opslaanKnop"
-            class="primaire-knop"
             type="button"
+            id="opslaanKnop"
+            class="opslaan-knop"
         >
             🍳 Recept opslaan
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ==================================
-         ALLES WISSEN
-    ================================== -->
+<!-- ======================================
+     BEHEER
+====================================== -->
+
+<section class="beheer-section">
 
     <button
-        id="allesWissenKnop"
-        class="wis-knop"
         type="button"
+        id="allesWissenKnop"
+        class="alles-wissen-knop"
     >
         🗑️ Alle recepten wissen
     </button>
 
-
-    <!-- ==================================
-         FOOTER
-    ================================== -->
-
-    <footer>
-
-        Made by Matthijs Karst Boersma
-
-    </footer>
+</section>
 
 
 </main>
 
 
-<script src="./script.js"></script>
+<!-- ======================================
+     FOOTER
+====================================== -->
+
+<footer>
+
+    <p>
+        🍴 MIJN RECEPTEN
+    </p>
+
+    <span>
+        Jouw persoonlijke digitale kookboek
+    </span>
+
+</footer>
 
 
-<!-- ==================================
-     SERVICE WORKER
-================================== -->
-
-<script>
-
-if ("serviceWorker" in navigator) {
-
-    window.addEventListener(
-        "load",
-        () => {
-
-            navigator.serviceWorker
-                .register("./sw.js")
-                .then(
-                    registratie => {
-
-                        console.log(
-                            "Service Worker actief:",
-                            registratie.scope
-                        );
-
-                    }
-                )
-                .catch(
-                    fout => {
-
-                        console.error(
-                            "Service Worker fout:",
-                            fout
-                        );
-
-                    }
-                );
-
-        }
-    );
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 
