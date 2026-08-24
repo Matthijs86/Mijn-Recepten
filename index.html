@@ -12,7 +12,7 @@
 
     <meta
         name="theme-color"
-        content="#27314f"
+        content="#f1eef7"
     >
 
     <meta
@@ -63,6 +63,29 @@
                 </p>
 
             </div>
+
+        </div>
+
+
+        <!-- SNELLE ACTIES -->
+
+        <div class="header-acties">
+
+            <button
+                type="button"
+                id="naarToevoegenKnop"
+                class="header-knop toevoegen-header-knop"
+            >
+                ➕ Recept toevoegen
+            </button>
+
+            <button
+                type="button"
+                id="naarBeheerKnop"
+                class="header-knop beheer-header-knop"
+            >
+                ⚙️ Beheer
+            </button>
 
         </div>
 
@@ -146,38 +169,6 @@
 
 
 <!-- ======================================
-     SNELMENU
-====================================== -->
-
-<section class="snelmenu">
-
-    <button
-        type="button"
-        id="naarToevoegenKnop"
-        class="snelmenu-knop toevoegen-snel"
-    >
-        ➕
-        <span>
-            Recept toevoegen
-        </span>
-    </button>
-
-
-    <button
-        type="button"
-        id="naarBeheerKnop"
-        class="snelmenu-knop beheer-snel"
-    >
-        🗑️
-        <span>
-            Beheer
-        </span>
-    </button>
-
-</section>
-
-
-<!-- ======================================
      ZOEKEN
 ====================================== -->
 
@@ -192,7 +183,7 @@
         <input
             type="search"
             id="zoekInput"
-            placeholder="Zoek een recept..."
+            placeholder="Zoek op recept, categorie of notitie..."
             autocomplete="off"
         >
 
@@ -266,7 +257,7 @@
         class="favorieten-grote-knop"
     >
 
-        <span>
+        <span class="favorieten-icoon">
             ❤️
         </span>
 
@@ -276,7 +267,7 @@
                 Mijn favorieten
             </strong>
 
-            <small>
+            <small id="favorietenTekst">
                 Bekijk al je favoriete recepten
             </small>
 
@@ -350,7 +341,7 @@
         id="legeLijst"
         class="lege-lijst"
     >
-        Nog geen recepten toegevoegd.
+        Nog geen recepten gevonden.
     </p>
 
 
@@ -489,33 +480,26 @@
     class="beheer-section"
 >
 
-    <div class="beheer-kaart">
+    <div class="beheer-kop">
 
-        <span>
-            🛠️
+        <span class="sectie-label">
+            BEHEER
         </span>
 
-        <div>
-
-            <strong>
-                Receptenbeheer
-            </strong>
-
-            <small>
-                Verwijder alle opgeslagen recepten
-            </small>
-
-        </div>
-
-        <button
-            type="button"
-            id="allesWissenKnop"
-            class="alles-wissen-knop"
-        >
-            🗑️ Alles wissen
-        </button>
+        <h2>
+            ⚙️ Recepten beheren
+        </h2>
 
     </div>
+
+
+    <button
+        type="button"
+        id="allesWissenKnop"
+        class="alles-wissen-knop"
+    >
+        🗑️ Alle recepten wissen
+    </button>
 
 </section>
 
