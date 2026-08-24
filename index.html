@@ -12,7 +12,7 @@
 
     <meta
         name="theme-color"
-        content="#eef1f6"
+        content="#f1eef7"
     >
 
     <meta
@@ -67,25 +67,27 @@
         </div>
 
 
-        <nav class="header-knoppen">
+        <!-- SNELLE ACTIES -->
+
+        <div class="header-acties">
 
             <button
                 type="button"
                 id="naarToevoegenKnop"
-                class="header-knop"
+                class="header-knop toevoegen-header-knop"
             >
-                ➕ Toevoegen
+                ➕ Recept toevoegen
             </button>
 
             <button
                 type="button"
                 id="naarBeheerKnop"
-                class="header-knop"
+                class="header-knop beheer-header-knop"
             >
                 ⚙️ Beheer
             </button>
 
-        </nav>
+        </div>
 
     </div>
 
@@ -181,7 +183,7 @@
         <input
             type="search"
             id="zoekInput"
-            placeholder="Zoek een recept..."
+            placeholder="Zoek op recept, categorie of notitie..."
             autocomplete="off"
         >
 
@@ -223,7 +225,6 @@
             </h2>
 
         </div>
-
 
         <button
             type="button"
@@ -286,8 +287,8 @@
 ====================================== -->
 
 <section
-    class="recepten-section"
     id="receptenSectie"
+    class="recepten-section"
 >
 
     <div class="recepten-header">
@@ -340,7 +341,7 @@
         id="legeLijst"
         class="lege-lijst"
     >
-        Nog geen recepten toegevoegd.
+        Nog geen recepten gevonden.
     </p>
 
 
@@ -353,12 +354,12 @@
 
 
 <!-- ======================================
-     TOEVOEGEN
+     RECEPT TOEVOEGEN
 ====================================== -->
 
 <section
-    class="toevoegen-section"
     id="toevoegenSectie"
+    class="toevoegen-section"
 >
 
     <div class="sectie-header">
@@ -465,16 +466,6 @@
             🍳 Recept opslaan
         </button>
 
-
-        <button
-            type="button"
-            id="annuleerBewerkKnop"
-            class="annuleer-knop"
-            hidden
-        >
-            ✖ Bewerken annuleren
-        </button>
-
     </div>
 
 </section>
@@ -485,80 +476,30 @@
 ====================================== -->
 
 <section
-    class="beheer-section"
     id="beheerSectie"
+    class="beheer-section"
 >
 
-    <div class="sectie-header">
+    <div class="beheer-kop">
 
-        <div>
+        <span class="sectie-label">
+            BEHEER
+        </span>
 
-            <span class="sectie-label">
-                BEHEER
-            </span>
-
-            <h2>
-                ⚙️ Recepten beheren
-            </h2>
-
-        </div>
+        <h2>
+            ⚙️ Recepten beheren
+        </h2>
 
     </div>
 
 
-    <div class="beheer-grid">
-
-
-        <button
-            type="button"
-            id="backupMakenKnop"
-            class="beheer-knop backup-knop"
-        >
-            💾 Backup maken
-
-            <small>
-                Bewaar al je recepten als bestand
-            </small>
-
-        </button>
-
-
-        <button
-            type="button"
-            id="backupTerugzettenKnop"
-            class="beheer-knop herstel-knop"
-        >
-            📂 Backup terugzetten
-
-            <small>
-                Herstel recepten vanaf een backup
-            </small>
-
-        </button>
-
-
-        <button
-            type="button"
-            id="allesWissenKnop"
-            class="beheer-knop wissen-knop"
-        >
-            🗑️ Alle recepten wissen
-
-            <small>
-                Verwijder alle opgeslagen recepten
-            </small>
-
-        </button>
-
-    </div>
-
-
-    <input
-        type="file"
-        id="backupBestandInput"
-        accept=".json,application/json"
-        hidden
+    <button
+        type="button"
+        id="allesWissenKnop"
+        class="alles-wissen-knop"
     >
+        🗑️ Alle recepten wissen
+    </button>
 
 </section>
 
@@ -580,10 +521,6 @@
         Jouw persoonlijke digitale kookboek
     </span>
 
-    <strong>
-        Made by Matthijs Karst Boersma
-    </strong>
-
 </footer>
 
 
@@ -592,4 +529,3 @@
 </body>
 
 </html>
-
