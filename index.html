@@ -260,7 +260,7 @@
 
 
 <!-- ======================================
-     RECEPTEN HEADER
+     RECEPTEN
 ====================================== -->
 
 <section class="recepten-section">
@@ -390,9 +390,11 @@
             </label>
 
             <select id="categorieInput">
+
                 <option value="">
                     Kies een categorie
                 </option>
+
             </select>
 
         </div>
@@ -441,18 +443,60 @@
 
 
 <!-- ======================================
-     BEHEER
+     BACK-UP / BEHEER
 ====================================== -->
 
 <section class="beheer-section">
 
-    <button
-        type="button"
-        id="allesWissenKnop"
-        class="alles-wissen-knop"
-    >
-        🗑️ Alle recepten wissen
-    </button>
+    <div class="beheer-titel">
+
+        <span class="sectie-label">
+            BEHEER
+        </span>
+
+        <h2>
+            🛠️ Recepten beheren
+        </h2>
+
+    </div>
+
+
+    <div class="beheer-knoppen">
+
+        <button
+            type="button"
+            id="exporteerKnop"
+            class="exporteer-knop"
+        >
+            📤 Recepten exporteren
+        </button>
+
+
+        <button
+            type="button"
+            id="importeerKnop"
+            class="importeer-knop"
+        >
+            📥 Recepten importeren
+        </button>
+
+        <input
+            type="file"
+            id="importBestand"
+            accept=".json,application/json"
+            hidden
+        >
+
+
+        <button
+            type="button"
+            id="allesWissenKnop"
+            class="alles-wissen-knop"
+        >
+            🗑️ Alle recepten wissen
+        </button>
+
+    </div>
 
 </section>
 
