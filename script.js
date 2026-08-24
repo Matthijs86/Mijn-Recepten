@@ -8,8 +8,7 @@
 // OPSLAG
 // ======================================
 
-const OPSLAG_NAAM =
-    "mijnRecepten";
+const OPSLAG_NAAM = "mijnRecepten";
 
 
 // ======================================
@@ -116,88 +115,162 @@ const CATEGORIEEN = [
 // ======================================
 
 const naamInput =
-    document.getElementById(
-        "naamInput"
-    );
+    document.getElementById("naamInput");
 
 const urlInput =
-    document.getElementById(
-        "urlInput"
-    );
+    document.getElementById("urlInput");
 
 const categorieInput =
-    document.getElementById(
-        "categorieInput"
-    );
+    document.getElementById("categorieInput");
 
 const notitieInput =
-    document.getElementById(
-        "notitieInput"
-    );
+    document.getElementById("notitieInput");
 
 const favorietInput =
-    document.getElementById(
-        "favorietInput"
-    );
+    document.getElementById("favorietInput");
 
 const opslaanKnop =
-    document.getElementById(
-        "opslaanKnop"
-    );
+    document.getElementById("opslaanKnop");
 
 const zoekInput =
-    document.getElementById(
-        "zoekInput"
-    );
+    document.getElementById("zoekInput");
 
 const receptenLijst =
-    document.getElementById(
-        "receptenLijst"
-    );
+    document.getElementById("receptenLijst");
 
 const legeLijst =
-    document.getElementById(
-        "legeLijst"
-    );
+    document.getElementById("legeLijst");
 
 const zoekMelding =
-    document.getElementById(
-        "zoekMelding"
-    );
+    document.getElementById("zoekMelding");
 
 const aantalRecepten =
-    document.getElementById(
-        "aantalRecepten"
-    );
+    document.getElementById("aantalRecepten");
 
 const aantalFavorieten =
-    document.getElementById(
-        "aantalFavorieten"
-    );
+    document.getElementById("aantalFavorieten");
 
 const lijstTitel =
-    document.getElementById(
-        "lijstTitel"
-    );
+    document.getElementById("lijstTitel");
 
 const allesWissenKnop =
-    document.getElementById(
-        "allesWissenKnop"
-    );
+    document.getElementById("allesWissenKnop");
 
 const favorietenKnop =
-    document.getElementById(
-        "favorietenKnop"
-    );
+    document.getElementById("favorietenKnop");
 
 const categorieKnoppen =
-    document.getElementById(
-        "categorieKnoppen"
-    );
+    document.getElementById("categorieKnoppen");
 
 
 // ======================================
-// DATA
+// CATEGORIE NORMALISEREN
+// ======================================
+
+function categorieNormaliseren(categorie) {
+
+    if (!categorie) {
+        return "";
+    }
+
+    const waarde =
+        String(categorie)
+            .toLowerCase()
+            .trim();
+
+    const categorieMapping = {
+
+        // Kip
+        "kip": "kip",
+        "kipgerechten": "kip",
+        "kip gerechten": "kip",
+
+        // Vlees
+        "vlees": "vlees",
+        "vleesgerechten": "vlees",
+        "vlees gerechten": "vlees",
+
+        // Vis
+        "vis": "vis",
+        "visgerechten": "vis",
+        "vis gerechten": "vis",
+
+        // Pasta
+        "pasta": "pastas",
+        "pasta's": "pastas",
+        "pastas": "pastas",
+        "pasta gerechten": "pastas",
+        "pastagerechten": "pastas",
+
+        // Italiaans
+        "italiaans": "italiaans",
+        "italiaanse": "italiaans",
+        "italiaans eten": "italiaans",
+
+        // Slowcook
+        "slowcook": "slowcook",
+        "slow cooker": "slowcook",
+        "slowcooker": "slowcook",
+        "slow cooking": "slowcook",
+
+        // Indiaas
+        "indiaans": "indiaans",
+        "indiaas": "indiaans",
+        "indisch": "indiaans",
+        "indian": "indiaans",
+
+        // Aziatisch
+        "aziatisch": "aziatisch",
+        "aziatische": "aziatisch",
+        "asia": "aziatisch",
+
+        // Afrikaans
+        "afrikaans": "afrikaans",
+        "afrikaanse": "afrikaans",
+
+        // Burgers / Sandwiches
+        "burgers": "burgers-sandwiches",
+        "burger": "burgers-sandwiches",
+        "sandwiches": "burgers-sandwiches",
+        "sandwich": "burgers-sandwiches",
+        "burgers/sandwiches": "burgers-sandwiches",
+        "burgers sandwiches": "burgers-sandwiches",
+
+        // Potato
+        "potato": "potato",
+        "potatoes": "potato",
+        "aardappel": "potato",
+        "aardappelen": "potato",
+        "aardappelgerechten": "potato",
+        "potato gerechten": "potato",
+
+        // Bijgerechten
+        "bijgerechten": "bijgerechten",
+        "bijgerecht": "bijgerechten",
+        "side dishes": "bijgerechten",
+
+        // Brood
+        "brood": "brood-bakken",
+        "brood bakken": "brood-bakken",
+        "broodbakken": "brood-bakken",
+        "bakken": "brood-bakken",
+
+        // Mexicaans
+        "mexicaans": "mexicaans",
+        "mexicaanse": "mexicaans",
+
+        // Soepen
+        "soep": "soepen",
+        "soepen": "soepen"
+
+    };
+
+    return categorieMapping[waarde] || waarde;
+}
+
+
+// ======================================
+// RECEPTEN LADEN
 // ======================================
 
 function receptenLaden() {
@@ -205,22 +278,56 @@ function receptenLaden() {
     try {
 
         const opgeslagen =
-            localStorage.getItem(
-                OPSLAG_NAAM
-            );
+            localStorage.getItem(OPSLAG_NAAM);
 
         if (!opgeslagen) {
             return [];
         }
 
         const data =
-            JSON.parse(
-                opgeslagen
+            JSON.parse(opgeslagen);
+
+        if (!Array.isArray(data)) {
+            return [];
+        }
+
+        // Oude categorieën automatisch aanpassen
+        let gewijzigd = false;
+
+        data.forEach(recept => {
+
+            const oudeCategorie =
+                recept.categorie || "";
+
+            const nieuweCategorie =
+                categorieNormaliseren(
+                    oudeCategorie
+                );
+
+            if (
+                oudeCategorie !==
+                nieuweCategorie
+            ) {
+
+                recept.categorie =
+                    nieuweCategorie;
+
+                gewijzigd = true;
+            }
+
+        });
+
+        // Gemigreerde data meteen opslaan
+        if (gewijzigd) {
+
+            localStorage.setItem(
+                OPSLAG_NAAM,
+                JSON.stringify(data)
             );
 
-        return Array.isArray(data)
-            ? data
-            : [];
+        }
+
+        return data;
 
     } catch (error) {
 
@@ -263,7 +370,7 @@ function receptenOpslaan() {
 
 
 // ======================================
-// ID
+// NIEUW ID
 // ======================================
 
 function nieuwId() {
@@ -277,17 +384,20 @@ function nieuwId() {
 
 
 // ======================================
-// CATEGORIE NAAM
+// CATEGORIE GEGEVENS
 // ======================================
 
-function categorieGegevens(
-    waarde
-) {
+function categorieGegevens(waarde) {
+
+    const normaleWaarde =
+        categorieNormaliseren(
+            waarde
+        );
 
     return CATEGORIEEN.find(
         categorie =>
             categorie.waarde ===
-            waarde
+            normaleWaarde
     );
 
 }
@@ -411,8 +521,11 @@ function categorieKnoppenWeergeven() {
                     alleenFavorieten =
                         false;
 
-                    favorietenKnop.classList
-                        .remove("actief");
+
+                    favorietenKnop.classList.remove(
+                        "actief"
+                    );
+
 
                     categorieKnoppenWeergeven();
 
@@ -443,13 +556,14 @@ function receptenFilteren() {
 
 
     // Categorie
-
     if (geselecteerdeCategorie) {
 
         resultaat =
             resultaat.filter(
                 recept =>
-                    recept.categorie ===
+                    categorieNormaliseren(
+                        recept.categorie
+                    ) ===
                     geselecteerdeCategorie
             );
 
@@ -457,7 +571,6 @@ function receptenFilteren() {
 
 
     // Favorieten
-
     if (alleenFavorieten) {
 
         resultaat =
@@ -470,7 +583,6 @@ function receptenFilteren() {
 
 
     // Zoeken
-
     const zoekterm =
         zoekInput.value
             .trim()
@@ -488,16 +600,19 @@ function receptenFilteren() {
                             ?.toLowerCase() ||
                         "";
 
+
                     const categorie =
                         categorieGegevens(
                             recept.categorie
                         );
+
 
                     const categorieNaam =
                         categorie
                             ?.naam
                             .toLowerCase() ||
                         "";
+
 
                     const notitie =
                         recept.notitie
@@ -559,6 +674,7 @@ function titelBijwerken() {
                 geselecteerdeCategorie
             );
 
+
         if (categorie) {
 
             lijstTitel.textContent =
@@ -594,7 +710,6 @@ function receptenWeergeven() {
 
 
     // Statistieken
-
     aantalRecepten.textContent =
         recepten.length;
 
@@ -607,7 +722,6 @@ function receptenWeergeven() {
 
 
     // Zoekmelding
-
     const zoekterm =
         zoekInput.value.trim();
 
@@ -630,7 +744,6 @@ function receptenWeergeven() {
 
 
     // Lege lijst
-
     legeLijst.style.display =
         lijst.length === 0
             ? "block"
@@ -660,9 +773,11 @@ function receptenWeergeven() {
                     geselecteerdeCategorie
                 );
 
+
             legeLijst.textContent =
                 `Nog geen recepten in ${
-                    categorie?.naam || "deze categorie"
+                    categorie?.naam ||
+                    "deze categorie"
                 }.`;
 
         }
@@ -677,6 +792,10 @@ function receptenWeergeven() {
     }
 
 
+    // ==================================
+    // RECEPT KAARTEN
+    // ==================================
+
     lijst.forEach(
         recept => {
 
@@ -689,10 +808,7 @@ function receptenWeergeven() {
                 "recept-kaart";
 
 
-            // ==================================
-            // BOVENKANT
-            // ==================================
-
+            // Bovenkant
             const bovenkant =
                 document.createElement(
                     "div"
@@ -711,6 +827,7 @@ function receptenWeergeven() {
                 recept.naam;
 
 
+            // Favoriet
             const favoriet =
                 document.createElement(
                     "button"
@@ -826,8 +943,7 @@ function receptenWeergeven() {
                 "recept-acties";
 
 
-            // Link
-
+            // Recept bekijken
             if (recept.url) {
 
                 const bekijkKnop =
@@ -850,6 +966,7 @@ function receptenWeergeven() {
                 bekijkKnop.textContent =
                     "🔗 Recept bekijken";
 
+
                 acties.appendChild(
                     bekijkKnop
                 );
@@ -858,7 +975,6 @@ function receptenWeergeven() {
 
 
             // Bewerken
-
             const bewerkKnop =
                 document.createElement(
                     "button"
@@ -886,7 +1002,6 @@ function receptenWeergeven() {
 
 
             // Verwijderen
-
             const verwijderKnop =
                 document.createElement(
                     "button"
@@ -899,7 +1014,6 @@ function receptenWeergeven() {
 
             verwijderKnop.textContent =
                 "🗑️";
-
 
             verwijderKnop.title =
                 "Recept verwijderen";
@@ -980,21 +1094,25 @@ function receptenWeergeven() {
 // RECEPT BEWERKEN
 // ======================================
 
-function receptBewerken(
-    recept
-) {
+function receptBewerken(recept) {
 
     naamInput.value =
         recept.naam || "";
 
+
     urlInput.value =
         recept.url || "";
 
+
     categorieInput.value =
-        recept.categorie || "";
+        categorieNormaliseren(
+            recept.categorie
+        );
+
 
     notitieInput.value =
         recept.notitie || "";
+
 
     favorietInput.checked =
         recept.favoriet === true;
@@ -1033,8 +1151,7 @@ function formulierLeegmaken() {
 
     notitieInput.value = "";
 
-    favorietInput.checked =
-        false;
+    favorietInput.checked = false;
 
 
     delete opslaanKnop.dataset.bewerkId;
@@ -1057,21 +1174,24 @@ opslaanKnop.addEventListener(
         const naam =
             naamInput.value.trim();
 
+
         const url =
             urlInput.value.trim();
+
 
         const categorie =
             categorieInput.value;
 
+
         const notitie =
             notitieInput.value.trim();
+
 
         const favoriet =
             favorietInput.checked;
 
 
         // Naam
-
         if (!naam) {
 
             alert(
@@ -1086,7 +1206,6 @@ opslaanKnop.addEventListener(
 
 
         // Categorie
-
         if (!categorie) {
 
             alert(
@@ -1101,7 +1220,6 @@ opslaanKnop.addEventListener(
 
 
         // URL
-
         if (
             url &&
             !/^https?:\/\//i.test(url)
@@ -1157,8 +1275,9 @@ opslaanKnop.addEventListener(
 
         }
 
+
         // ==================================
-        // NIEUW
+        // NIEUW RECEPT
         // ==================================
 
         else {
@@ -1284,6 +1403,7 @@ allesWissenKnop.addEventListener(
         geselecteerdeCategorie =
             "";
 
+
         alleenFavorieten =
             false;
 
@@ -1302,7 +1422,7 @@ allesWissenKnop.addEventListener(
 
 
 // ======================================
-// START
+// START APP
 // ======================================
 
 categorieSelectVullen();
