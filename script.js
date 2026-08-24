@@ -1,4 +1,4 @@
-```javascript
+javascript
 // ======================================
 // MIJN RECEPTEN
 // COMPLETE JAVASCRIPT
@@ -2036,6 +2036,6 @@ laadRecepten();
 vulCategorieSelect();
 
 render();
-```
+
 
 
