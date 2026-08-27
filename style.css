@@ -1,101 +1,258 @@
 /* ======================================
    MIJN RECEPTEN
-   LIGHT KITCHEN / MODERN RECIPE STYLE
+   NEON / SKATER / METAL STYLE
+====================================== */
+
+
+/* ======================================
+   BASIS
 ====================================== */
 
 * {
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #fffaf2 0%, #f7f3ea 45%, #f1ebe0 100%);
-    color: #302820;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #252535 0%,
+            #101016 45%,
+            #08080c 100%
+        );
+
+    color: #eeeeee;
+
+    line-height: 1.5;
 }
 
-.app {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 24px 20px 10px;
-}
-
-.app-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.header-icoon {
-    font-size: 2.3rem;
-    margin-bottom: 4px;
-}
-
-.app-header h1 {
-    margin: 0;
-    font-size: 2.6rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-    color: #c94f32;
-    text-shadow: 0 2px 0 #f4d9c9;
-}
-
-.app-header p {
-    margin: 8px 0 0;
-    color: #776e65;
-    font-size: 0.95rem;
-}
 
 /* ======================================
-   BOVENSTE KNOPPEN
+   APP
+====================================== */
+
+.app {
+    width: min(100%, 1100px);
+
+    margin: 0 auto;
+
+    padding:
+        20px
+        20px
+        40px;
+}
+
+
+/* ======================================
+   HEADER
+====================================== */
+
+.app-header {
+    position: relative;
+
+    text-align: center;
+
+    padding:
+        35px
+        20px
+        30px;
+
+    margin-bottom: 20px;
+
+    border:
+        2px solid #6d4aff;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 25, 38, 0.98),
+            rgba(12, 12, 20, 0.98)
+        );
+
+    box-shadow:
+        0 0 10px rgba(109, 74, 255, 0.35),
+        0 0 30px rgba(0, 191, 255, 0.12);
+}
+
+
+.header-icoon {
+    font-size: 48px;
+
+    margin-bottom: 5px;
+
+    filter:
+        drop-shadow(
+            0 0 8px #00bfff
+        );
+}
+
+
+.app-header h1 {
+    margin:
+        0;
+
+    font-size:
+        clamp(2rem, 6vw, 3.5rem);
+
+    font-weight:
+        900;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #ffffff;
+
+    text-shadow:
+        3px 3px 0 #6d4aff,
+        0 0 12px #00bfff;
+}
+
+
+.app-header p {
+    margin:
+        10px 0 0;
+
+    color:
+        #bdbdca;
+
+    font-size:
+        1rem;
+}
+
+
+/* ======================================
+   SNELMENU
 ====================================== */
 
 .snelmenu {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 18px;
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        12px;
+
+    margin-bottom:
+        20px;
 }
+
 
 .snelmenu-knop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 52px;
-    padding: 12px 10px;
-    border-radius: 13px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 900;
-    font-size: 0.92rem;
-    letter-spacing: 0.7px;
-    box-shadow: 0 4px 10px rgba(73, 53, 35, 0.14);
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        52px;
+
+    padding:
+        12px
+        18px;
+
+    border:
+        2px solid;
+
+    border-radius:
+        10px;
+
+    font-weight:
+        900;
+
+    text-decoration:
+        none;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
-.snelmenu-knop:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 16px rgba(73, 53, 35, 0.2);
-    filter: brightness(1.05);
-}
 
 .toevoegen-knop {
-    background: linear-gradient(135deg, #d95d39, #c84e31);
-    border: 1px solid #c94f32;
+    color:
+        #00bfff;
+
+    border-color:
+        #00bfff;
+
+    background:
+        rgba(0, 191, 255, 0.08);
 }
+
 
 .beheer-knop {
-    background: linear-gradient(135deg, #718b68, #607958);
-    border: 1px solid #617957;
+    color:
+        #a66cff;
+
+    border-color:
+        #a66cff;
+
+    background:
+        rgba(166, 108, 255, 0.08);
 }
 
+
+.snelmenu-knop:hover {
+    transform:
+        translateY(-3px);
+}
+
+
+.toevoegen-knop:hover {
+    background:
+        rgba(0, 191, 255, 0.16);
+
+    box-shadow:
+        0 0 10px #00bfff,
+        0 0 22px rgba(0, 191, 255, 0.5);
+}
+
+
+.beheer-knop:hover {
+    background:
+        rgba(166, 108, 255, 0.16);
+
+    box-shadow:
+        0 0 10px #a66cff,
+        0 0 22px rgba(166, 108, 255, 0.5);
+}
+
+
 /* ======================================
-   SECTIES
+   ALGEMENE SECTIES
 ====================================== */
 
 .formulier,
@@ -103,507 +260,1187 @@ body {
 .categorieen,
 .recepten,
 .beheer {
-    background: #fff;
-    padding: 22px;
-    margin-bottom: 18px;
-    border-radius: 18px;
-    border: 1px solid #e7ded2;
-    box-shadow: 0 4px 14px rgba(73, 53, 35, 0.08);
+    margin-bottom:
+        20px;
+
+    padding:
+        22px;
+
+    border:
+        1px solid #383847;
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(18, 18, 27, 0.94);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
-.formulier {
-    position: relative;
-    overflow: hidden;
-    scroll-margin-top: 15px;
-}
-
-.formulier::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #d95d39, #e5a83a, #718b68);
-}
-
-.beheer {
-    scroll-margin-top: 15px;
-}
 
 .formulier h2,
 .zoeken h2,
 .categorieen h2,
 .recepten h2,
 .beheer h2 {
-    margin-top: 0;
-    color: #45372e;
-    font-size: 1.25rem;
+    margin-top:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.35rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
 }
 
-label {
-    display: block;
-    margin-bottom: 6px;
-    color: #59483d;
-    font-size: .9rem;
-    font-weight: 700;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    margin-bottom: 13px;
-    padding: 14px 15px;
-    border: 2px solid #e3dbd0;
-    border-radius: 11px;
-    background: #fffdf9;
-    color: #302820;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color .2s ease, box-shadow .2s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #d95d39;
-    box-shadow: 0 0 0 3px rgba(217, 93, 57, .12);
-}
-
-textarea {
-    min-height: 95px;
-    resize: vertical;
-}
-
-.veld-hulp {
-    display: block;
-    margin-top: -5px;
-    margin-bottom: 14px;
-    color: #8b8178;
-    font-size: .8rem;
-}
-
-.favoriet-keuze {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    margin-bottom: 15px;
-    cursor: pointer;
-}
-
-.favoriet-keuze input {
-    width: auto;
-    margin: 0;
-    accent-color: #d99b28;
-}
 
 /* ======================================
-   ALGEMENE KNOPPEN
+   FORMULIER
 ====================================== */
 
-button {
-    width: 100%;
-    padding: 13px 15px;
-    border: 1px solid #c94f32;
-    border-radius: 11px;
-    background: linear-gradient(135deg, #d95d39, #c84e31);
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: .96rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(180, 67, 39, .18);
-    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+.formulier label {
+    display:
+        block;
+
+    margin:
+        15px 0 6px;
+
+    color:
+        #d8d8e2;
+
+    font-weight:
+        700;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 13px rgba(180, 67, 39, .23);
+
+.formulier input[type="text"],
+.formulier input[type="url"],
+.formulier select,
+.formulier textarea,
+.zoeken input[type="search"] {
+    width:
+        100%;
+
+    padding:
+        13px
+        14px;
+
+    border:
+        2px solid #3e3e50;
+
+    border-radius:
+        9px;
+
+    background:
+        #0d0d13;
+
+    color:
+        #ffffff;
+
+    font-family:
+        inherit;
+
+    font-size:
+        16px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-button:active {
-    transform: translateY(0);
+
+.formulier input:focus,
+.formulier select:focus,
+.formulier textarea:focus,
+.zoeken input:focus {
+    border-color:
+        #00bfff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 191, 255, 0.12),
+        0 0 12px
+        rgba(0, 191, 255, 0.25);
 }
 
-#annulerenKnop {
-    margin-top: 9px;
-    background: #eee9e2;
-    border-color: #d8cec1;
-    color: #5c5148;
-    box-shadow: none;
+
+.formulier textarea {
+    min-height:
+        110px;
+
+    resize:
+        vertical;
 }
+
+
+.formulier select {
+    cursor:
+        pointer;
+}
+
+
+.veld-hulp {
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        #888897;
+
+    font-size:
+        0.85rem;
+}
+
+
+/* ======================================
+   FAVORIET KEUZE
+====================================== */
+
+.favoriet-keuze {
+    display:
+        flex !important;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    cursor:
+        pointer;
+}
+
+
+.favoriet-keuze input {
+    width:
+        20px;
+
+    height:
+        20px;
+
+    accent-color:
+        #ffd84d;
+
+    cursor:
+        pointer;
+}
+
+
+/* ======================================
+   FORMULIER KNOPPEN
+====================================== */
+
+#opslaanKnop,
+.annuleren-knop {
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    margin-top:
+        12px;
+
+    padding:
+        12px
+        16px;
+
+    border:
+        2px solid;
+
+    border-radius:
+        9px;
+
+    font-family:
+        inherit;
+
+    font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+#opslaanKnop {
+    color:
+        #0b1115;
+
+    border-color:
+        #00d9ff;
+
+    background:
+        #00bfff;
+}
+
+
+#opslaanKnop:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 10px #00bfff,
+        0 0 25px rgba(0, 191, 255, 0.45);
+}
+
+
+.annuleren-knop {
+    color:
+        #ffffff;
+
+    border-color:
+        #777788;
+
+    background:
+        #252530;
+}
+
+
+.annuleren-knop:hover {
+    background:
+        #333341;
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 255, 255, 0.15);
+}
+
+
+/* ======================================
+   ZOEKEN
+====================================== */
+
+.zoeken input {
+    margin-top:
+        5px;
+}
+
 
 /* ======================================
    CATEGORIEËN
 ====================================== */
 
 .categorie-groep {
-    padding: 15px;
-    margin-bottom: 14px;
-    border-radius: 14px;
-    background: #faf7f2;
-    border: 1px solid #e5dbcf;
+    margin-bottom:
+        20px;
+
+    padding:
+        15px;
+
+    border:
+        1px solid #30303d;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
 }
 
-.categorie-groep:last-of-type {
-    margin-bottom: 0;
-}
 
 .categorie-groep h3 {
-    margin: 0 0 12px;
-    color: #59483d;
-    font-size: 1rem;
+    margin:
+        0 0 12px;
+
+    color:
+        #bdbdca;
+
+    font-size:
+        1rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
 }
 
-.wereldkeukens {
-    background: #f5f8f3;
-    border-color: #d9e2d4;
-}
 
 .categorie-knoppen {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 9px;
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
 }
 
-.categorie-knop {
-    min-height: 48px;
-    padding: 10px 7px;
-    background: #fff;
-    border: 1px solid #ded4c8;
-    color: #554a41;
-    box-shadow: none;
-    font-size: .86rem;
-    line-height: 1.2;
+
+.categorie-knop,
+.favorieten-knop,
+.alles-knop {
+    min-height:
+        40px;
+
+    padding:
+        9px
+        13px;
+
+    border:
+        2px solid #454554;
+
+    border-radius:
+        8px;
+
+    background:
+        #171720;
+
+    color:
+        #dcdce5;
+
+    font-family:
+        inherit;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
 
 .categorie-knop:hover {
-    background: #fff5ee;
-    border-color: #d95d39;
-    color: #a9432c;
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #00bfff;
+
+    color:
+        #00bfff;
+
+    background:
+        rgba(0, 191, 255, 0.08);
+
+    box-shadow:
+        0 0 8px
+        rgba(0, 191, 255, 0.35);
 }
+
 
 .categorie-knop.actief {
-    background: linear-gradient(135deg, #d95d39, #c84e31);
-    border-color: #c94f32;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(180, 67, 39, .2);
+    border-color:
+        #a66cff;
+
+    color:
+        #ffffff;
+
+    background:
+        rgba(166, 108, 255, 0.16);
+
+    box-shadow:
+        0 0 8px
+        rgba(166, 108, 255, 0.45);
 }
 
-.favorieten-knop {
-    margin-top: 14px;
-    background: linear-gradient(135deg, #e1a82f, #ca9121);
-    border-color: #c18a1d;
-}
-
-.favorieten-knop.actief,
-.favorieten-knop:hover {
-    background: linear-gradient(135deg, #eab63d, #d59b24);
-}
-
-.alles-knop {
-    margin-top: 9px;
-    background: linear-gradient(135deg, #718b68, #607958);
-    border-color: #617957;
-}
 
 /* ======================================
-   RECEPTEN
+   FAVORIETEN / ALLE RECEPTEN
+====================================== */
+
+.favorieten-knop,
+.alles-knop {
+    margin-top:
+        5px;
+}
+
+
+.favorieten-knop {
+    color:
+        #ffd84d;
+
+    border-color:
+        #ffd84d;
+
+    background:
+        rgba(255, 216, 77, 0.06);
+}
+
+
+.favorieten-knop:hover,
+.favorieten-knop.actief {
+    background:
+        rgba(255, 216, 77, 0.14);
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 216, 77, 0.4);
+}
+
+
+.alles-knop {
+    color:
+        #00bfff;
+
+    border-color:
+        #00bfff;
+
+    background:
+        rgba(0, 191, 255, 0.06);
+}
+
+
+.alles-knop:hover,
+.alles-knop.actief {
+    background:
+        rgba(0, 191, 255, 0.14);
+
+    box-shadow:
+        0 0 10px
+        rgba(0, 191, 255, 0.4);
+}
+
+
+/* ======================================
+   RECEPTEN HEADER
 ====================================== */
 
 .lijst-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        15px;
+
+    padding-bottom:
+        12px;
+
+    border-bottom:
+        1px solid #343441;
 }
+
 
 .lijst-header h2 {
-    margin: 0;
+    margin:
+        0;
 }
+
 
 #aantalRecepten {
-    color: #8b8178;
-    font-size: .9rem;
-    white-space: nowrap;
+    color:
+        #9999a8;
+
+    font-size:
+        0.9rem;
+
+    white-space:
+        nowrap;
 }
 
-.recept-kaart {
-    position: relative;
-    padding: 17px 17px 17px 20px;
-    margin-bottom: 13px;
-    border: 1px solid #e3d9cd;
-    border-radius: 14px;
-    background: linear-gradient(145deg, #fff, #fcfaf6);
-    box-shadow: 0 3px 10px rgba(73, 53, 35, .06);
-}
-
-.recept-kaart::before {
-    content: "";
-    position: absolute;
-    top: 14px;
-    bottom: 14px;
-    left: 0;
-    width: 4px;
-    border-radius: 0 5px 5px 0;
-    background: linear-gradient(180deg, #d95d39, #e3a632);
-}
-
-.recept-kop {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.recept-naam {
-    margin: 0;
-    font-size: 1.2rem;
-    line-height: 1.35;
-    color: #3c3028;
-}
-
-.kaart-favoriet-knop {
-    flex: 0 0 auto;
-    width: auto;
-    min-width: 42px;
-    padding: 6px 8px;
-    background: transparent;
-    border: 0;
-    color: #e0a52b;
-    box-shadow: none;
-    font-size: 1.2rem;
-}
-
-.kaart-favoriet-knop:hover {
-    background: #fff8e9;
-    box-shadow: none;
-    transform: scale(1.08);
-}
-
-.categorie {
-    display: inline-block;
-    max-width: 100%;
-    padding: 5px 10px;
-    margin-top: 10px;
-    border-radius: 20px;
-    background: #eef3eb;
-    border: 1px solid #cfdcc9;
-    color: #5f7957;
-    font-size: .83rem;
-    font-weight: 600;
-}
-
-.recept-notitie {
-    margin-top: 13px;
-    padding: 9px 0 9px 11px;
-    border-left: 3px solid #e2a735;
-    color: #71665d;
-    line-height: 1.55;
-    background: linear-gradient(90deg, #fffaf0, transparent);
-}
-
-.recept-acties {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.recept-acties button {
-    padding: 11px 8px;
-    font-size: .84rem;
-}
-
-.open-knop {
-    background: linear-gradient(135deg, #718b68, #607958);
-    border-color: #617957;
-}
-
-.bewerk-knop {
-    background: linear-gradient(135deg, #d27a45, #b96335);
-    border-color: #b86236;
-}
-
-.verwijder-knop {
-    background: linear-gradient(135deg, #c65a50, #ad443b);
-    border-color: #a94740;
-}
 
 /* ======================================
-   MELDINGEN
+   RECEPT KAART
 ====================================== */
 
-.zoek-melding,
-.lege-lijst {
-    text-align: center;
-    padding: 32px 12px;
-    color: #8b8178;
+#receptenLijst {
+    display:
+        grid;
+
+    gap:
+        14px;
 }
 
-.zoek-melding-icoon,
-.lege-icoon {
-    font-size: 3rem;
+
+.recept-kaart {
+    padding:
+        18px;
+
+    border:
+        2px solid #353544;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191923,
+            #101017
+        );
+
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.zoek-melding h3,
-.lege-lijst h3 {
-    color: #59483d;
-    margin-bottom: 6px;
+
+.recept-kaart:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #555568;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.35);
 }
 
-.zoek-melding p,
-.lege-lijst p {
-    margin-top: 0;
+
+.recept-kaart.favoriet {
+    border-color:
+        rgba(255, 216, 77, 0.45);
 }
+
+
+.recept-kaart h3 {
+    margin:
+        0 0 7px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.25rem;
+
+    line-height:
+        1.25;
+}
+
+
+.recept-categorie {
+    display:
+        inline-block;
+
+    margin-bottom:
+        10px;
+
+    padding:
+        5px
+        9px;
+
+    border:
+        1px solid #6d4aff;
+
+    border-radius:
+        6px;
+
+    color:
+        #bdabff;
+
+    background:
+        rgba(109, 74, 255, 0.08);
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        700;
+}
+
+
+.recept-notitie {
+    margin:
+        8px 0 14px;
+
+    padding:
+        10px;
+
+    border-left:
+        3px solid #6d4aff;
+
+    background:
+        rgba(109, 74, 255, 0.06);
+
+    color:
+        #c8c8d2;
+
+    font-size:
+        0.95rem;
+}
+
+
+/* ======================================
+   RECEPT ACTIES
+====================================== */
+
+.recept-acties {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin-top:
+        14px;
+}
+
+
+.recept-acties button,
+.recept-link {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        40px;
+
+    padding:
+        9px
+        13px;
+
+    border:
+        2px solid;
+
+    border-radius:
+        8px;
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    text-decoration:
+        none;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ======================================
+   FAVORIET KNOP
+====================================== */
+
+.favoriet-knop {
+    color:
+        #ffd84d;
+
+    border-color:
+        #ffd84d;
+
+    background:
+        rgba(255, 216, 77, 0.06);
+}
+
+
+.favoriet-knop:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 216, 77, 0.15);
+
+    box-shadow:
+        0 0 9px
+        rgba(255, 216, 77, 0.45);
+}
+
+
+/* ======================================
+   BEWERKEN KNOP
+====================================== */
+
+.bewerk-knop {
+    color:
+        #a66cff;
+
+    border-color:
+        #a66cff;
+
+    background:
+        rgba(166, 108, 255, 0.06);
+}
+
+
+.bewerk-knop:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(166, 108, 255, 0.15);
+
+    box-shadow:
+        0 0 9px
+        rgba(166, 108, 255, 0.45);
+}
+
+
+/* ======================================
+   VERWIJDEREN KNOP
+====================================== */
+
+.verwijder-knop {
+    color:
+        #ff5c7a;
+
+    border-color:
+        #ff5c7a;
+
+    background:
+        rgba(255, 92, 122, 0.06);
+}
+
+
+.verwijder-knop:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 92, 122, 0.15);
+
+    box-shadow:
+        0 0 9px
+        rgba(255, 92, 122, 0.45);
+}
+
+
+/* ======================================
+   RECEPT OPENEN
+====================================== */
+
+.recept-link {
+    color:
+        #00bfff;
+
+    border-color:
+        #00bfff;
+
+    background:
+        rgba(0, 191, 255, 0.06);
+}
+
+
+.recept-link:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(0, 191, 255, 0.15);
+
+    box-shadow:
+        0 0 9px
+        rgba(0, 191, 255, 0.45);
+}
+
+
+/* ======================================
+   LEGE LIJST
+====================================== */
+
+.lege-lijst,
+.zoek-melding {
+    padding:
+        30px
+        15px;
+
+    text-align:
+        center;
+
+    color:
+        #9b9baa;
+}
+
+
+.lege-icoon,
+.zoek-melding-icoon {
+    font-size:
+        42px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.lege-lijst h3,
+.zoek-melding h3 {
+    margin:
+        0 0 5px;
+
+    color:
+        #ddddE5;
+}
+
+
+.lege-lijst p,
+.zoek-melding p {
+    margin:
+        0;
+}
+
 
 /* ======================================
    BEHEER
 ====================================== */
 
-.beheer-tekst {
-    margin-top: 0;
-    color: #8b8178;
-    font-size: .88rem;
-    line-height: 1.5;
+.beheer {
+    border-color:
+        #403e52;
 }
 
-.wissen-knop {
-    background: linear-gradient(135deg, #b84c42, #963c35);
-    border-color: #963d36;
+
+.beheer-tekst {
+    color:
+        #a6a6b4;
+
+    margin:
+        0 0 15px;
 }
+
+
+.wissen-knop {
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    padding:
+        12px
+        16px;
+
+    border:
+        2px solid #ff4568;
+
+    border-radius:
+        9px;
+
+    color:
+        #ff6f8b;
+
+    background:
+        rgba(255, 69, 104, 0.06);
+
+    font-family:
+        inherit;
+
+    font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.wissen-knop:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 69, 104, 0.14);
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 69, 104, 0.45);
+}
+
 
 /* ======================================
    FOOTER
 ====================================== */
 
 footer {
-    text-align: center;
-    padding: 28px 15px 25px;
-    color: #938980;
-    font-size: .85rem;
-    letter-spacing: 1px;
+    margin-top:
+        30px;
+
+    padding:
+        25px
+        15px;
+
+    text-align:
+        center;
+
+    border-top:
+        2px solid #333342;
 }
+
 
 .footer-naam {
-    font-weight: 800;
-    color: #6f6259;
+    margin-bottom:
+        5px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.15rem;
+
+    font-weight:
+        900;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        2px;
+
+    text-shadow:
+        0 0 8px #6d4aff;
 }
+
 
 .footer-maker {
-    margin-top: 8px;
-    color: #b66a4e;
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    color:
+        #8e8e9d;
+
+    font-size:
+        0.85rem;
 }
+
 
 /* ======================================
-   FOCUS
+   VERBORGEN ELEMENTEN
 ====================================== */
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 2px solid #718b68;
-    outline-offset: 2px;
+[hidden] {
+    display:
+        none !important;
 }
+
 
 /* ======================================
    MOBIEL
 ====================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
     .app {
-        padding: 15px 12px 5px;
+        padding:
+            10px
+            10px
+            30px;
     }
+
+
+    .app-header {
+        padding:
+            25px
+            15px;
+
+        border-radius:
+            14px;
+    }
+
+
+    .header-icoon {
+        font-size:
+            40px;
+    }
+
 
     .app-header h1 {
-        font-size: 2rem;
+        font-size:
+            2rem;
+
+        letter-spacing:
+            1px;
     }
+
+
+    .app-header p {
+        font-size:
+            0.9rem;
+    }
+
 
     .snelmenu {
-        gap: 8px;
+        gap:
+            8px;
     }
 
+
     .snelmenu-knop {
-        min-height: 48px;
-        padding: 11px 6px;
-        font-size: .82rem;
+        min-height:
+            48px;
+
+        padding:
+            10px
+            8px;
+
+        font-size:
+            12px;
     }
+
 
     .formulier,
     .zoeken,
     .categorieen,
     .recepten,
     .beheer {
-        padding: 16px;
-        border-radius: 14px;
-        margin-bottom: 14px;
+        padding:
+            16px;
+
+        border-radius:
+            12px;
     }
 
-    input,
-    select,
-    textarea {
-        padding: 15px;
-        font-size: 1rem;
-    }
 
     .categorie-knoppen {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            7px;
     }
 
-    .categorie-knop {
-        min-height: 50px;
-        padding: 11px 6px;
-        font-size: .82rem;
+
+    .categorie-knop,
+    .favorieten-knop,
+    .alles-knop {
+        width:
+            100%;
+
+        min-height:
+            44px;
+
+        padding:
+            8px
+            6px;
+
+        font-size:
+            12px;
     }
+
+
+    .favorieten-knop,
+    .alles-knop {
+        margin-top:
+            8px;
+    }
+
+
+    .lijst-header {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            4px;
+    }
+
 
     .recept-kaart {
-        padding: 15px 15px 15px 18px;
+        padding:
+            15px;
     }
 
-    .recept-naam {
-        font-size: 1.1rem;
-    }
 
     .recept-acties {
-        grid-template-columns: 1fr;
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .recept-acties button {
-        min-height: 46px;
-        font-size: .9rem;
+
+    .recept-acties button,
+    .recept-link {
+        width:
+            100%;
+
+        min-height:
+            44px;
+
+        padding:
+            8px
+            6px;
+
+        font-size:
+            12px;
     }
 
-    footer {
-        padding: 25px 10px 20px;
-    }
-
-    .footer-maker {
-        font-size: .64rem;
-        letter-spacing: 1.5px;
-    }
 }
 
-@media (max-width: 380px) {
-    .app {
-        padding: 10px 8px 5px;
+
+/* ======================================
+   KLEINERE TELEFOONS
+====================================== */
+
+@media (max-width: 400px) {
+
+    .categorie-knoppen {
+        grid-template-columns:
+            1fr;
     }
+
+
+    .recept-acties {
+        grid-template-columns:
+            1fr;
+    }
+
 
     .app-header h1 {
-        font-size: 1.75rem;
+        font-size:
+            1.7rem;
     }
 
-    .categorie-knop {
-        font-size: .78rem;
-    }
 }
-
