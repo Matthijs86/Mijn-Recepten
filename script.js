@@ -52,6 +52,9 @@ const CATEGORIEEN = [
 // ELEMENTEN
 // ======================================
 
+const toevoegenKnop =
+    document.getElementById("toevoegenKnop");
+
 const naamInput =
     document.getElementById("naamInput");
 
@@ -138,6 +141,8 @@ document.addEventListener(
         receptenMigreren();
 
         formulierNormaalMaken();
+
+        formulierVerbergen();
 
         categorieKnoppenInstellen();
 
@@ -355,30 +360,111 @@ function receptenOpslaan() {
 
 
 // ======================================
+// FORMULIER TONEN
+// ======================================
+
+function formulierTonen() {
+
+    const formulier =
+        document.getElementById(
+            "formulier"
+        );
+
+
+    if (!formulier) {
+        return;
+    }
+
+
+    formulier.hidden = false;
+
+
+    setTimeout(
+        function () {
+
+            formulier.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+
+            if (
+                naamInput
+            ) {
+
+                naamInput.focus();
+
+            }
+
+        },
+        50
+    );
+
+}
+
+
+// ======================================
+// FORMULIER VERBERGEN
+// ======================================
+
+function formulierVerbergen() {
+
+    const formulier =
+        document.getElementById(
+            "formulier"
+        );
+
+
+    if (!formulier) {
+        return;
+    }
+
+
+    formulier.hidden = true;
+
+}
+
+
+// ======================================
 // FORMULIER LEEGMAKEN
 // ======================================
 
 function formulierLeegmaken() {
 
     if (naamInput) {
+
         naamInput.value = "";
+
     }
+
 
     if (urlInput) {
+
         urlInput.value = "";
+
     }
+
 
     if (categorieInput) {
+
         categorieInput.value = "";
+
     }
+
 
     if (notitieInput) {
+
         notitieInput.value = "";
+
     }
 
+
     if (favorietInput) {
+
         favorietInput.checked = false;
+
     }
+
 
     receptDatWordtBewerkt = null;
 
@@ -449,7 +535,7 @@ function geldigeUrl(url) {
 
 
 // ======================================
-// RECEPT TOEVOEGEN
+// RECEPT TOEVOEGEN / BEWERKEN
 // ======================================
 
 function receptToevoegen() {
@@ -471,7 +557,7 @@ function receptToevoegen() {
 
 
     // ----------------------------------
-    // NAAM
+    // NAAM CONTROLEREN
     // ----------------------------------
 
     if (!naam) {
@@ -488,7 +574,7 @@ function receptToevoegen() {
 
 
     // ----------------------------------
-    // URL
+    // URL CONTROLEREN
     // ----------------------------------
 
     if (!url) {
@@ -518,7 +604,7 @@ function receptToevoegen() {
 
 
     // ----------------------------------
-    // CATEGORIE
+    // CATEGORIE CONTROLEREN
     // ----------------------------------
 
     if (
@@ -539,7 +625,7 @@ function receptToevoegen() {
 
 
     // ==================================
-    // BEWERKEN
+    // BESTAAND RECEPT BEWERKEN
     // ==================================
 
     if (
@@ -631,6 +717,8 @@ function receptToevoegen() {
 
     formulierNormaalMaken();
 
+    formulierVerbergen();
+
     receptenWeergeven();
 
 }
@@ -655,6 +743,10 @@ function receptBewerken(id) {
     if (!recept) {
         return;
     }
+
+
+    // Formulier zichtbaar maken
+    formulierTonen();
 
 
     receptDatWordtBewerkt =
@@ -700,22 +792,6 @@ function receptBewerken(id) {
 
     }
 
-
-    const formulier =
-        document.getElementById(
-            "formulier"
-        );
-
-
-    if (formulier) {
-
-        formulier.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-
 }
 
 
@@ -726,6 +802,8 @@ function receptBewerken(id) {
 function bewerkenAnnuleren() {
 
     formulierNormaalMaken();
+
+    formulierVerbergen();
 
 }
 
@@ -818,7 +896,7 @@ function favorietWisselen(id) {
 
 
 // ======================================
-// CATEGORIEKNOPPEN INSTELLEN
+// CATEGORIEKNOPPEN
 // ======================================
 
 function categorieKnoppenInstellen() {
@@ -885,7 +963,6 @@ function categorieTellingenBijwerken() {
                 ).length;
 
 
-            // Bewaar originele tekst
             if (
                 !knop.dataset.origineleTekst
             ) {
@@ -910,9 +987,9 @@ function categorieTellingenBijwerken() {
     );
 
 
-    // ----------------------------------
-    // FAVORIETEN AANTAL
-    // ----------------------------------
+    // ==================================
+    // FAVORIETEN
+    // ==================================
 
     if (favorietenKnop) {
 
@@ -920,7 +997,10 @@ function categorieTellingenBijwerken() {
             recepten.filter(
                 function (recept) {
 
-                    return recept.favoriet === true;
+                    return (
+                        recept.favoriet ===
+                        true
+                    );
 
                 }
             ).length;
@@ -934,9 +1014,9 @@ function categorieTellingenBijwerken() {
     }
 
 
-    // ----------------------------------
+    // ==================================
     // ALLE RECEPTEN
-    // ----------------------------------
+    // ==================================
 
     if (allesKnop) {
 
@@ -947,10 +1027,6 @@ function categorieTellingenBijwerken() {
 
     }
 
-
-    // ----------------------------------
-    // TITEL
-    // ----------------------------------
 
     if (categorieTitel) {
 
@@ -963,7 +1039,7 @@ function categorieTellingenBijwerken() {
 
 
 // ======================================
-// KNOPPEN BIJWERKEN
+// KNOPPEN ACTIEF MAKEN
 // ======================================
 
 function knoppenBijwerken() {
@@ -1145,7 +1221,8 @@ function receptenWeergeven() {
 
                 const favorietMatch =
                     !alleenFavorieten ||
-                    recept.favoriet === true;
+                    recept.favoriet ===
+                    true;
 
 
                 return (
@@ -1159,7 +1236,7 @@ function receptenWeergeven() {
 
 
     // ==================================
-    // TOTAAL
+    // AANTAL RECEPTEN
     // ==================================
 
     if (aantalRecepten) {
@@ -1174,7 +1251,7 @@ function receptenWeergeven() {
 
 
     // ==================================
-    // TITEL
+    // LIJSTTITEL
     // ==================================
 
     if (lijstTitel) {
@@ -1331,7 +1408,7 @@ function receptenWeergeven() {
 
 
             // ==================================
-            // LINK
+            // RECEPT OPENEN
             // ==================================
 
             const link =
@@ -1361,7 +1438,7 @@ function receptenWeergeven() {
 
 
             // ==================================
-            // ACTIES
+            // ACTIEKNOPPEN
             // ==================================
 
             const acties =
@@ -1479,7 +1556,7 @@ function receptenWeergeven() {
 
 
             // ==================================
-            // ACTIES TOEVOEGEN
+            // ACTIES OPBOUWEN
             // ==================================
 
             acties.appendChild(
@@ -1541,6 +1618,26 @@ if (zoekInput) {
         function () {
 
             receptenWeergeven();
+
+        }
+    );
+
+}
+
+
+// ======================================
+// TOEVOEGEN KNOP
+// ======================================
+
+if (toevoegenKnop) {
+
+    toevoegenKnop.addEventListener(
+        "click",
+        function () {
+
+            formulierNormaalMaken();
+
+            formulierTonen();
 
         }
     );
@@ -1675,7 +1772,7 @@ function allesWissen() {
     }
 
 
-    // Maak eerst een backup
+    // Eerst een backup maken
     localStorage.setItem(
         OPSLAG_BACKUP,
         JSON.stringify(
@@ -1704,6 +1801,8 @@ function allesWissen() {
     categorieTellingenBijwerken();
 
     formulierNormaalMaken();
+
+    formulierVerbergen();
 
     receptenWeergeven();
 
@@ -1810,6 +1909,10 @@ function backupTerugzetten() {
         receptenOpslaan();
 
         categorieTellingenBijwerken();
+
+        formulierNormaalMaken();
+
+        formulierVerbergen();
 
         receptenWeergeven();
 
@@ -2113,6 +2216,8 @@ function backupImporteren(bestand) {
 
                 formulierNormaalMaken();
 
+                formulierVerbergen();
+
                 receptenWeergeven();
 
 
@@ -2277,6 +2382,12 @@ window.backupImporteren =
 
 window.backupBestandKiezen =
     backupBestandKiezen;
+
+window.formulierTonen =
+    formulierTonen;
+
+window.formulierVerbergen =
+    formulierVerbergen;
 
 
 // ======================================
