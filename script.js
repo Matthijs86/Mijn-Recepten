@@ -34,6 +34,7 @@ const CATEGORIEEN = [
     "Soepen",
     "Slowcook",
     "Ontbijt",
+    "BBQ",
 
     // Wereldkeukens
     "Aziatisch",
