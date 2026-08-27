@@ -142,12 +142,40 @@
             <p>Probeer een andere zoekterm of categorie.</p>
         </div>
     </section>
-
     <section class="beheer" id="beheer">
-        <h2>⚙️ Beheer</h2>
-        <p class="beheer-tekst">Beheer je opgeslagen recepten. Het verwijderen van alle recepten vraagt eerst om een bevestiging.</p>
-        <button type="button" id="allesWissenKnop" class="wissen-knop">🗑️ Alles wissen</button>
-    </section>
+    <h2>⚙️ Beheer</h2>
+
+    <p class="beheer-tekst">
+        Beheer en beveilig je opgeslagen recepten.
+    </p>
+
+    <div class="beheer-knoppen">
+
+        <button
+            type="button"
+            class="backup-knop"
+            onclick="backupMaken()">
+            💾 Backup opslaan
+        </button>
+
+        <button
+            type="button"
+            class="backup-knop"
+            onclick="backupBestandKiezen()">
+            📂 Backup uploaden
+        </button>
+
+        <button
+            type="button"
+            id="allesWissenKnop"
+            class="wissen-knop">
+            🗑️ Alles wissen
+        </button>
+
+    </div>
+</section>
+
+ 
 
     <footer>
         <div class="footer-naam">Mijn Recepten</div>
