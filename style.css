@@ -1450,3 +1450,168 @@ footer {
     }
 
 }
+/* ======================================
+   BEHEER KNOPPEN
+====================================== */
+
+.beheer-knoppen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+
+/* ======================================
+   BACKUP OPSLAAN - BLAUW
+====================================== */
+
+.backup-knop {
+    flex: 1 1 200px;
+
+    min-height: 48px;
+
+    padding: 12px 18px;
+
+    border: 2px solid #2196f3;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1976d2,
+            #0d47a1
+        );
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px
+        rgba(33, 150, 243, 0.35);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+
+/* ======================================
+   BACKUP UPLOADEN - GEEL
+====================================== */
+
+.backup-knop:nth-child(2) {
+
+    border-color: #ffd600;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fbc02d,
+            #f57f17
+        );
+
+    color: #171717;
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 214, 0, 0.35);
+}
+
+
+/* ======================================
+   HOVER - BACKUP OPSLAAN
+====================================== */
+
+.backup-knop:first-child:hover {
+
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #2196f3,
+            #1565c0
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(33, 150, 243, 0.65);
+}
+
+
+/* ======================================
+   HOVER - BACKUP UPLOADEN
+====================================== */
+
+.backup-knop:nth-child(2):hover {
+
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffeb3b,
+            #f9a825
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 214, 0, 0.65);
+}
+
+
+/* ======================================
+   ACTIEF / INGEDRUKT
+====================================== */
+
+.backup-knop:active {
+
+    transform: translateY(1px);
+
+    box-shadow:
+        0 0 8px
+        rgba(255, 255, 255, 0.25);
+}
+
+
+/* ======================================
+   FOCUS
+====================================== */
+
+.backup-knop:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255, 255, 255, 0.7);
+
+    outline-offset: 3px;
+}
+
+
+/* ======================================
+   MOBIEL
+====================================== */
+
+@media (max-width: 600px) {
+
+    .beheer-knoppen {
+        flex-direction: column;
+    }
+
+    .backup-knop,
+    .wissen-knop {
+        width: 100%;
+        flex: none;
+    }
+
+}
