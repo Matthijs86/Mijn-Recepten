@@ -17,6 +17,9 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ======================================
+   BODY / KOOKTHEMA ACHTERGROND
+====================================== */
 
 body {
     margin: 0;
@@ -30,9 +33,9 @@ body {
     background:
         radial-gradient(
             circle at top,
-            #1d2635 0%,
-            #101722 45%,
-            #090e16 100%
+            #6b3038 0%,
+            #4b1f29 42%,
+            #32151d 100%
         );
 
     color: #eeeeee;
@@ -256,29 +259,33 @@ body {
 ====================================== */
 
 
+/* ======================================
+   GROTE BLOKKEN
+   LICHT KOOKTHEMA
+====================================== */
+
 .formulier,
 .zoeken,
 .categorieen,
 .recepten,
 .beheer {
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 
-    padding:
-        22px;
+    padding: 22px;
 
     border:
-        1px solid #465164;
+        1px solid #c8c8c8;
 
-    border-radius:
-        15px;
+    border-radius: 15px;
 
     background:
         linear-gradient(
             145deg,
-            #303a4a,
-            #252e3c
+            #eeeeeb,
+            #dcdedc
         );
+
+    color: #202020;
 
     box-shadow:
         0 8px 30px
