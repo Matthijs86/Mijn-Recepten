@@ -30,9 +30,9 @@ body {
     background:
         radial-gradient(
             circle at top,
-            #394354 0%,
-            #252d3a 45%,
-            #1b222d 100%
+            #1d2635 0%,
+            #101722 45%,
+            #090e16 100%
         );
 
     color: #eeeeee;
@@ -255,6 +255,7 @@ body {
    ALGEMENE SECTIES
 ====================================== */
 
+
 .formulier,
 .zoeken,
 .categorieen,
@@ -267,16 +268,21 @@ body {
         22px;
 
     border:
-        1px solid #383847;
+        1px solid #465164;
 
     border-radius:
         15px;
 
     background:
-        rgba(18, 18, 27, 0.94);
+        linear-gradient(
+            145deg,
+            #303a4a,
+            #252e3c
+        );
 
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.25);
+        0 8px 30px
+        rgba(0, 0, 0, 0.35);
 }
 
 
