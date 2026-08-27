@@ -82,11 +82,11 @@ body {
     border-radius: 18px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(25, 25, 38, 0.98),
-            rgba(12, 12, 20, 0.98)
-        );
+    linear-gradient(
+        145deg,
+        #6b3038,
+        #421923
+    );
 
     box-shadow:
         0 0 10px rgba(109, 74, 255, 0.35),
@@ -1621,4 +1621,32 @@ footer {
         flex: none;
     }
 
+}
+/* ======================================
+   BORDEAUX SECTIES
+====================================== */
+
+.categorieen,
+.recepten {
+    background:
+        linear-gradient(
+            145deg,
+            #6b3038,
+            #421923
+        );
+
+    border-color:
+        #82434c;
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.40);
+}
+.categorieen h2,
+.categorieen h3,
+.recepten h2 {
+    color: #ffffff;
 }
