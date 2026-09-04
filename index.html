@@ -21,21 +21,39 @@
 
     <nav class="snelmenu" aria-label="Snelle navigatie">
         <button type="button" id="toevoegenKnop" class="snelmenu-knop toevoegen-knop">
-    ➕ TOEVOEGEN</button>
-        <a href="#beheer" class="snelmenu-knop beheer-knop">⚙️ BEHEER</a>
+            ➕ TOEVOEGEN
+        </button>
+
+        <a href="#beheer" class="snelmenu-knop beheer-knop">
+            ⚙️ BEHEER
+        </a>
     </nav>
 
     <section class="formulier" id="formulier">
         <h2 id="formulierTitel">Recept toevoegen</h2>
 
         <label for="naamInput">Receptnaam</label>
-        <input type="text" id="naamInput" placeholder="Bijvoorbeeld: Spaghetti Bolognese" autocomplete="off">
+        <input
+            type="text"
+            id="naamInput"
+            placeholder="Bijvoorbeeld: Spaghetti Bolognese"
+            autocomplete="off"
+        >
 
         <label for="urlInput">Receptlink</label>
-        <input type="url" id="urlInput" placeholder="https://..." autocomplete="url">
-        <small class="veld-hulp">Instagram, Facebook of een andere website</small>
+        <input
+            type="url"
+            id="urlInput"
+            placeholder="https://..."
+            autocomplete="url"
+        >
+
+        <small class="veld-hulp">
+            Instagram, Facebook of een andere website
+        </small>
 
         <label for="categorieInput">Categorie</label>
+
         <select id="categorieInput">
             <option value="">Kies een categorie</option>
 
@@ -68,63 +86,164 @@
         </select>
 
         <label for="notitieInput">Eigen notitie</label>
-        <textarea id="notitieInput" placeholder="Bijvoorbeeld: iets minder zout gebruiken..."></textarea>
+
+        <textarea
+            id="notitieInput"
+            placeholder="Bijvoorbeeld: iets minder zout gebruiken..."
+        ></textarea>
 
         <label class="favoriet-keuze">
             <input type="checkbox" id="favorietInput">
             <span>⭐ Toevoegen aan favorieten</span>
         </label>
 
-        <button id="opslaanKnop" type="button">+ Recept opslaan</button>
-        <button id="annulerenKnop" type="button" class="annuleren-knop" hidden>Annuleren</button>
+        <button id="opslaanKnop" type="button">
+            + Recept opslaan
+        </button>
+
+        <button
+            id="annulerenKnop"
+            type="button"
+            class="annuleren-knop"
+            hidden
+        >
+            Annuleren
+        </button>
     </section>
 
     <section class="zoeken">
         <h2>🔎 Recept zoeken</h2>
-        <input type="search" id="zoekInput" placeholder="Zoek op naam, categorie of notitie..." autocomplete="off">
+
+        <input
+            type="search"
+            id="zoekInput"
+            placeholder="Zoek op naam, categorie of notitie..."
+            autocomplete="off"
+        >
     </section>
 
     <section class="categorieen">
-     <h2 id="categorieTitel">🍽️ Categorieën</h2>
+
+        <h2 id="categorieTitel">🍽️ Categorieën</h2>
 
         <div class="categorie-groep">
             <h3>🍽️ Type gerecht</h3>
+
             <div class="categorie-knoppen">
-                <button type="button" class="categorie-knop" data-categorie="Vis">🐟 Vis</button>
-                <button type="button" class="categorie-knop" data-categorie="Vlees">🥩 Vlees</button>
-                <button type="button" class="categorie-knop" data-categorie="Kip">🍗 Kip</button>
-                <button type="button" class="categorie-knop" data-categorie="Groente bijgerechten">🥦 Groente bijgerechten</button>
-                <button type="button" class="categorie-knop" data-categorie="Aardappel bijgerechten">🥔 Aardappel bijgerechten</button>
-                <button type="button" class="categorie-knop" data-categorie="Snacks">🍟 Snacks</button>
-                <button type="button" class="categorie-knop" data-categorie="Burgers en Sandwiches">🍔 Burgers en Sandwiches</button>
-                <button type="button" class="categorie-knop" data-categorie="Brood/Bakken">🍞 Brood/Bakken</button>
-                <button type="button" class="categorie-knop" data-categorie="Pasta's">🍝 Pasta's</button>
-                <button type="button" class="categorie-knop" data-categorie="Soepen">🍲 Soepen</button>
-                <button type="button" class="categorie-knop" data-categorie="Slowcook">🥘 Slowcook</button>
-                <button type="button" class="categorie-knop" data-categorie="Ontbijt">🍳 Ontbijt</button>
-               <button type="button" class="categorie-knop" data-categorie="BBQ">🔥 BBQ</button>
+                <button type="button" class="categorie-knop" data-categorie="Vis">
+                    🐟 Vis
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Vlees">
+                    🥩 Vlees
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Kip">
+                    🍗 Kip
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Groente bijgerechten">
+                    🥦 Groente bijgerechten
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Aardappel bijgerechten">
+                    🥔 Aardappel bijgerechten
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Snacks">
+                    🍟 Snacks
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Burgers en Sandwiches">
+                    🍔 Burgers en Sandwiches
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Brood/Bakken">
+                    🍞 Brood/Bakken
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Pasta's">
+                    🍝 Pasta's
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Soepen">
+                    🍲 Soepen
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Slowcook">
+                    🥘 Slowcook
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Ontbijt">
+                    🍳 Ontbijt
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="BBQ">
+                    🔥 BBQ
+                </button>
             </div>
         </div>
 
         <div class="categorie-groep wereldkeukens">
             <h3>🌎 Wereldkeukens</h3>
+
             <div class="categorie-knoppen">
-                <button type="button" class="categorie-knop" data-categorie="Aziatisch">🥢 Aziatisch</button>
-                <button type="button" class="categorie-knop" data-categorie="Indiaas">🇮🇳 Indiaas</button>
-                <button type="button" class="categorie-knop" data-categorie="Italiaans">🇮🇹 Italiaans</button>
-                <button type="button" class="categorie-knop" data-categorie="Nederlands">🇳🇱 Nederlands</button>
-                <button type="button" class="categorie-knop" data-categorie="Engels">🇬🇧 Engels</button>
-                <button type="button" class="categorie-knop" data-categorie="Mexicaans">🇲🇽 Mexicaans</button>
-                <button type="button" class="categorie-knop" data-categorie="Latin">🌎 Latin</button>
-                <button type="button" class="categorie-knop" data-categorie="Afrikaans">🌍 Afrikaans</button>
+
+                <button type="button" class="categorie-knop" data-categorie="Aziatisch">
+                    🥢 Aziatisch
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Indiaas">
+                    🇮🇳 Indiaas
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Italiaans">
+                    🇮🇹 Italiaans
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Nederlands">
+                    🇳🇱 Nederlands
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Engels">
+                    🇬🇧 Engels
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Mexicaans">
+                    🇲🇽 Mexicaans
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Latin">
+                    🌎 Latin
+                </button>
+
+                <button type="button" class="categorie-knop" data-categorie="Afrikaans">
+                    🌍 Afrikaans
+                </button>
+
             </div>
         </div>
 
-        <button type="button" id="favorietenKnop" class="favorieten-knop">⭐ Favorieten</button>
-        <button type="button" id="allesKnop" class="alles-knop">📖 Alle recepten</button>
+        <button
+            type="button"
+            id="favorietenKnop"
+            class="favorieten-knop"
+        >
+            ⭐ Favorieten
+        </button>
+
+        <button
+            type="button"
+            id="allesKnop"
+            class="alles-knop"
+        >
+            📖 Alle recepten
+        </button>
+
     </section>
 
     <section class="recepten">
+
         <div class="lijst-header">
             <h2 id="lijstTitel">Mijn recepten</h2>
             <span id="aantalRecepten">0 recepten</span>
@@ -143,49 +262,60 @@
             <h3>Geen recepten gevonden</h3>
             <p>Probeer een andere zoekterm of categorie.</p>
         </div>
+
     </section>
+
     <section class="beheer" id="beheer">
-    <h2>⚙️ Beheer</h2>
 
-    <p class="beheer-tekst">
-        Beheer en beveilig je opgeslagen recepten.
-    </p>
+        <h2>⚙️ Beheer</h2>
 
-    <div class="beheer-knoppen">
+        <p class="beheer-tekst">
+            Beheer en beveilig je opgeslagen recepten.
+        </p>
 
-        <button
-            type="button"
-            class="backup-knop"
-            onclick="backupMaken()">
-            💾 Backup opslaan
-        </button>
+        <div class="beheer-knoppen">
 
-        <button
-            type="button"
-            class="backup-knop"
-            onclick="backupBestandKiezen()">
-            📂 Backup uploaden
-        </button>
+            <!-- ECHTE BACKUP ALS JSON-BESTAND -->
+            <button
+                type="button"
+                class="backup-knop"
+                onclick="receptenDownloaden()"
+            >
+                💾 Backup downloaden
+            </button>
 
-        <button
-            type="button"
-            id="allesWissenKnop"
-            class="wissen-knop">
-            🗑️ Alles wissen
-        </button>
+            <!-- BESTAANDE BACKUP UPLOAD -->
+            <button
+                type="button"
+                class="backup-knop"
+                onclick="backupBestandKiezen()"
+            >
+                📂 Backup uploaden
+            </button>
 
-    </div>
-</section>
+            <button
+                type="button"
+                id="allesWissenKnop"
+                class="wissen-knop"
+            >
+                🗑️ Alles wissen
+            </button>
 
- 
+        </div>
+
+    </section>
 
     <footer>
         <div class="footer-naam">Mijn Recepten</div>
-        <div class="footer-maker">Made by Matthijs Karst Boersma</div>
+        <div class="footer-maker">
+            Made by Matthijs Karst Boersma
+        </div>
     </footer>
+
 </main>
 
 <script src="script.js"></script>
+
 <script>
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
@@ -195,6 +325,7 @@ if ("serviceWorker" in navigator) {
     });
 }
 </script>
+
 </body>
 </html>
 
