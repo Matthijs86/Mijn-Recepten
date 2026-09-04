@@ -16,13 +16,13 @@
     ],
     "icons": [
         {
-            "src": "/Mijn-Recepten/ijn-recepten-icon-192x192.png",
+            "src": "/Mijn-Recepten/mijn-recepten-icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/Mijn-Recepten/ijn-recepten-icon-512x512.png",
+            "src": "/Mijn-Recepten/mijn-recepten-icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
