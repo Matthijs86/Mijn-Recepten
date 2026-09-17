@@ -80,9 +80,6 @@ const annulerenKnop =
 const formulierTitel =
     document.getElementById("formulierTitel");
 
-const zoekInput =
-    document.getElementById("zoekInput");
-
 const receptenLijst =
     document.getElementById("receptenLijst");
 
@@ -127,6 +124,12 @@ let huidigeCategorie = null;
 let alleenFavorieten = false;
 
 let receptDatWordtBewerkt = null;
+
+// Wordt true zodra de gebruiker een
+// categorie, favorieten of alle recepten
+// heeft aangeklikt. Zolang dit false is,
+// blijft de receptenlijst verborgen.
+let weergaveGestart = false;
 
 
 // ======================================
@@ -919,6 +922,9 @@ function categorieKnoppenInstellen() {
                     alleenFavorieten =
                         false;
 
+                    weergaveGestart =
+                        true;
+
 
                     knoppenBijwerken();
 
@@ -1074,7 +1080,8 @@ function knoppenBijwerken() {
         allesKnop.classList.toggle(
             "actief",
             huidigeCategorie === null &&
-            !alleenFavorieten
+            !alleenFavorieten &&
+            weergaveGestart
         );
 
     }
@@ -1126,6 +1133,9 @@ function toonAlleRecepten() {
     alleenFavorieten =
         false;
 
+    weergaveGestart =
+        true;
+
 
     knoppenBijwerken();
 
@@ -1146,6 +1156,9 @@ function toonFavorieten() {
         null;
 
     alleenFavorieten =
+        true;
+
+    weergaveGestart =
         true;
 
 
@@ -1172,46 +1185,67 @@ function receptenWeergeven() {
     receptenLijst.innerHTML = "";
 
 
-    const zoekterm =
-        zoekInput
-            ? zoekInput.value
-                .trim()
-                .toLowerCase()
-            : "";
+    // ==================================
+    // AANTAL RECEPTEN (altijd zichtbaar)
+    // ==================================
+
+    if (aantalRecepten) {
+
+        aantalRecepten.textContent =
+            recepten.length === 1
+                ? "1 recept"
+                : recepten.length +
+                  " recepten";
+
+    }
+
+
+    // ==================================
+    // NOG GEEN KEUZE GEMAAKT
+    // ==================================
+
+    if (!weergaveGestart) {
+
+        if (lijstTitel) {
+
+            lijstTitel.textContent =
+                "Mijn recepten";
+
+        }
+
+
+        if (zoekMelding) {
+
+            zoekMelding.hidden =
+                false;
+
+        }
+
+
+        if (legeLijst) {
+
+            legeLijst.hidden =
+                true;
+
+        }
+
+
+        return;
+
+    }
+
+
+    if (zoekMelding) {
+
+        zoekMelding.hidden =
+            true;
+
+    }
 
 
     const gefilterdeRecepten =
         recepten.filter(
             function (recept) {
-
-                const naam =
-                    String(
-                        recept.naam
-                    ).toLowerCase();
-
-                const categorie =
-                    String(
-                        recept.categorie
-                    ).toLowerCase();
-
-                const notitie =
-                    String(
-                        recept.notitie
-                    ).toLowerCase();
-
-
-                const zoekMatch =
-                    !zoekterm ||
-                    naam.includes(
-                        zoekterm
-                    ) ||
-                    categorie.includes(
-                        zoekterm
-                    ) ||
-                    notitie.includes(
-                        zoekterm
-                    );
-
 
                 const categorieMatch =
                     huidigeCategorie ===
@@ -1227,28 +1261,12 @@ function receptenWeergeven() {
 
 
                 return (
-                    zoekMatch &&
                     categorieMatch &&
                     favorietMatch
                 );
 
             }
         );
-
-
-    // ==================================
-    // AANTAL RECEPTEN
-    // ==================================
-
-    if (aantalRecepten) {
-
-        aantalRecepten.textContent =
-            recepten.length === 1
-                ? "1 recept"
-                : recepten.length +
-                  " recepten";
-
-    }
 
 
     // ==================================
@@ -1279,18 +1297,6 @@ function receptenWeergeven() {
                 "Mijn recepten";
 
         }
-
-    }
-
-
-    // ==================================
-    // ZOEKMELDING
-    // ==================================
-
-    if (zoekMelding) {
-
-        zoekMelding.hidden =
-            true;
 
     }
 
@@ -1601,24 +1607,6 @@ function receptenWeergeven() {
             receptenLijst.appendChild(
                 kaart
             );
-
-        }
-    );
-
-}
-
-
-// ======================================
-// ZOEKEN
-// ======================================
-
-if (zoekInput) {
-
-    zoekInput.addEventListener(
-        "input",
-        function () {
-
-            receptenWeergeven();
 
         }
     );
@@ -2394,3 +2382,4 @@ window.formulierVerbergen =
 // ======================================
 // EINDE SCRIPT
 // ======================================
+
