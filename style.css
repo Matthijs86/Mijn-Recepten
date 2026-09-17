@@ -5,6 +5,25 @@
 
 
 /* ======================================
+   KLEURENPALET (3 KLEUREN)
+====================================== */
+
+:root {
+    /* Basis: donkere navy achtergrond */
+    --base-donker: #0d0d16;
+    --base-licht: #1b1b2b;
+
+    /* Neon accent 1: paars */
+    --accent-paars: #a66cff;
+    --accent-paars-glow: rgba(166, 108, 255, 0.35);
+
+    /* Neon accent 2: blauw */
+    --accent-blauw: #00bfff;
+    --accent-blauw-glow: rgba(0, 191, 255, 0.35);
+}
+
+
+/* ======================================
    BASIS
 ====================================== */
 
@@ -33,9 +52,9 @@ body {
     background:
         radial-gradient(
             circle at top,
-            #6b3038 0%,
-            #4b1f29 42%,
-            #32151d 100%
+            var(--base-licht) 0%,
+            var(--base-donker) 55%,
+            #08080f 100%
         );
 
     color: #eeeeee;
@@ -77,19 +96,19 @@ body {
     margin-bottom: 20px;
 
     border:
-        2px solid #6d4aff;
+        2px solid var(--accent-paars);
 
     border-radius: 18px;
 
     background:
     linear-gradient(
         145deg,
-        #6b3038,
-        #421923
+        var(--base-licht),
+        var(--base-donker)
     );
 
     box-shadow:
-        0 0 10px rgba(109, 74, 255, 0.35),
+        0 0 10px var(--accent-paars-glow),
         0 0 30px rgba(0, 191, 255, 0.12);
 }
 
@@ -126,8 +145,8 @@ body {
         #ffffff;
 
     text-shadow:
-        3px 3px 0 #6d4aff,
-        0 0 12px #00bfff;
+        3px 3px 0 var(--accent-paars),
+        0 0 12px var(--accent-blauw);
 }
 
 
@@ -274,18 +293,18 @@ body {
     padding: 22px;
 
     border:
-        1px solid #c8c8c8;
+        1px solid rgba(166, 108, 255, 0.25);
 
     border-radius: 15px;
 
     background:
         linear-gradient(
             145deg,
-            #eeeeeb,
-            #dcdedc
+            var(--base-licht),
+            var(--base-donker)
         );
 
-    color: #202020;
+    color: #eeeeee;
 
     box-shadow:
         0 8px 30px
@@ -347,13 +366,13 @@ body {
         14px;
 
     border:
-        2px solid #3e3e50;
+        2px solid rgba(0, 191, 255, 0.25);
 
     border-radius:
         9px;
 
     background:
-        #0d0d13;
+        var(--base-donker);
 
     color:
         #ffffff;
@@ -445,7 +464,7 @@ body {
         20px;
 
     accent-color:
-        #ffd84d;
+        var(--accent-paars);
 
     cursor:
         pointer;
@@ -613,13 +632,13 @@ body {
         13px;
 
     border:
-        2px solid #454554;
+        2px solid rgba(0, 191, 255, 0.2);
 
     border-radius:
         8px;
 
     background:
-        #171720;
+        var(--base-donker);
 
     color:
         #dcdce5;
@@ -693,24 +712,24 @@ body {
 
 .favorieten-knop {
     color:
-        #ffd84d;
+        var(--accent-paars);
 
     border-color:
-        #ffd84d;
+        var(--accent-paars);
 
     background:
-        rgba(255, 216, 77, 0.06);
+        rgba(166, 108, 255, 0.06);
 }
 
 
 .favorieten-knop:hover,
 .favorieten-knop.actief {
     background:
-        rgba(255, 216, 77, 0.14);
+        rgba(166, 108, 255, 0.14);
 
     box-shadow:
         0 0 10px
-        rgba(255, 216, 77, 0.4);
+        var(--accent-paars-glow);
 }
 
 
@@ -839,7 +858,7 @@ body {
 
 .recept-kaart.favoriet {
     border-color:
-        rgba(255, 216, 77, 0.45);
+        var(--accent-paars-glow);
 }
 
 
@@ -870,7 +889,7 @@ body {
         9px;
 
     border:
-        1px solid #6d4aff;
+        1px solid var(--accent-paars);
 
     border-radius:
         6px;
@@ -897,7 +916,7 @@ body {
         10px;
 
     border-left:
-        3px solid #6d4aff;
+        3px solid var(--accent-paars);
 
     background:
         rgba(109, 74, 255, 0.06);
@@ -981,13 +1000,13 @@ body {
 
 .favoriet-knop {
     color:
-        #ffd84d;
+        var(--accent-paars);
 
     border-color:
-        #ffd84d;
+        var(--accent-paars);
 
     background:
-        rgba(255, 216, 77, 0.06);
+        rgba(166, 108, 255, 0.06);
 }
 
 
@@ -996,11 +1015,11 @@ body {
         translateY(-2px);
 
     background:
-        rgba(255, 216, 77, 0.15);
+        rgba(166, 108, 255, 0.15);
 
     box-shadow:
         0 0 9px
-        rgba(255, 216, 77, 0.45);
+        var(--accent-paars-glow);
 }
 
 
@@ -1039,13 +1058,13 @@ body {
 
 .verwijder-knop {
     color:
-        #ff5c7a;
+        var(--accent-blauw);
 
     border-color:
-        #ff5c7a;
+        var(--accent-blauw);
 
     background:
-        rgba(255, 92, 122, 0.06);
+        rgba(0, 191, 255, 0.06);
 }
 
 
@@ -1054,11 +1073,11 @@ body {
         translateY(-2px);
 
     background:
-        rgba(255, 92, 122, 0.15);
+        rgba(0, 191, 255, 0.15);
 
     box-shadow:
         0 0 9px
-        rgba(255, 92, 122, 0.45);
+        var(--accent-blauw-glow);
 }
 
 
@@ -1167,16 +1186,20 @@ body {
         16px;
 
     border:
-        2px solid #ff4568;
+        2px solid var(--accent-paars);
 
     border-radius:
         9px;
 
     color:
-        #ff6f8b;
+        #ffffff;
 
     background:
-        rgba(255, 69, 104, 0.06);
+        linear-gradient(
+            145deg,
+            var(--accent-paars),
+            #6d3fd6
+        );
 
     font-family:
         inherit;
@@ -1201,12 +1224,9 @@ body {
     transform:
         translateY(-2px);
 
-    background:
-        rgba(255, 69, 104, 0.14);
-
     box-shadow:
-        0 0 10px
-        rgba(255, 69, 104, 0.45);
+        0 0 18px
+        var(--accent-paars-glow);
 }
 
 
@@ -1250,7 +1270,7 @@ footer {
         2px;
 
     text-shadow:
-        0 0 8px #6d4aff;
+        0 0 8px var(--accent-paars);
 }
 
 
@@ -1480,15 +1500,15 @@ footer {
 
     padding: 12px 18px;
 
-    border: 2px solid #2196f3;
+    border: 2px solid var(--accent-blauw);
 
     border-radius: 10px;
 
     background:
         linear-gradient(
             145deg,
-            #1976d2,
-            #0d47a1
+            #009fd6,
+            #0a6fa0
         );
 
     color: #ffffff;
@@ -1503,7 +1523,7 @@ footer {
 
     box-shadow:
         0 0 10px
-        rgba(33, 150, 243, 0.35);
+        var(--accent-blauw-glow);
 
     transition:
         transform 0.15s ease,
@@ -1518,20 +1538,20 @@ footer {
 
 .backup-knop:nth-child(2) {
 
-    border-color: #ffd600;
+    border-color: var(--accent-paars);
 
     background:
         linear-gradient(
             145deg,
-            #fbc02d,
-            #f57f17
+            var(--accent-paars),
+            #6d3fd6
         );
 
-    color: #171717;
+    color: #ffffff;
 
     box-shadow:
         0 0 10px
-        rgba(255, 214, 0, 0.35);
+        var(--accent-paars-glow);
 }
 
 
@@ -1546,13 +1566,13 @@ footer {
     background:
         linear-gradient(
             145deg,
-            #2196f3,
-            #1565c0
+            #33cfff,
+            var(--accent-blauw)
         );
 
     box-shadow:
         0 0 18px
-        rgba(33, 150, 243, 0.65);
+        var(--accent-blauw-glow);
 }
 
 
@@ -1567,13 +1587,13 @@ footer {
     background:
         linear-gradient(
             145deg,
-            #ffeb3b,
-            #f9a825
+            #b985ff,
+            var(--accent-paars)
         );
 
     box-shadow:
         0 0 18px
-        rgba(255, 214, 0, 0.65);
+        var(--accent-paars-glow);
 }
 
 
@@ -1621,32 +1641,4 @@ footer {
         flex: none;
     }
 
-}
-/* ======================================
-   BORDEAUX SECTIES
-====================================== */
-
-.categorieen,
-.recepten {
-    background:
-        linear-gradient(
-            145deg,
-            #6b3038,
-            #421923
-        );
-
-    border-color:
-        #82434c;
-
-    color:
-        #ffffff;
-
-    box-shadow:
-        0 8px 30px
-        rgba(0, 0, 0, 0.40);
-}
-.categorieen h2,
-.categorieen h3,
-.recepten h2 {
-    color: #ffffff;
 }
