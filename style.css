@@ -9,28 +9,38 @@
 ====================================== */
 
 :root {
-    /* Basis: donkere navy voor kaarten/panelen */
-    --base-donker: #0d0d16;
-    --base-licht: #1b1b2b;
+    /* Rustige lichtblauwe basis */
+    --base-donker: #17324a;
+    --base-licht: #cfe7f3;
 
-    /* Lichte pagina-achtergrond: lichtblauw */
     --pagina-licht: #eaf6ff;
     --pagina-midden: #d3ecfc;
     --pagina-donker: #bfe1f7;
 
-    /* Velvet: dieppaarse tint voor categorieknoppen */
-    --velvet-licht: #4a1e46;
-    --velvet-donker: #29122a;
+    /* Velvet */
+    --velvet-licht: #5a2857;
+    --velvet-donker: #321936;
 
-    /* Neon accent 1: paars (lichte + donkere tint) */
-    --accent-paars: #a66cff;
-    --accent-paars-donker: #7c3fd9;
-    --accent-paars-glow: rgba(166, 108, 255, 0.35);
+    /* Blauw */
+    --accent-blauw: #38bfe8;
+    --accent-blauw-donker: #247fa5;
+    --accent-blauw-licht: #72d6f2;
+    --accent-blauw-glow: rgba(56, 191, 232, 0.32);
 
-    /* Neon accent 2: blauw (lichte + donkere tint) */
-    --accent-blauw: #00bfff;
-    --accent-blauw-donker: #0090c2;
-    --accent-blauw-glow: rgba(0, 191, 255, 0.35);
+    /* Paars */
+    --accent-paars: #9a70e8;
+    --accent-paars-donker: #704ab8;
+    --accent-paars-licht: #b99af2;
+    --accent-paars-glow: rgba(154, 112, 232, 0.30);
+
+    /* Tekst */
+    --tekst-donker: #172b3a;
+    --tekst-midden: #304b5c;
+    --tekst-licht: #eef7fb;
+
+    /* Donker navy voor recepttegels */
+    --recept-navy: #172c43;
+    --recept-navy-diep: #102235;
 }
 
 
@@ -56,8 +66,9 @@ body {
     min-height: 100vh;
 
     font-family:
+        "Trebuchet MS",
+        "Segoe UI",
         Arial,
-        Helvetica,
         sans-serif;
 
     background:
@@ -112,15 +123,15 @@ body {
     border-radius: 18px;
 
     background:
-    linear-gradient(
-        145deg,
-        var(--base-licht),
-        var(--base-donker)
-    );
+        linear-gradient(
+            145deg,
+            #d9edf7,
+            #c5e0ee
+        );
 
     box-shadow:
-        0 0 10px var(--accent-paars-glow),
-        0 0 30px rgba(0, 191, 255, 0.12);
+        0 0 8px var(--accent-paars-glow),
+        0 0 22px rgba(154, 112, 232, 0.16);
 }
 
 
@@ -153,11 +164,10 @@ body {
         2px;
 
     color:
-        #ffffff;
+        var(--tekst-donker);
 
     text-shadow:
-        3px 3px 0 var(--accent-paars),
-        0 0 12px var(--accent-blauw);
+        none;
 }
 
 
@@ -166,7 +176,7 @@ body {
         10px 0 0;
 
     color:
-        #bdbdca;
+        var(--tekst-midden);
 
     font-size:
         1rem;
@@ -310,15 +320,17 @@ body {
     background:
         linear-gradient(
             145deg,
-            var(--base-licht),
-            var(--base-donker)
+            #d5eaf4,
+            #c6e1ee
         );
 
-    color: #eeeeee;
+    color: var(--tekst-donker);
 
     box-shadow:
-        0 8px 30px
-        rgba(0, 0, 0, 0.35);
+        0 6px 22px
+        rgba(28, 70, 95, 0.16),
+        0 0 10px
+        var(--accent-paars-glow);
 }
 
 
@@ -330,7 +342,7 @@ body {
         0;
 
     color:
-        #ffffff;
+        var(--tekst-donker);
 
     font-size:
         1.35rem;
@@ -355,7 +367,7 @@ body {
         15px 0 6px;
 
     color:
-        #d8d8e2;
+        var(--tekst-midden);
 
     font-weight:
         700;
@@ -380,10 +392,10 @@ body {
         9px;
 
     background:
-        var(--base-donker);
+        #f4f9fc;
 
     color:
-        #ffffff;
+        var(--tekst-donker);
 
     font-family:
         inherit;
@@ -437,7 +449,7 @@ body {
         5px;
 
     color:
-        #888897;
+        #557080;
 
     font-size:
         0.85rem;
@@ -578,13 +590,13 @@ body {
         15px;
 
     border:
-        1px solid #30303d;
+        1px solid rgba(112, 74, 184, 0.22);
 
     border-radius:
         12px;
 
     background:
-        rgba(255, 255, 255, 0.025);
+        rgba(255, 255, 255, 0.32);
 }
 
 
@@ -593,7 +605,7 @@ body {
         0 0 12px;
 
     color:
-        #bdbdca;
+        var(--tekst-midden);
 
     font-size:
         1rem;
@@ -680,7 +692,7 @@ body {
 
     box-shadow:
         0 0 8px
-        rgba(0, 191, 255, 0.35);
+        rgba(56, 191, 232, 0.28);
 }
 
 
@@ -781,7 +793,7 @@ body {
         12px;
 
     border-bottom:
-        1px solid #343441;
+        1px solid rgba(23, 43, 58, 0.18);
 }
 
 
@@ -793,7 +805,7 @@ body {
 
 #aantalRecepten {
     color:
-        #9999a8;
+        #4e6878;
 
     font-size:
         0.9rem;
@@ -829,13 +841,13 @@ body {
     background:
         linear-gradient(
             145deg,
-            #191923,
-            #101017
+            var(--recept-navy),
+            var(--recept-navy-diep)
         );
 
     box-shadow:
         0 5px 18px
-        rgba(0, 0, 0, 0.25);
+        rgba(10, 30, 48, 0.28);
 
     transition:
         transform 0.2s ease,
@@ -868,7 +880,7 @@ body {
         0 0 7px;
 
     color:
-        #ffffff;
+        #f3f8fb;
 
     font-size:
         1.25rem;
@@ -923,7 +935,7 @@ body {
         rgba(109, 74, 255, 0.06);
 
     color:
-        #c8c8d2;
+        #d4e4ec;
 
     font-size:
         0.95rem;
@@ -1125,7 +1137,7 @@ body {
         center;
 
     color:
-        #9b9baa;
+        #4f6978;
 }
 
 
@@ -1145,7 +1157,7 @@ body {
         0 0 5px;
 
     color:
-        #ddddE5;
+        var(--tekst-donker);
 }
 
 
@@ -1162,13 +1174,13 @@ body {
 
 .beheer {
     border-color:
-        #403e52;
+        var(--accent-paars);
 }
 
 
 .beheer-tekst {
     color:
-        #a6a6b4;
+        var(--tekst-midden);
 
     margin:
         0 0 15px;
@@ -1271,7 +1283,7 @@ footer {
         2px;
 
     text-shadow:
-        0 0 8px var(--accent-paars);
+        0 0 6px var(--accent-paars-glow);
 }
 
 
@@ -1507,8 +1519,8 @@ footer {
     background:
         linear-gradient(
             145deg,
-            #009fd6,
-            #0a6fa0
+            #2d9fc5,
+            #23718f
         );
 
     color: #ffffff;
@@ -1566,7 +1578,7 @@ footer {
     background:
         linear-gradient(
             145deg,
-            #33cfff,
+            #68d4ef,
             var(--accent-blauw)
         );
 
