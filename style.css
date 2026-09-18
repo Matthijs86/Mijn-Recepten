@@ -1743,3 +1743,14 @@ footer::before {
 .hidden {
     display: none !important;
 }
+/* ======================================
+   STARTPAGINA - 2 BIJ 2
+   ====================================== */
+
+.startpagina {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 26px;
+}
