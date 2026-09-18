@@ -1355,10 +1355,30 @@ footer::before {
 }
 
 .footer-maker {
-    color:
-        var(--tekst-midden);
+    display: inline-block;
 
-    font-size: 0.85rem;
+    padding: 10px 22px;
+
+    border: 1px solid rgba(93, 239, 255, 0.75);
+    border-radius: 14px;
+
+    background: rgba(180, 240, 255, 0.18);
+
+    color: #ffffff;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+
+    text-shadow:
+        0 0 5px rgba(93, 239, 255, 1),
+        0 0 12px rgba(93, 239, 255, 0.8),
+        0 0 20px rgba(170, 105, 255, 0.6);
+
+    box-shadow:
+        0 0 8px rgba(93, 239, 255, 0.45),
+        0 0 18px rgba(93, 239, 255, 0.3),
+        0 0 30px rgba(170, 105, 255, 0.2);
 }
 
 
