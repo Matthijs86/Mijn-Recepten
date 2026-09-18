@@ -2378,7 +2378,66 @@ window.formulierTonen =
 window.formulierVerbergen =
     formulierVerbergen;
 
+// ======================================
+// STARTPAGINA - PANELEN
+// ======================================
 
+const startToevoegen = document.getElementById("startToevoegen");
+const startCategorieen = document.getElementById("startCategorieen");
+const startFavorieten = document.getElementById("startFavorieten");
+const startBeheer = document.getElementById("startBeheer");
+
+if (startToevoegen) {
+    startToevoegen.addEventListener("click", () => {
+        document.querySelector(".startpagina")?.classList.add("hidden");
+
+        const formulier = document.querySelector(".formulier");
+        if (formulier) {
+            formulier.classList.remove("hidden");
+            formulier.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+}
+
+if (startCategorieen) {
+    startCategorieen.addEventListener("click", () => {
+        document.querySelector(".startpagina")?.classList.add("hidden");
+
+        const categorieen = document.querySelector(".categorieen");
+        if (categorieen) {
+            categorieen.classList.remove("hidden");
+            categorieen.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+}
+
+if (startFavorieten) {
+    startFavorieten.addEventListener("click", () => {
+        document.querySelector(".startpagina")?.classList.add("hidden");
+
+        const recepten = document.querySelector(".recepten");
+        if (recepten) {
+            recepten.classList.remove("hidden");
+            recepten.scrollIntoView({ behavior: "smooth" });
+        }
+
+        if (typeof favorietenKnop !== "undefined" && favorietenKnop) {
+            favorietenKnop.click();
+        }
+    });
+}
+
+if (startBeheer) {
+    startBeheer.addEventListener("click", () => {
+        document.querySelector(".startpagina")?.classList.add("hidden");
+
+        const beheer = document.querySelector(".beheer");
+        if (beheer) {
+            beheer.classList.remove("hidden");
+            beheer.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+}
 // ======================================
 // EINDE SCRIPT
 // ======================================
