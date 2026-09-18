@@ -922,11 +922,14 @@ function categorieKnoppenInstellen() {
                     alleenFavorieten =
                         false;
 
-                    weergaveGestart =
-                        true;
+                 weergaveGestart =
+                       true;
+
+               document.querySelector(".categorieen").hidden = true;
+                document.querySelector(".recepten").hidden = false;
 
 
-                    knoppenBijwerken();
+                     knoppenBijwerken();
 
                     receptenWeergeven();
 
