@@ -2389,53 +2389,92 @@ const startBeheer = document.getElementById("startBeheer");
 
 if (startToevoegen) {
     startToevoegen.addEventListener("click", () => {
+
         document.querySelector(".startpagina")?.classList.add("hidden");
 
         const formulier = document.querySelector(".formulier");
+
         if (formulier) {
-            formulier.classList.remove("hidden");
-            formulier.scrollIntoView({ behavior: "smooth" });
+
+            formulier.hidden = false;
+
+            formulier.scrollIntoView({
+                behavior: "smooth"
+            });
+
         }
+
     });
 }
 
 if (startCategorieen) {
     startCategorieen.addEventListener("click", () => {
+
         document.querySelector(".startpagina")?.classList.add("hidden");
 
         const categorieen = document.querySelector(".categorieen");
+
         if (categorieen) {
-            categorieen.classList.remove("hidden");
-            categorieen.scrollIntoView({ behavior: "smooth" });
+
+            categorieen.hidden = false;
+
+            categorieen.scrollIntoView({
+                behavior: "smooth"
+            });
+
         }
+
     });
 }
 
 if (startFavorieten) {
     startFavorieten.addEventListener("click", () => {
+
         document.querySelector(".startpagina")?.classList.add("hidden");
 
-        const recepten = document.querySelector(".recepten");
-        if (recepten) {
-            recepten.classList.remove("hidden");
-            recepten.scrollIntoView({ behavior: "smooth" });
+        const receptenSectie =
+            document.querySelector(".recepten");
+
+        if (receptenSectie) {
+
+            receptenSectie.hidden = false;
+
+            receptenSectie.scrollIntoView({
+                behavior: "smooth"
+            });
+
         }
 
-        if (typeof favorietenKnop !== "undefined" && favorietenKnop) {
+        if (
+            typeof favorietenKnop !== "undefined" &&
+            favorietenKnop
+        ) {
+
             favorietenKnop.click();
+
         }
+
     });
 }
 
 if (startBeheer) {
     startBeheer.addEventListener("click", () => {
+
         document.querySelector(".startpagina")?.classList.add("hidden");
 
-        const beheer = document.querySelector(".beheer");
+        const beheer =
+            document.querySelector(".beheer");
+
         if (beheer) {
-            beheer.classList.remove("hidden");
-            beheer.scrollIntoView({ behavior: "smooth" });
+
+            beheer.hidden = false;
+
+            beheer.scrollIntoView({
+                behavior: "smooth"
+            });
+
         }
+
     });
 }
 // ======================================
