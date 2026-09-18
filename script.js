@@ -2390,7 +2390,7 @@ const startBeheer = document.getElementById("startBeheer");
 if (startToevoegen) {
     startToevoegen.addEventListener("click", () => {
 
-        document.querySelector(".startpagina")?.classList.add("hidden");
+        document.querySelector(".startpagina").hidden = true;
 
         const formulier = document.querySelector(".formulier");
 
@@ -2410,7 +2410,7 @@ if (startToevoegen) {
 if (startCategorieen) {
     startCategorieen.addEventListener("click", () => {
 
-        document.querySelector(".startpagina")?.classList.add("hidden");
+        document.querySelector(".startpagina").hidden = true;
 
         const categorieen = document.querySelector(".categorieen");
 
@@ -2430,7 +2430,7 @@ if (startCategorieen) {
 if (startFavorieten) {
     startFavorieten.addEventListener("click", () => {
 
-        document.querySelector(".startpagina")?.classList.add("hidden");
+        document.querySelector(".startpagina").hidden = true;
 
         const receptenSectie =
             document.querySelector(".recepten");
@@ -2460,7 +2460,7 @@ if (startFavorieten) {
 if (startBeheer) {
     startBeheer.addEventListener("click", () => {
 
-        document.querySelector(".startpagina")?.classList.add("hidden");
+        document.querySelector(".startpagina").hidden = true;
 
         const beheer =
             document.querySelector(".beheer");
