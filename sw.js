@@ -10,7 +10,8 @@
 // Verhoog dit nummer wanneer je een nieuwe
 // versie van de app online zet.
 
-const CACHE_NAME = "mijn-recepten-v63";
+const CACHE_NAME = "mijn-recepten-v64
+    ";
 
 
 // ======================================
