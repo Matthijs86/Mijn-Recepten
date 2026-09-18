@@ -1736,3 +1736,10 @@ footer::before {
         font-size: 0.85rem;
     }
 }
+/* ======================================
+   VERBORGEN SECTIES
+   ====================================== */
+
+.hidden {
+    display: none !important;
+}
