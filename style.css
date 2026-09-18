@@ -1915,3 +1915,57 @@ footer::before {
         padding: 7px 14px;
     }
 }
+
+/* ======================================
+   FOOTER - MIJN RECEPTEN
+   ====================================== */
+
+.app-footer {
+    margin-top: 40px;
+    padding: 28px 15px;
+
+    display: flex;
+    justify-content: center;
+
+    background: transparent;
+}
+
+.footer-maker {
+    display: inline-block;
+
+    padding: 10px 22px;
+
+    border: 1px solid rgba(93, 239, 255, 0.65);
+    border-radius: 14px;
+
+    background: rgba(180, 240, 255, 0.16);
+
+    color: #ffffff;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+
+    text-shadow:
+        0 0 5px rgba(93, 239, 255, 0.95),
+        0 0 12px rgba(93, 239, 255, 0.65),
+        0 0 20px rgba(170, 105, 255, 0.45);
+
+    box-shadow:
+        0 0 8px rgba(93, 239, 255, 0.35),
+        0 0 18px rgba(93, 239, 255, 0.22),
+        0 0 30px rgba(170, 105, 255, 0.14);
+}
+
+@media (max-width: 700px) {
+
+    .app-footer {
+        margin-top: 25px;
+        padding: 22px 10px;
+    }
+
+    .footer-maker {
+        padding: 9px 16px;
+        font-size: 0.82rem;
+    }
+}
