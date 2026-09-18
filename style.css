@@ -1,70 +1,59 @@
 /* ======================================
    MIJN RECEPTEN
-   NEON / SKATER / METAL STYLE
-====================================== */
+   LICHT / CYAN / PAARS
+   ====================================== */
 
 
 /* ======================================
-   KLEURENPALET (3 KLEUREN)
-====================================== */
+   KLEURENPALET
+   ====================================== */
 
 :root {
-    /* Rustige lichtblauwe basis */
-    --base-donker: #17324a;
-    --base-licht: #cfe7f3;
 
-    --pagina-licht: #eaf6ff;
-    --pagina-midden: #d3eaf6;
-    --pagina-donker: #bdd9e7;
-
-
-    --paneel-licht: #c2deeb;
-    --paneel-midden: #b8d7e5;
-    --paneel-rand: #8eb9ce;
-
-    /* Velvet */
-    --velvet-licht: #5a2857;
-    --velvet-donker: #321936;
-
-    /* Blauw */
-    --accent-blauw: #38bfe8;
-    --accent-blauw-donker: #247fa5;
-    --accent-blauw-licht: #72d6f2;
-    --accent-blauw-glow: rgba(56, 191, 232, 0.32);
-
-    /* Paars */
-    --accent-paars: #9a70e8;
-    --accent-paars-donker: #704ab8;
-    --accent-paars-licht: #b99af2;
-    --accent-paars-glow: rgba(154, 112, 232, 0.30);
+    /* Pagina */
+    --pagina-licht: #eefaff;
+    --pagina-midden: #dff3fa;
+    --pagina-donker: #cce8f2;
 
     /* Tekst */
-    --tekst-donker: #172b3a;
-    --tekst-midden: #304b5c;
-    --tekst-licht: #eef7fb;
+    --tekst-donker: #17384a;
+    --tekst-midden: #426273;
+    --tekst-licht: #f7fcff;
 
-    /* Donker navy voor recepttegels */
-    --recept-navy: #172c43;
-    --recept-navy-diep: #102235;
+    /* Panelen */
+    --paneel-licht: #f5fcff;
+    --paneel-midden: #e5f5fa;
+    --paneel-rand: #a9d8e7;
+
+    /* Cyan */
+    --accent-blauw: #22bfe5;
+    --accent-blauw-donker: #1688aa;
+    --accent-blauw-licht: #68d9f2;
+    --accent-blauw-glow: rgba(34, 191, 229, 0.28);
+
+    /* Paars */
+    --accent-paars: #9872e8;
+    --accent-paars-donker: #704cb5;
+    --accent-paars-licht: #bda3f4;
+    --accent-paars-glow: rgba(152, 114, 232, 0.25);
+
+    /* Receptkaarten */
+    --recept-navy: #21445b;
+    --recept-navy-diep: #17384c;
 }
 
 
 /* ======================================
    BASIS
-====================================== */
+   ====================================== */
 
 * {
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
-/* ======================================
-   BODY / KOOKTHEMA ACHTERGROND
-====================================== */
 
 body {
     margin: 0;
@@ -78,13 +67,13 @@ body {
 
     background:
         radial-gradient(
-            circle at top,
+            circle at top center,
             var(--pagina-licht) 0%,
             var(--pagina-midden) 55%,
             var(--pagina-donker) 100%
         );
 
-    color: #1b1b2b;
+    color: var(--tekst-donker);
 
     line-height: 1.5;
 }
@@ -92,10 +81,10 @@ body {
 
 /* ======================================
    APP
-====================================== */
+   ====================================== */
 
 .app {
-    width: min(100%, 1100px);
+    width: min(100%, 1050px);
 
     margin: 0 auto;
 
@@ -108,37 +97,57 @@ body {
 
 /* ======================================
    HEADER
-====================================== */
+   ====================================== */
 
 .app-header {
     position: relative;
 
-    text-align: center;
+    overflow: hidden;
 
-    padding:
-        35px
-        20px
-        30px;
+    margin-bottom: 24px;
 
-    margin-bottom: 20px;
+    padding: 0;
 
     border:
-        2px solid var(--accent-paars);
+        2px solid transparent;
 
-    border-radius: 18px;
+    border-radius: 22px;
 
     background:
         linear-gradient(
             145deg,
-            #d9edf7,
-            #c5e0ee
-        );
+            #f8fdff,
+            #dff4fa
+        ) padding-box,
+
+        linear-gradient(
+            110deg,
+            var(--accent-blauw),
+            #9ee7f5,
+            var(--accent-paars)
+        ) border-box;
 
     box-shadow:
-        0 0 8px var(--accent-paars-glow),
-        0 0 22px rgba(154, 112, 232, 0.16);
+        0 8px 25px rgba(35, 104, 130, 0.12),
+        0 0 18px var(--accent-blauw-glow),
+        0 0 20px var(--accent-paars-glow);
 }
 
+.app-header img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 330px;
+
+    object-fit: cover;
+}
+
+
+/* ======================================
+   HEADER ICOON
+   ====================================== */
 
 .header-icoon {
     font-size: 48px;
@@ -147,167 +156,237 @@ body {
 
     filter:
         drop-shadow(
-            0 0 8px #00bfff
+            0 0 8px
+            rgba(34, 191, 229, 0.55)
         );
 }
 
 
+/* ======================================
+   HEADER TEKST
+   ====================================== */
+
 .app-header h1 {
-    margin:
-        0;
+    margin: 0;
 
     font-size:
-        clamp(2rem, 6vw, 3.5rem);
+        clamp(2rem, 6vw, 3.4rem);
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 
-    color:
-        var(--tekst-donker);
-
-    text-shadow:
-        none;
+    color: var(--tekst-donker);
 }
-
 
 .app-header p {
     margin:
         10px 0 0;
 
-    color:
-        var(--tekst-midden);
+    color: var(--tekst-midden);
 
-    font-size:
-        1rem;
+    font-size: 1rem;
 }
 
 
 /* ======================================
-   SNELMENU
-====================================== */
+   STARTPAGINA
+   ====================================== */
 
 .snelmenu {
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap:
-        12px;
+    gap: 16px;
 
-    margin-bottom:
-        20px;
+    margin-bottom: 26px;
 }
 
 
+/* ======================================
+   STARTPANELEN
+   ====================================== */
+
 .snelmenu-knop {
-    display:
-        flex;
+    position: relative;
 
-    align-items:
-        center;
+    display: flex;
 
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    min-height:
-        52px;
+    min-height: 125px;
 
-    padding:
-        12px
-        18px;
+    padding: 22px;
 
     border:
-        2px solid;
+        2px solid transparent;
 
-    border-radius:
-        10px;
+    border-radius: 18px;
 
-    font-weight:
-        900;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(248, 253, 255, 0.96),
+            rgba(225, 245, 251, 0.94)
+        ) padding-box,
 
-    text-decoration:
-        none;
+        linear-gradient(
+            120deg,
+            var(--accent-blauw),
+            #b9edf7,
+            var(--accent-paars)
+        ) border-box;
 
-    text-transform:
-        uppercase;
+    color: var(--tekst-donker);
 
-    letter-spacing:
-        1px;
+    font-family: inherit;
+
+    font-size: 1.1rem;
+
+    font-weight: 900;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    overflow: hidden;
 
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
+        box-shadow 0.2s ease;
 }
 
 
-.toevoegen-knop {
-    color:
-        var(--accent-blauw-donker);
+/* Neonlijn bovenaan */
 
-    border-color:
-        var(--accent-blauw-donker);
+.snelmenu-knop::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 3px;
+
+    border-radius: 10px;
 
     background:
-        rgba(255, 255, 255, 0.5);
+        linear-gradient(
+            90deg,
+            var(--accent-blauw),
+            var(--accent-paars)
+        );
+
+    opacity: 0.7;
+}
+
+
+/* Subtiele lichtvlek */
+
+.snelmenu-knop::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    top: -70px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34, 191, 229, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ======================================
+   STARTPANELEN — KLEUREN
+   ====================================== */
+
+.toevoegen-knop {
+    border-color: rgba(34, 191, 229, 0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f6fdff,
+            #dff7fc
+        );
+}
+
+.toevoegen-knop::before {
+    background:
+        linear-gradient(
+            90deg,
+            #22bfe5,
+            #7ee1f3
+        );
 }
 
 
 .beheer-knop {
-    color:
-        var(--accent-paars-donker);
-
-    border-color:
-        var(--accent-paars-donker);
+    border-color: rgba(152, 114, 232, 0.55);
 
     background:
-        rgba(255, 255, 255, 0.5);
+        linear-gradient(
+            145deg,
+            #fbf9ff,
+            #eee8fc
+        );
 }
 
+.beheer-knop::before {
+    background:
+        linear-gradient(
+            90deg,
+            #9872e8,
+            #c0a8f2
+        );
+}
+
+
+/* ======================================
+   STARTPANELEN — HOVER
+   ====================================== */
 
 .snelmenu-knop:hover {
     transform:
         translateY(-3px);
-}
-
-
-.toevoegen-knop:hover {
-    background:
-        rgba(0, 191, 255, 0.16);
 
     box-shadow:
-        0 0 10px #00bfff,
-        0 0 22px rgba(0, 191, 255, 0.5);
+        0 8px 22px rgba(38, 108, 135, 0.14),
+        0 0 14px var(--accent-blauw-glow),
+        0 0 18px var(--accent-paars-glow);
 }
 
-
-.beheer-knop:hover {
-    background:
-        rgba(166, 108, 255, 0.16);
-
-    box-shadow:
-        0 0 10px #a66cff,
-        0 0 22px rgba(166, 108, 255, 0.5);
+.snelmenu-knop:active {
+    transform:
+        translateY(0);
 }
 
 
 /* ======================================
    ALGEMENE SECTIES
-====================================== */
-
-
-/* ======================================
-   GROTE BLOKKEN
-   LICHT KOOKTHEMA
-====================================== */
+   ====================================== */
 
 .formulier,
 .categorieen,
@@ -318,219 +397,176 @@ body {
     padding: 22px;
 
     border:
-    1px solid var(--accent-paars);
+        1px solid var(--paneel-rand);
 
-    border-radius: 15px;
+    border-radius: 17px;
 
-   background:
-    linear-gradient(
-        145deg,
-        var(--paneel-licht),
-        var(--paneel-midden)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            var(--paneel-licht),
+            var(--paneel-midden)
+        );
 
     color: var(--tekst-donker);
 
     box-shadow:
-        0 6px 22px
-        rgba(28, 70, 95, 0.16),
-        0 0 10px
-        var(--accent-paars-glow);
+        0 6px 22px rgba(28, 80, 105, 0.10),
+        0 0 12px rgba(34, 191, 229, 0.08);
 }
 
+
+/* ======================================
+   SECTIE TITELS
+   ====================================== */
 
 .formulier h2,
 .categorieen h2,
 .recepten h2,
 .beheer h2 {
-    margin-top:
-        0;
+    margin-top: 0;
 
-    color:
-        var(--tekst-donker);
+    color: var(--tekst-donker);
 
-    font-size:
-        1.35rem;
+    font-size: 1.35rem;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
-    letter-spacing:
-        1px;
+    letter-spacing: 1px;
 }
 
 
 /* ======================================
    FORMULIER
-====================================== */
+   ====================================== */
 
 .formulier label {
-    display:
-        block;
+    display: block;
 
     margin:
         15px 0 6px;
 
-    color:
-        var(--tekst-midden);
+    color: var(--tekst-midden);
 
-    font-weight:
-        700;
+    font-weight: 700;
 }
-
 
 .formulier input[type="text"],
 .formulier input[type="url"],
 .formulier select,
 .formulier textarea {
-    width:
-        100%;
+    width: 100%;
 
     padding:
-        13px
-        14px;
+        13px 14px;
 
     border:
-        2px solid rgba(0, 191, 255, 0.25);
+        2px solid rgba(34, 191, 229, 0.25);
 
-    border-radius:
-        9px;
+    border-radius: 10px;
 
-    background:
-        #f4f9fc;
+    background: #f8fcfe;
 
-    color:
-        var(--tekst-donker);
+    color: var(--tekst-donker);
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    outline:
-        none;
+    outline: none;
 
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
 
-
 .formulier input:focus,
 .formulier select:focus,
 .formulier textarea:focus {
     border-color:
-        #00bfff;
+        var(--accent-blauw);
 
     box-shadow:
         0 0 0 3px
-        rgba(0, 191, 255, 0.12),
-        0 0 12px
-        rgba(0, 191, 255, 0.25);
-}
+        rgba(34, 191, 229, 0.10),
 
+        0 0 12px
+        rgba(34, 191, 229, 0.22);
+}
 
 .formulier textarea {
-    min-height:
-        110px;
+    min-height: 110px;
 
-    resize:
-        vertical;
+    resize: vertical;
 }
-
 
 .formulier select {
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
-
 .veld-hulp {
-    display:
-        block;
+    display: block;
 
-    margin-top:
-        5px;
+    margin-top: 5px;
 
-    color:
-        #557080;
+    color: #557080;
 
-    font-size:
-        0.85rem;
+    font-size: 0.85rem;
 }
 
 
 /* ======================================
    FAVORIET KEUZE
-====================================== */
+   ====================================== */
 
 .favoriet-keuze {
-    display:
-        flex !important;
+    display: flex !important;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        10px;
+    gap: 10px;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
-
 .favoriet-keuze input {
-    width:
-        20px;
-
-    height:
-        20px;
+    width: 20px;
+    height: 20px;
 
     accent-color:
         var(--accent-paars);
 
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
 
 /* ======================================
    FORMULIER KNOPPEN
-====================================== */
+   ====================================== */
 
 #opslaanKnop,
 .annuleren-knop {
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        48px;
+    min-height: 48px;
 
-    margin-top:
-        12px;
+    margin-top: 12px;
 
     padding:
-        12px
-        16px;
+        12px 16px;
 
     border:
         2px solid;
 
-    border-radius:
-        9px;
+    border-radius: 10px;
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
         transform 0.2s ease,
@@ -538,140 +574,118 @@ body {
         background 0.2s ease;
 }
 
-
 #opslaanKnop {
-    color:
-        #0b1115;
+    color: #ffffff;
 
     border-color:
-        #00d9ff;
+        var(--accent-blauw);
 
     background:
-        #00bfff;
+        linear-gradient(
+            135deg,
+            var(--accent-blauw),
+            var(--accent-blauw-donker)
+        );
 }
-
 
 #opslaanKnop:hover {
     transform:
         translateY(-2px);
 
     box-shadow:
-        0 0 10px #00bfff,
-        0 0 25px rgba(0, 191, 255, 0.45);
+        0 0 12px var(--accent-blauw-glow);
 }
-
 
 .annuleren-knop {
-    color:
-        #ffffff;
+    color: var(--tekst-donker);
 
     border-color:
-        #777788;
+        #a8bdc8;
 
     background:
-        #252530;
+        #e8f2f6;
 }
-
 
 .annuleren-knop:hover {
     background:
-        #333341;
+        #dcecf2;
 
     box-shadow:
         0 0 10px
-        rgba(255, 255, 255, 0.15);
+        rgba(70, 100, 115, 0.12);
 }
 
 
 /* ======================================
    CATEGORIEËN
-====================================== */
+   ====================================== */
 
 .categorie-groep {
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 
-    padding:
-        15px;
+    padding: 15px;
 
     border:
-        1px solid rgba(112, 74, 184, 0.22);
+        1px solid rgba(34, 191, 229, 0.20);
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
     background:
-        rgba(255, 255, 255, 0.32);
+        rgba(255, 255, 255, 0.42);
 }
-
 
 .categorie-groep h3 {
     margin:
         0 0 12px;
 
-    color:
-        var(--tekst-midden);
+    color: var(--tekst-midden);
 
-    font-size:
-        1rem;
+    font-size: 1rem;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
-    letter-spacing:
-        1px;
+    letter-spacing: 1px;
 }
-
 
 .categorie-knoppen {
-    display:
-        flex;
+    display: flex;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        8px;
+    gap: 8px;
 }
 
+
+/* ======================================
+   CATEGORIE KNOPPEN
+   ====================================== */
 
 .categorie-knop,
 .favorieten-knop,
 .alles-knop {
-    min-height:
-        40px;
+    min-height: 40px;
 
     padding:
-        9px
-        13px;
+        9px 13px;
 
     border:
-    1px solid var(--accent-blauw);
+        1px solid var(--accent-blauw);
 
-    border-radius:
-        8px;
+    border-radius: 9px;
 
     background:
-        linear-gradient(
-            145deg,
-            var(--velvet-licht),
-            var(--velvet-donker)
-        );
+        rgba(255, 255, 255, 0.65);
 
     color:
-        #f1e6f5;
+        var(--accent-blauw-donker);
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        14px;
+    font-size: 14px;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
         transform 0.2s ease,
@@ -681,167 +695,144 @@ body {
         box-shadow 0.2s ease;
 }
 
-
 .categorie-knop:hover {
     transform:
         translateY(-2px);
 
-    border-color:
-    var(--accent-blauw);
-
-    color:
-    var(--accent-blauw-licht);
-
     background:
-        rgba(0, 191, 255, 0.08);
+        rgba(34, 191, 229, 0.10);
 
     box-shadow:
-        0 0 8px
-        rgba(56, 191, 232, 0.28);
+        0 0 9px
+        var(--accent-blauw-glow);
 }
-
 
 .categorie-knop.actief {
     border-color:
-    var(--accent-paars-licht);
+        var(--accent-paars);
 
     color:
-        #ffffff;
+        var(--accent-paars-donker);
 
     background:
-        rgba(166, 108, 255, 0.16);
+        rgba(152, 114, 232, 0.10);
 
     box-shadow:
-        0 0 8px
-        rgba(166, 108, 255, 0.45);
+        0 0 9px
+        var(--accent-paars-glow);
 }
 
 
 /* ======================================
    FAVORIETEN / ALLE RECEPTEN
-====================================== */
+   ====================================== */
 
 .favorieten-knop,
 .alles-knop {
-    margin-top:
-        5px;
+    margin-top: 5px;
 }
-
 
 .favorieten-knop {
     color:
-        var(--accent-paars);
+        var(--accent-paars-donker);
 
     border-color:
         var(--accent-paars);
 
     background:
-        rgba(166, 108, 255, 0.06);
+        rgba(152, 114, 232, 0.07);
 }
-
 
 .favorieten-knop:hover,
 .favorieten-knop.actief {
     background:
-        rgba(166, 108, 255, 0.14);
+        rgba(152, 114, 232, 0.13);
 
     box-shadow:
         0 0 10px
         var(--accent-paars-glow);
 }
 
-
 .alles-knop {
     color:
-        #00bfff;
+        var(--accent-blauw-donker);
 
     border-color:
-        #00bfff;
+        var(--accent-blauw);
 
     background:
-        rgba(0, 191, 255, 0.06);
+        rgba(34, 191, 229, 0.07);
 }
-
 
 .alles-knop:hover,
 .alles-knop.actief {
     background:
-        rgba(0, 191, 255, 0.14);
+        rgba(34, 191, 229, 0.13);
 
     box-shadow:
         0 0 10px
-        rgba(0, 191, 255, 0.4);
+        var(--accent-blauw-glow);
 }
 
 
 /* ======================================
    RECEPTEN HEADER
-====================================== */
+   ====================================== */
 
 .lijst-header {
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        15px;
+    gap: 15px;
 
-    margin-bottom:
-        15px;
+    margin-bottom: 15px;
 
-    padding-bottom:
-        12px;
+    padding-bottom: 12px;
 
     border-bottom:
-        1px solid rgba(23, 43, 58, 0.18);
+        1px solid rgba(23, 56, 74, 0.15);
 }
-
 
 .lijst-header h2 {
-    margin:
-        0;
+    margin: 0;
+}
+
+#aantalRecepten {
+    color: #557080;
+
+    font-size: 0.9rem;
+
+    white-space: nowrap;
 }
 
 
-#aantalRecepten {
-    color:
-        #4e6878;
+/* ======================================
+   RECEPT LIJST
+   ====================================== */
 
-    font-size:
-        0.9rem;
+#receptenLijst {
+    display: grid;
 
-    white-space:
-        nowrap;
+    gap: 14px;
 }
 
 
 /* ======================================
    RECEPT KAART
-====================================== */
-
-#receptenLijst {
-    display:
-        grid;
-
-    gap:
-        14px;
-}
-
+   ====================================== */
 
 .recept-kaart {
-    padding:
-        18px;
+    position: relative;
+
+    padding: 18px;
 
     border:
-    1px solid var(--accent-blauw-donker);
+        1px solid #4f8198;
 
-    border-radius:
-        13px;
+    border-radius: 14px;
 
     background:
         linear-gradient(
@@ -852,7 +843,7 @@ body {
 
     box-shadow:
         0 5px 18px
-        rgba(10, 30, 48, 0.28);
+        rgba(24, 67, 88, 0.22);
 
     transition:
         transform 0.2s ease,
@@ -860,150 +851,120 @@ body {
         box-shadow 0.2s ease;
 }
 
-
 .recept-kaart:hover {
     transform:
         translateY(-2px);
 
     border-color:
-        #555568;
+        var(--accent-blauw);
 
     box-shadow:
         0 8px 25px
-        rgba(0, 0, 0, 0.35);
-}
+        rgba(24, 67, 88, 0.25),
 
+        0 0 12px
+        var(--accent-blauw-glow);
+}
 
 .recept-kaart.favoriet {
     border-color:
-        var(--accent-paars-glow);
+        var(--accent-paars);
 }
-
 
 .recept-kaart h3 {
     margin:
         0 0 7px;
 
-    color:
-        #f3f8fb;
+    color: #f3fbfe;
 
-    font-size:
-        1.25rem;
+    font-size: 1.25rem;
 
-    line-height:
-        1.25;
+    line-height: 1.25;
 }
 
-
 .recept-categorie {
-    display:
-        inline-block;
+    display: inline-block;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
     padding:
-        5px
-        9px;
+        5px 9px;
 
     border:
         1px solid var(--accent-paars);
 
-    border-radius:
-        6px;
+    border-radius: 7px;
 
     color:
-        #bdabff;
+        #d8c9fa;
 
     background:
-        rgba(109, 74, 255, 0.08);
+        rgba(152, 114, 232, 0.10);
 
-    font-size:
-        0.8rem;
+    font-size: 0.8rem;
 
-    font-weight:
-        700;
+    font-weight: 700;
 }
-
 
 .recept-notitie {
     margin:
         8px 0 14px;
 
-    padding:
-        10px;
+    padding: 10px;
 
     border-left:
-        3px solid var(--accent-paars);
+        3px solid var(--accent-blauw);
 
     background:
-        rgba(109, 74, 255, 0.06);
+        rgba(34, 191, 229, 0.07);
 
     color:
-        #d4e4ec;
+        #dceff5;
 
-    font-size:
-        0.95rem;
+    font-size: 0.95rem;
 }
 
 
 /* ======================================
    RECEPT ACTIES
-====================================== */
+   ====================================== */
 
 .recept-acties {
-    display:
-        flex;
+    display: flex;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        8px;
+    gap: 8px;
 
-    margin-top:
-        14px;
+    margin-top: 14px;
 }
-
 
 .recept-acties button,
 .recept-link {
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    justify-content:
-        center;
-
-    min-height:
-        40px;
+    min-height: 40px;
 
     padding:
-        9px
-        13px;
+        9px 13px;
 
     border:
         2px solid;
 
-    border-radius:
-        8px;
+    border-radius: 9px;
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
         transform 0.2s ease,
@@ -1014,26 +975,25 @@ body {
 
 /* ======================================
    FAVORIET KNOP
-====================================== */
+   ====================================== */
 
 .favoriet-knop {
     color:
-        var(--accent-paars);
+        var(--accent-paars-licht);
 
     border-color:
         var(--accent-paars);
 
     background:
-        rgba(166, 108, 255, 0.06);
+        rgba(152, 114, 232, 0.06);
 }
-
 
 .favoriet-knop:hover {
     transform:
         translateY(-2px);
 
     background:
-        rgba(166, 108, 255, 0.15);
+        rgba(152, 114, 232, 0.15);
 
     box-shadow:
         0 0 9px
@@ -1043,55 +1003,53 @@ body {
 
 /* ======================================
    BEWERKEN KNOP
-====================================== */
+   ====================================== */
 
 .bewerk-knop {
     color:
-        #a66cff;
+        var(--accent-paars-licht);
 
     border-color:
-        #a66cff;
+        var(--accent-paars);
 
     background:
-        rgba(166, 108, 255, 0.06);
+        rgba(152, 114, 232, 0.06);
 }
-
 
 .bewerk-knop:hover {
     transform:
         translateY(-2px);
 
     background:
-        rgba(166, 108, 255, 0.15);
+        rgba(152, 114, 232, 0.15);
 
     box-shadow:
         0 0 9px
-        rgba(166, 108, 255, 0.45);
+        var(--accent-paars-glow);
 }
 
 
 /* ======================================
    VERWIJDEREN KNOP
-====================================== */
+   ====================================== */
 
 .verwijder-knop {
     color:
-        var(--accent-blauw);
+        var(--accent-blauw-licht);
 
     border-color:
         var(--accent-blauw);
 
     background:
-        rgba(0, 191, 255, 0.06);
+        rgba(34, 191, 229, 0.06);
 }
-
 
 .verwijder-knop:hover {
     transform:
         translateY(-2px);
 
     background:
-        rgba(0, 191, 255, 0.15);
+        rgba(34, 191, 229, 0.15);
 
     box-shadow:
         0 0 9px
@@ -1101,60 +1059,52 @@ body {
 
 /* ======================================
    RECEPT OPENEN
-====================================== */
+   ====================================== */
 
 .recept-link {
     color:
-        #00bfff;
+        var(--accent-blauw-licht);
 
     border-color:
-        #00bfff;
+        var(--accent-blauw);
 
     background:
-        rgba(0, 191, 255, 0.06);
+        rgba(34, 191, 229, 0.06);
 }
-
 
 .recept-link:hover {
     transform:
         translateY(-2px);
 
     background:
-        rgba(0, 191, 255, 0.15);
+        rgba(34, 191, 229, 0.15);
 
     box-shadow:
         0 0 9px
-        rgba(0, 191, 255, 0.45);
+        var(--accent-blauw-glow);
 }
 
 
 /* ======================================
    LEGE LIJST
-====================================== */
+   ====================================== */
 
 .lege-lijst,
 .zoek-melding {
     padding:
-        30px
-        15px;
+        30px 15px;
 
-    text-align:
-        center;
+    text-align: center;
 
-    color:
-        #4f6978;
+    color: #4f6978;
 }
-
 
 .lege-icoon,
 .zoek-melding-icoon {
-    font-size:
-        42px;
+    font-size: 42px;
 
-    margin-bottom:
-        8px;
+    margin-bottom: 8px;
 }
-
 
 .lege-lijst h3,
 .zoek-melding h3 {
@@ -1165,23 +1115,20 @@ body {
         var(--tekst-donker);
 }
 
-
 .lege-lijst p,
 .zoek-melding p {
-    margin:
-        0;
+    margin: 0;
 }
 
 
 /* ======================================
    BEHEER
-====================================== */
+   ====================================== */
 
 .beheer {
     border-color:
-        var(--accent-paars);
+        rgba(152, 114, 232, 0.40);
 }
-
 
 .beheer-tekst {
     color:
@@ -1191,45 +1138,35 @@ body {
         0 0 15px;
 }
 
-
 .wissen-knop {
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        48px;
+    min-height: 48px;
 
     padding:
-        12px
-        16px;
+        12px 16px;
 
     border:
         2px solid var(--accent-paars);
 
-    border-radius:
-        9px;
+    border-radius: 10px;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
     background:
         linear-gradient(
-            145deg,
+            135deg,
             var(--accent-paars),
-            #6d3fd6
+            var(--accent-paars-donker)
         );
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
         transform 0.2s ease,
@@ -1237,83 +1174,206 @@ body {
         box-shadow 0.2s ease;
 }
 
-
 .wissen-knop:hover {
     transform:
         translateY(-2px);
 
     box-shadow:
-        0 0 18px
+        0 0 16px
         var(--accent-paars-glow);
 }
 
 
 /* ======================================
-   FOOTER
-====================================== */
+   BEHEER KNOPPEN
+   ====================================== */
 
-footer {
-    margin-top:
-        30px;
+.beheer-knoppen {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+/* ======================================
+   BACKUP KNOPPEN
+   ====================================== */
+
+.backup-knop {
+    flex:
+        1 1 200px;
+
+    min-height: 48px;
 
     padding:
-        25px
-        15px;
+        12px 18px;
 
-    text-align:
-        center;
+    border:
+        2px solid var(--accent-blauw);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-blauw),
+            var(--accent-blauw-donker)
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 9px
+        var(--accent-blauw-glow);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.backup-knop:nth-child(2) {
+    border-color:
+        var(--accent-paars);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-paars),
+            var(--accent-paars-donker)
+        );
+
+    box-shadow:
+        0 0 9px
+        var(--accent-paars-glow);
+}
+
+.backup-knop:first-child:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 16px
+        var(--accent-blauw-glow);
+}
+
+.backup-knop:nth-child(2):hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 16px
+        var(--accent-paars-glow);
+}
+
+.backup-knop:active {
+    transform:
+        translateY(1px);
+
+    box-shadow:
+        0 0 7px
+        rgba(80, 110, 125, 0.20);
+}
+
+.backup-knop:focus-visible {
+    outline:
+        3px solid
+        rgba(34, 191, 229, 0.45);
+
+    outline-offset: 3px;
+}
+
+
+/* ======================================
+   FOOTER
+   ====================================== */
+
+footer {
+    position: relative;
+
+    margin-top: 34px;
+
+    padding:
+        28px 15px 20px;
+
+    text-align: center;
 
     border-top:
-        2px solid #333342;
+        2px solid transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34, 191, 229, 0.65),
+            rgba(152, 114, 232, 0.65),
+            transparent
+        ) top center / 100% 2px no-repeat;
 }
 
+footer::before {
+    content: "👨‍🍳";
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 27px;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(34, 191, 229, 0.35)
+        );
+}
 
 .footer-naam {
-    margin-bottom:
-        5px;
+    margin-bottom: 5px;
 
     color:
-        var(--velvet-licht);
+        var(--tekst-donker);
 
-    font-size:
-        1.15rem;
+    font-size: 1.05rem;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        2px;
-
-    text-shadow:
-        0 0 6px var(--accent-paars-glow);
+    letter-spacing: 1px;
 }
-
 
 .footer-maker {
     color:
-        #4d5567;
+        var(--tekst-midden);
 
-    font-size:
-        0.85rem;
+    font-size: 0.85rem;
 }
 
 
 /* ======================================
    VERBORGEN ELEMENTEN
-====================================== */
+   ====================================== */
 
 [hidden] {
-    display:
-        none !important;
+    display: none !important;
 }
 
 
 /* ======================================
    MOBIEL
-====================================== */
+   ====================================== */
 
 @media (max-width: 700px) {
 
@@ -1325,154 +1385,145 @@ footer {
     }
 
 
-    .app-header {
-        padding:
-            25px
-            15px;
+    /* Header */
 
-        border-radius:
-            14px;
+    .app-header {
+        border-radius: 16px;
+
+        margin-bottom: 18px;
     }
 
+    .app-header img {
+        max-height: 240px;
+    }
 
     .header-icoon {
-        font-size:
-            40px;
+        font-size: 40px;
     }
-
 
     .app-header h1 {
-        font-size:
-            2rem;
+        font-size: 2rem;
 
-        letter-spacing:
-            1px;
+        letter-spacing: 1px;
     }
-
 
     .app-header p {
-        font-size:
-            0.9rem;
+        font-size: 0.9rem;
     }
 
+
+    /* Vier startpanelen */
 
     .snelmenu {
-        gap:
-            8px;
-    }
+        grid-template-columns:
+            1fr;
 
+        gap: 12px;
+    }
 
     .snelmenu-knop {
-        min-height:
-            48px;
+        min-height: 92px;
 
-        padding:
-            10px
-            8px;
+        padding: 18px;
 
-        font-size:
-            12px;
+        border-radius: 15px;
+
+        font-size: 1rem;
     }
 
+
+    /* Algemene secties */
 
     .formulier,
     .categorieen,
     .recepten,
     .beheer {
-        padding:
-            16px;
+        padding: 16px;
 
-        border-radius:
-            12px;
+        border-radius: 13px;
     }
 
 
+    /* Categorieën */
+
     .categorie-knoppen {
-        display:
-            grid;
+        display: grid;
 
         grid-template-columns:
             repeat(2, 1fr);
 
-        gap:
-            7px;
+        gap: 7px;
     }
-
 
     .categorie-knop,
     .favorieten-knop,
     .alles-knop {
-        width:
-            100%;
+        width: 100%;
 
-        min-height:
-            44px;
+        min-height: 44px;
 
         padding:
-            8px
-            6px;
+            8px 6px;
 
-        font-size:
-            12px;
+        font-size: 12px;
     }
-
 
     .favorieten-knop,
     .alles-knop {
-        margin-top:
-            8px;
+        margin-top: 8px;
     }
 
+
+    /* Recept header */
 
     .lijst-header {
-        align-items:
-            flex-start;
+        align-items: flex-start;
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        gap:
-            4px;
+        gap: 4px;
     }
 
+
+    /* Receptkaart */
 
     .recept-kaart {
-        padding:
-            15px;
+        padding: 15px;
     }
 
-
     .recept-acties {
-        display:
-            grid;
+        display: grid;
 
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-
     .recept-acties button,
     .recept-link {
-        width:
-            100%;
+        width: 100%;
 
-        min-height:
-            44px;
+        min-height: 44px;
 
         padding:
-            8px
-            6px;
+            8px 6px;
 
-        font-size:
-            12px;
+        font-size: 12px;
     }
 
+
+    /* Footer */
+
+    footer {
+        margin-top: 25px;
+
+        padding-top: 24px;
+    }
 }
 
 
 /* ======================================
    KLEINERE TELEFOONS
-====================================== */
+   ====================================== */
 
 @media (max-width: 400px) {
 
@@ -1481,170 +1532,24 @@ footer {
             1fr;
     }
 
-
     .recept-acties {
         grid-template-columns:
             1fr;
     }
 
-
     .app-header h1 {
-        font-size:
-            1.7rem;
+        font-size: 1.7rem;
     }
 
-}
-/* ======================================
-   BEHEER KNOPPEN
-====================================== */
-
-.beheer-knoppen {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 18px;
+    .snelmenu-knop {
+        min-height: 82px;
+    }
 }
 
 
 /* ======================================
-   BACKUP OPSLAAN - BLAUW
-====================================== */
-
-.backup-knop {
-    flex: 1 1 200px;
-
-    min-height: 48px;
-
-    padding: 12px 18px;
-
-    border: 2px solid var(--accent-blauw);
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #2d9fc5,
-            #23718f
-        );
-
-    color: #ffffff;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.5px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 10px
-        var(--accent-blauw-glow);
-
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
-}
-
-
-/* ======================================
-   BACKUP UPLOADEN - GEEL
-====================================== */
-
-.backup-knop:nth-child(2) {
-
-    border-color: var(--accent-paars);
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--accent-paars),
-            #6d3fd6
-        );
-
-    color: #ffffff;
-
-    box-shadow:
-        0 0 10px
-        var(--accent-paars-glow);
-}
-
-
-/* ======================================
-   HOVER - BACKUP OPSLAAN
-====================================== */
-
-.backup-knop:first-child:hover {
-
-    transform: translateY(-2px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #68d4ef,
-            var(--accent-blauw)
-        );
-
-    box-shadow:
-        0 0 18px
-        var(--accent-blauw-glow);
-}
-
-
-/* ======================================
-   HOVER - BACKUP UPLOADEN
-====================================== */
-
-.backup-knop:nth-child(2):hover {
-
-    transform: translateY(-2px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #b985ff,
-            var(--accent-paars)
-        );
-
-    box-shadow:
-        0 0 18px
-        var(--accent-paars-glow);
-}
-
-
-/* ======================================
-   ACTIEF / INGEDRUKT
-====================================== */
-
-.backup-knop:active {
-
-    transform: translateY(1px);
-
-    box-shadow:
-        0 0 8px
-        rgba(255, 255, 255, 0.25);
-}
-
-
-/* ======================================
-   FOCUS
-====================================== */
-
-.backup-knop:focus-visible {
-
-    outline:
-        3px solid
-        rgba(255, 255, 255, 0.7);
-
-    outline-offset: 3px;
-}
-
-
-/* ======================================
-   MOBIEL
-====================================== */
+   KLEINE SCHERMEN
+   ====================================== */
 
 @media (max-width: 600px) {
 
@@ -1655,12 +1560,7 @@ footer {
     .backup-knop,
     .wissen-knop {
         width: 100%;
+
         flex: none;
     }
-
 }
-
-
-
-
-
