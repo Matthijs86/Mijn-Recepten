@@ -1754,3 +1754,20 @@ footer::before {
     width: 100%;
     margin-bottom: 26px;
 }
+/* ======================================
+   STARTPANELEN - VASTE 2 BIJ 2 LAYOUT
+   ====================================== */
+
+.startpagina {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 16px !important;
+}
+
+.startpagina .start-paneel {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 150px !important;
+    margin: 0 !important;
+}
