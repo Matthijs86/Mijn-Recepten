@@ -749,7 +749,7 @@ body {
     margin:
         0 0 7px;
 
-    color: #f3fbfe;
+    color: var(--accent-paars-donker);
 
     font-size: 1.25rem;
 
@@ -793,7 +793,7 @@ body {
         rgba(34, 191, 229, 0.07);
 
     color:
-        #dceff5;
+    var(--tekst-donker);
 
     font-size: 0.95rem;
 }
@@ -853,13 +853,24 @@ body {
 
 .favoriet-knop {
     color:
-        var(--accent-paars-licht);
+        var(--accent-paars-donker);
 
-    border-color:
+    border:
+        3px solid
         var(--accent-paars);
 
     background:
-        rgba(152, 114, 232, 0.06);
+        rgba(152, 114, 232, 0.10);
+
+    box-shadow:
+        0 0 10px
+        rgba(152, 114, 232, 0.45),
+
+        0 0 22px
+        rgba(152, 114, 232, 0.30),
+
+        0 0 36px
+        rgba(152, 114, 232, 0.18);
 }
 
 .favoriet-knop:hover {
@@ -867,11 +878,17 @@ body {
         translateY(-2px);
 
     background:
-        rgba(152, 114, 232, 0.15);
+        rgba(152, 114, 232, 0.16);
 
     box-shadow:
-        0 0 9px
-        var(--accent-paars-glow);
+        0 0 12px
+        var(--accent-paars-glow),
+
+        0 0 26px
+        rgba(152, 114, 232, 0.35),
+
+        0 0 42px
+        rgba(152, 114, 232, 0.22);
 }
 
 
@@ -881,13 +898,24 @@ body {
 
 .bewerk-knop {
     color:
-        var(--accent-paars-licht);
+        var(--accent-paars-donker);
 
-    border-color:
+    border:
+        3px solid
         var(--accent-paars);
 
     background:
-        rgba(152, 114, 232, 0.06);
+        rgba(152, 114, 232, 0.10);
+
+    box-shadow:
+        0 0 10px
+        rgba(152, 114, 232, 0.45),
+
+        0 0 22px
+        rgba(152, 114, 232, 0.30),
+
+        0 0 36px
+        rgba(152, 114, 232, 0.18);
 }
 
 .bewerk-knop:hover {
@@ -895,13 +923,18 @@ body {
         translateY(-2px);
 
     background:
-        rgba(152, 114, 232, 0.15);
+        rgba(152, 114, 232, 0.16);
 
     box-shadow:
-        0 0 9px
-        var(--accent-paars-glow);
-}
+        0 0 12px
+        var(--accent-paars-glow),
 
+        0 0 26px
+        rgba(152, 114, 232, 0.35),
+
+        0 0 42px
+        rgba(152, 114, 232, 0.22);
+}
 
 /* ======================================
    VERWIJDEREN KNOP
@@ -909,13 +942,24 @@ body {
 
 .verwijder-knop {
     color:
-        var(--accent-blauw-licht);
+        var(--accent-blauw-donker);
 
-    border-color:
+    border:
+        3px solid
         var(--accent-blauw);
 
     background:
-        rgba(34, 191, 229, 0.06);
+        rgba(34, 191, 229, 0.10);
+
+    box-shadow:
+        0 0 10px
+        rgba(34, 191, 229, 0.45),
+
+        0 0 22px
+        rgba(34, 191, 229, 0.30),
+
+        0 0 36px
+        rgba(34, 191, 229, 0.18);
 }
 
 .verwijder-knop:hover {
@@ -923,27 +967,42 @@ body {
         translateY(-2px);
 
     background:
-        rgba(34, 191, 229, 0.15);
+        rgba(34, 191, 229, 0.16);
 
     box-shadow:
-        0 0 9px
-        var(--accent-blauw-glow);
+        0 0 12px
+        var(--accent-blauw-glow),
+
+        0 0 26px
+        rgba(34, 191, 229, 0.35),
+
+        0 0 42px
+        rgba(34, 191, 229, 0.22);
 }
-
-
 /* ======================================
    RECEPT OPENEN
    ====================================== */
 
 .recept-link {
     color:
-        var(--accent-blauw-licht);
+        var(--accent-blauw-donker);
 
-    border-color:
+    border:
+        3px solid
         var(--accent-blauw);
 
     background:
-        rgba(34, 191, 229, 0.06);
+        rgba(34, 191, 229, 0.10);
+
+    box-shadow:
+        0 0 10px
+        rgba(34, 191, 229, 0.45),
+
+        0 0 22px
+        rgba(34, 191, 229, 0.30),
+
+        0 0 36px
+        rgba(34, 191, 229, 0.18);
 }
 
 .recept-link:hover {
@@ -951,11 +1010,17 @@ body {
         translateY(-2px);
 
     background:
-        rgba(34, 191, 229, 0.15);
+        rgba(34, 191, 229, 0.16);
 
     box-shadow:
-        0 0 9px
-        var(--accent-blauw-glow);
+        0 0 12px
+        var(--accent-blauw-glow),
+
+        0 0 26px
+        rgba(34, 191, 229, 0.35),
+
+        0 0 42px
+        rgba(34, 191, 229, 0.22);
 }
 
 
