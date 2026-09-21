@@ -483,6 +483,31 @@ function formulierNormaalMaken() {
 
     formulierLeegmaken();
 
+        if (categorieInput) {
+
+        categorieInput.innerHTML = "";
+
+        CATEGORIEEN.forEach(
+            function (categorie) {
+
+                const optie =
+                    document.createElement("option");
+
+                optie.value =
+                    categorie;
+
+                optie.textContent =
+                    categorie;
+
+                categorieInput.appendChild(
+                    optie
+                );
+
+            }
+        );
+
+    }
+
 
     if (formulierTitel) {
 
