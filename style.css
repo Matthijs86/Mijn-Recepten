@@ -1396,6 +1396,35 @@ footer::before {
         border-radius: 13px;
     }
 
+   .formulier {
+    border:
+        2px solid
+        rgba(152, 114, 232, 0.60);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.82),
+            rgba(152, 114, 232, 0.12)
+        );
+
+    box-shadow:
+        0 6px 22px
+        rgba(28, 80, 105, 0.10),
+
+        0 0 12px
+        rgba(152, 114, 232, 0.50),
+
+        0 0 26px
+        rgba(152, 114, 232, 0.36),
+
+        0 0 44px
+        rgba(152, 114, 232, 0.22),
+
+        inset 0 0 20px
+        rgba(152, 114, 232, 0.08);
+}
+
 
     /* Categorieën */
 
