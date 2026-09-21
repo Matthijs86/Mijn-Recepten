@@ -141,7 +141,7 @@ body {
 
     max-height: none;
 
-    object-fit: cover;
+   object-fit: contain;
 }
 
 
