@@ -307,7 +307,7 @@ body {
         15px 0 6px;
 
     color:
-        var(--accent-paars-donker);
+    var(--accent-paars-donker) !important;
 
     font-weight: 800;
 
