@@ -533,13 +533,18 @@ body {
     margin:
         0 0 12px;
 
-    color: var(--tekst-midden);
+    color:
+        var(--accent-paars-donker) !important;
 
     font-size: 1rem;
 
     text-transform: uppercase;
 
     letter-spacing: 1px;
+
+    text-shadow:
+        0 0 6px
+        rgba(152, 114, 232, 0.28);
 }
 
 .categorie-knoppen {
